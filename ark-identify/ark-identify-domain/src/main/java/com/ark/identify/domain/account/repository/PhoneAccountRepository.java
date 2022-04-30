@@ -1,4 +1,4 @@
-package com.ark.identify.domain.account;
+package com.ark.identify.domain.account.repository;
 
 import com.ark.identify.domain.account.entity.phone.PhoneAccount;
 
