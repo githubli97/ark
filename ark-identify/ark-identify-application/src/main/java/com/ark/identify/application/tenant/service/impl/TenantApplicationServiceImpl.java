@@ -2,7 +2,7 @@ package com.ark.identify.application.tenant.service.impl;
 
 import com.ark.identify.application.tenant.command.SignInByPhoneCommand;
 import com.ark.identify.application.tenant.service.TenantApplicationService;
-import com.ark.identify.domain.account.PhoneAccountRepository;
+import com.ark.identify.domain.account.repository.PhoneAccountRepository;
 import com.ark.identify.domain.account.entity.phone.PhoneAccount;
 import com.ark.identify.domain.tenant.entity.Tenant;
 import com.ark.identify.domain.tenant.repository.TenantRepository;

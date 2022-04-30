@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.ark.common.util.BeanUtils;
 import com.ark.identify.application.tenant.command.SignInByPhoneCommand;
 import com.ark.identify.application.tenant.service.TenantApplicationService;
-import com.ark.identify.domain.account.PhoneAccountRepository;
+import com.ark.identify.domain.account.repository.PhoneAccountRepository;
 import com.ark.identify.domain.account.entity.AccountId;
 import com.ark.identify.domain.account.entity.phone.PhoneAccount;
 import com.ark.identify.domain.tenant.entity.Tenant;
