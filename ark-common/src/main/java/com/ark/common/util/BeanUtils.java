@@ -31,4 +31,11 @@ public final class BeanUtils {
             beanClass = beanClass.getSuperclass();
         }
     }
+
+    /**
+     * 属性拷贝
+     */
+    public static void copyProperties(Object source, Object target)  {
+        BeanUtils.copyProperties(source, target);
+    }
 }

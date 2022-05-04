@@ -1,10 +1,11 @@
 package com.ark.identify.domain.account.entity;
 
+import com.ark.base.domain.base.ArkEntity;
 import com.ark.common.exception.api.Assert;
 import lombok.Getter;
 
 @Getter
-public abstract class Account {
+public class Account extends ArkEntity<Account> {
     private AccountId accountId;
     private AccountStatus accountStatus;
 
@@ -42,5 +43,10 @@ public abstract class Account {
 
     protected void setAccountStatus(AccountStatus accountStatus) {
         this.accountStatus = accountStatus;
+    }
+
+    @Override
+    public boolean sameIdentityAs(Account other) {
+        return accountId.equals(other.getAccountId());
     }
 }

@@ -1,4 +1,4 @@
-package com.ark.common.domain;
+package com.ark.base.domain.phone;
 
 import com.ark.common.exception.api.Assert;
 import lombok.Getter;

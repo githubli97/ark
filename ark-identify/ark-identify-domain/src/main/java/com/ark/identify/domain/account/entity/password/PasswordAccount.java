@@ -1,6 +1,6 @@
 package com.ark.identify.domain.account.entity.password;
 
-import com.ark.identify.domain.account.entity.tencent.TenantAccount;
+import com.ark.identify.domain.account.entity.tenant.TenantAccount;
 import com.ark.identify.domain.tenant.entity.TenantId;
 import lombok.Getter;
 

@@ -21,9 +21,10 @@ public class TenantApplicationServiceImpl implements TenantApplicationService {
     @Transactional(rollbackFor = Exception.class)
     public void signInByPhone(SignInByPhoneCommand signInByPhoneCommand) {
         // 保存租户
-        Tenant tenant = tenantRepository.save(signInByPhoneCommand.getTenant());
+        Tenant tenant = signInByPhoneCommand.getTenant();
+        tenantRepository.store(tenant);
         // 保存用户
         PhoneAccount phoneAccount = PhoneAccount.phoneAccountRegister(tenant.getTenantId(), signInByPhoneCommand.getChinaPhone());
-        phoneAccountRepository.save(phoneAccount);
+        phoneAccountRepository.store(phoneAccount);
     }
 }

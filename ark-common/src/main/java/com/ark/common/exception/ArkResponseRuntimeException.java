@@ -4,6 +4,6 @@ import com.ark.common.enumerate.ResponseCodeEnum;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
-public abstract class ArkResponseRuntimeException extends RuntimeException {
+public abstract class ArkResponseRuntimeException extends ArkRuntimeException {
     protected abstract ResponseCodeEnum getResponseCodeEnum();
 }

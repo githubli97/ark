@@ -1,6 +1,6 @@
 package com.ark.identify.application.tenant.command;
 
-import com.ark.common.domain.ChinaPhone;
+import com.ark.base.domain.phone.ChinaPhone;
 import com.ark.identify.domain.account.entity.phone.PhoneAccount;
 import com.ark.identify.domain.tenant.entity.Tenant;
 import com.ark.identify.domain.tenant.entity.TenantName;
@@ -11,7 +11,6 @@ public class SignInByPhoneCommand {
 
     private Tenant tenant;
     private ChinaPhone chinaPhone;
-    private PhoneAccount phoneAccount;
 
     public Tenant getTenant() {
         if (tenant == null) {

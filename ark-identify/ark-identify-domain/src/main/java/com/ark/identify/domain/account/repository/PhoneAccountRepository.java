@@ -1,10 +1,7 @@
 package com.ark.identify.domain.account.repository;
 
+import com.ark.base.domain.trace.BaseTraceRepository;
 import com.ark.identify.domain.account.entity.phone.PhoneAccount;
 
-public interface PhoneAccountRepository {
-    /**
-     * 保存租户，并返回主键
-     */
-    PhoneAccount save(PhoneAccount account);
+public abstract class PhoneAccountRepository extends BaseTraceRepository<PhoneAccount> {
 }

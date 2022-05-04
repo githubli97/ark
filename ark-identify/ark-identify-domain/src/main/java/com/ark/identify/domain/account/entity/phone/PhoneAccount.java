@@ -1,6 +1,6 @@
 package com.ark.identify.domain.account.entity.phone;
 
-import com.ark.common.domain.ChinaPhone;
+import com.ark.base.domain.phone.ChinaPhone;
 import com.ark.identify.domain.account.entity.password.PasswordAccount;
 import com.ark.identify.domain.tenant.entity.TenantId;
 import lombok.Getter;

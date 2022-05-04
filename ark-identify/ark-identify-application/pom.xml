@@ -19,11 +19,7 @@
     <dependencies>
         <dependency>
             <groupId>com.ark</groupId>
-            <artifactId>ark-common</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.ark</groupId>
-            <artifactId>ark-identify-domain</artifactId>
+            <artifactId>ark-identify-infrastructure</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>

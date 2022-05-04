@@ -1,4 +1,4 @@
-package com.ark.identify.domain.account.entity.tencent;
+package com.ark.identify.domain.account.entity.tenant;
 
 import com.ark.identify.domain.account.entity.Account;
 import com.ark.identify.domain.tenant.entity.TenantId;
