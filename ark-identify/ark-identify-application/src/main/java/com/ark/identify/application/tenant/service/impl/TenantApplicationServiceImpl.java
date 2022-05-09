@@ -2,8 +2,8 @@ package com.ark.identify.application.tenant.service.impl;
 
 import com.ark.identify.application.tenant.command.SignInByPhoneCommand;
 import com.ark.identify.application.tenant.service.TenantApplicationService;
-import com.ark.identify.domain.account.repository.PhoneAccountRepository;
 import com.ark.identify.domain.account.entity.phone.PhoneAccount;
+import com.ark.identify.domain.account.repository.AccountRepository;
 import com.ark.identify.domain.tenant.entity.Tenant;
 import com.ark.identify.domain.tenant.repository.TenantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ public class TenantApplicationServiceImpl implements TenantApplicationService {
     @Autowired
     private TenantRepository tenantRepository;
     @Autowired
-    private PhoneAccountRepository phoneAccountRepository;
+    private AccountRepository phoneAccountRepository;
 
     @Override
     @Transactional(rollbackFor = Exception.class)

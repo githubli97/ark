@@ -1,6 +1,10 @@
-package com.ark.base.domain.trace;
+package com.ark.base.domain.base;
 
-public interface BaseTraceRepository<T extends BaseTrace> {
+import com.ark.base.domain.trace.BaseTrace;
+import com.ark.base.domain.trace.BaseTraceRepository;
+import com.ark.base.domain.trace.OperatorId;
+
+public interface ArkRepository<T extends BaseTrace> extends BaseTraceRepository<T> {
     default void store(T baseTrace) {
         if (isBaseTrace()) {
             OperatorId operatorId = getOperatorId();
