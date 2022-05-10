@@ -29,6 +29,27 @@ public class Assert {
         }
     }
 
+    /**
+     * 长度在范围内
+     * [0, max]
+     */
+    public static void inLengthRange(String value, int max, Map<String, String> data) {
+        inLengthRange(value, 0, max, data);
+    }
+
+    /**
+     * 长度在范围内
+     * [min, max]
+     */
+    public static void inLengthRange(String value, int min, int max, Map<String, String> data) {
+        if (StringUtils.isEmpty(value)) {
+            throw new ArkAttributeInvaildException(data);
+        }
+        if (value.length() < min && value.length() > max) {
+            throw new ArkAttributeInvaildException(data);
+        }
+    }
+
     public static void matcherPattern(CharSequence charSequence, Pattern pattern, Map<String, String> data) {
         if (!pattern.matcher(charSequence).matches()) {
             throw new ArkAttributeInvaildException(data);

@@ -19,6 +19,13 @@ public class Tenant extends ArkEntity<Tenant> {
         return tenant;
     }
 
+    /**
+     * 用于持久化后回写id
+     */
+    public void setTenantId(TenantId tenantId) {
+        this.tenantId = tenantId;
+    }
+
     @Override
     public boolean sameIdentityAs(Tenant other) {
         return tenantId.equals(other.getTenantId());

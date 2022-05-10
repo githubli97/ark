@@ -19,7 +19,7 @@
     <dependencies>
         <dependency>
             <groupId>com.ark</groupId>
-            <artifactId>ark-common</artifactId>
+            <artifactId>ark-base-common</artifactId>
         </dependency>
     </dependencies>
 

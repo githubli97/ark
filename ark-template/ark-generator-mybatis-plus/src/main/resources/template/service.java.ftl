@@ -11,9 +11,9 @@ import ${superServiceClassPackage};
 * @since ${date}
 */
 <#if kotlin>
-    interface ${table.serviceName} : ${superServiceClass}<${entity}>
+interface ${table.serviceName} : ${superServiceClass}<${entity}>
 <#else>
-    public interface ${table.serviceName} extends ${superServiceClass} {
+public interface ${table.serviceName} extends ${superServiceClass} {
 
-    }
+}
 </#if>

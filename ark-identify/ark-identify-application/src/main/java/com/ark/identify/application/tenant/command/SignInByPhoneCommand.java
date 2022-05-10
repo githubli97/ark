@@ -12,14 +12,14 @@ public class SignInByPhoneCommand {
     private Tenant tenant;
     private ChinaPhone chinaPhone;
 
-    public Tenant getTenant() {
+    public Tenant converTenant() {
         if (tenant == null) {
             tenant = Tenant.register(new TenantName(tenantName));
         }
         return tenant;
     }
 
-    public ChinaPhone getChinaPhone() {
+    public ChinaPhone converChinaPhone() {
         if (chinaPhone == null) {
             chinaPhone = new ChinaPhone(phoneNumber);
         }
@@ -30,15 +30,17 @@ public class SignInByPhoneCommand {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public SignInByPhoneCommand setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+        return this;
     }
 
     public String getTenantName() {
         return tenantName;
     }
 
-    public void setTenantName(String tenantName) {
+    public SignInByPhoneCommand setTenantName(String tenantName) {
         this.tenantName = tenantName;
+        return this;
     }
 }

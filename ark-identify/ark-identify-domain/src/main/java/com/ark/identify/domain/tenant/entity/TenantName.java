@@ -11,6 +11,7 @@ public class TenantName {
 
     public TenantName(String name) {
         Assert.isBlank(name, Map.of("name", "租户名称必须"));
+        Assert.inLengthRange(name, 50, Map.of("name", "租户名称长度需要小于50"));
         this.name = name;
     }
 }

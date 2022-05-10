@@ -1,16 +1,14 @@
 package com.ark.identify.application.tenant.service.impl;
 
+import com.ark.ApplicationTest;
 import com.ark.identify.application.tenant.command.SignInByPhoneCommand;
 import com.ark.identify.application.tenant.service.TenantApplicationService;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
-public class TenantApplicationServiceImplMockTest {
-    public static TenantApplicationService TENANT_APPLICATION_SERVICE = new TenantApplicationServiceImpl();
-
-    @BeforeAll
-    public static void beforeAll() {
-    }
+public class TenantApplicationServiceImplMockTest extends ApplicationTest {
+    @Autowired
+    private TenantApplicationService tenantApplicationService;
 
     @Test
     public void signInByPhone() {
@@ -18,7 +16,7 @@ public class TenantApplicationServiceImplMockTest {
         signInByPhoneCommand.setPhoneNumber("18888888888");
         signInByPhoneCommand.setTenantName("【方舟】");
 
-        TENANT_APPLICATION_SERVICE.signInByPhone(signInByPhoneCommand);
+        tenantApplicationService.signInByPhone(signInByPhoneCommand);
     }
 
 }

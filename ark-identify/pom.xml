@@ -13,6 +13,8 @@
         <module>ark-identify-domain</module>
         <module>ark-identify-application</module>
         <module>ark-identify-infrastructure</module>
+        <module>ark-identify-adapter</module>
+        <module>ark-identify-starter</module>
     </modules>
 
     <artifactId>ark-identify</artifactId>
@@ -35,4 +37,29 @@
         </dependency>
     </dependencies>
 
+    <dependencyManagement>
+        <dependencies>
+
+            <dependency>
+                <groupId>com.ark</groupId>
+                <artifactId>ark-identify-domain</artifactId>
+                <version>${ark.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ark</groupId>
+                <artifactId>ark-identify-application</artifactId>
+                <version>${ark.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ark</groupId>
+                <artifactId>ark-identify-infrastructure</artifactId>
+                <version>${ark.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ark</groupId>
+                <artifactId>ark-identify-adapter</artifactId>
+                <version>${ark.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>

@@ -18,7 +18,7 @@
     <dependencies>
         <dependency>
             <groupId>com.ark</groupId>
-            <artifactId>ark-common</artifactId>
+            <artifactId>ark-base-common</artifactId>
         </dependency>
 
         <dependency>
@@ -39,6 +39,10 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
         </dependency>
     </dependencies>
 </project>

@@ -16,6 +16,7 @@ public class Response<T> implements Serializable {
 
     public static final Response ok() {
         return Response.builder()
+                .isSuccess(true)
                 .errCode(ResponseCodeEnum.OK.getErrCode())
                 .msg(ResponseCodeEnum.OK.getMsg())
                 .build();
@@ -23,6 +24,7 @@ public class Response<T> implements Serializable {
 
     public static final Response error(ResponseCodeEnum responseCodeEnum) {
         return Response.builder()
+                .isSuccess(false)
                 .errCode(responseCodeEnum.getErrCode())
                 .msg(responseCodeEnum.getMsg())
                 .build();
@@ -30,6 +32,7 @@ public class Response<T> implements Serializable {
 
     public static final <T> Response<T> error(ResponseCodeEnum responseCodeEnum, T data) {
         return Response.<T>builder()
+                .isSuccess(false)
                 .data(data)
                 .errCode(responseCodeEnum.getErrCode())
                 .msg(responseCodeEnum.getMsg())
