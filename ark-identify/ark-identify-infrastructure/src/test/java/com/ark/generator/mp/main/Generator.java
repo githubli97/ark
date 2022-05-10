@@ -8,11 +8,16 @@ public class Generator {
 
     @Test
     public void init() {
-        ArkMPInfrastructureGenerator.generatorInit("identify", "tenant", TenantRepository.class);
+        ArkMPInfrastructureGenerator.generatorInit("identify", "unique_user", TenantRepository.class);
     }
 
     @Test
     public void update() {
-        ArkMPInfrastructureGenerator.generatorUpdatePO("identify", "tenant", TenantRepository.class);
+        ArkMPInfrastructureGenerator.generatorUpdatePO("identify", "unique_user", TenantRepository.class);
+    }
+
+    @Test
+    public void poAndMapper() {
+        ArkMPInfrastructureGenerator.generatorPOAndMapper("identify", "unique_user", TenantRepository.class);
     }
 }

@@ -4,6 +4,8 @@ import com.ark.identify.domain.account.entity.tenant.TenantAccount;
 import com.ark.identify.domain.tenant.entity.TenantId;
 import lombok.Getter;
 
+import java.util.List;
+
 @Getter
 public abstract class PasswordAccount extends TenantAccount {
     /**
@@ -14,8 +16,8 @@ public abstract class PasswordAccount extends TenantAccount {
     private UserName userName;
     private Password password;
 
-    public PasswordAccount(TenantId tenantId) {
-        super(tenantId);
+    public PasswordAccount(List<TenantId> tenantIdList) {
+        super(tenantIdList);
         // 用户名生成器
         this.userName = new UserName("1");
         // 默认 密码

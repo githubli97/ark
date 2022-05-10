@@ -22,7 +22,6 @@ public class AccountPOConvertor implements Convertor<PhoneAccount, AccountPO> {
                 .setCreateTime(DO.getCreateTime())
                 .setModifyTime(DO.getModifyTime())
                 .setPassword(DO.getPassword().getPassword())
-                .setTenantId(DO.getTenantId().getTenantId())
                 .setUserName(DO.getUserName().getUserName())
                 .setPhoneNumber(DO.getChinaPhone().getPhoneNumber())
                 .setAccountStatus(DO.getAccountStatus().getCode());

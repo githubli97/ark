@@ -1,8 +1,10 @@
 package com.ark.common.util;
 
+import com.ark.common.exception.ArkRuntimeException;
 import org.springframework.util.ReflectionUtils;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Objects;
 
 public final class BeanUtils {
@@ -34,8 +36,13 @@ public final class BeanUtils {
 
     /**
      * 属性拷贝
+     * todo: 这里还有问题！！！
      */
     public static void copyProperties(Object source, Object target)  {
-        BeanUtils.copyProperties(source, target);
+        try {
+            org.apache.commons.beanutils.BeanUtils.copyProperties(source, target);
+        } catch (Exception e) {
+            throw new ArkRuntimeException("拷贝属性失败");
+        }
     }
 }

@@ -3,14 +3,20 @@ package com.ark.identify.infrastucture.persistence.account.repository.impl;
 import com.ark.base.convertor.Convertor;
 import com.ark.base.domain.trace.OperatorId;
 import com.ark.base.service.ArkServiceImpl;
+import com.ark.common.util.BeanUtils;
 import com.ark.identify.domain.account.entity.phone.PhoneAccount;
+import com.ark.identify.domain.tenant.entity.TenantId;
 import com.ark.identify.infrastucture.persistence.account.mapper.AccountMapper;
 import com.ark.identify.infrastucture.persistence.account.model.AccountPO;
 import com.ark.identify.infrastucture.persistence.account.repository.IAccountService;
+import com.ark.identify.infrastucture.persistence.unique_user.model.UniqueUserPO;
+import com.ark.identify.infrastucture.persistence.unique_user.repository.IUniqueUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * <p>
@@ -24,11 +30,25 @@ import java.util.Objects;
 public class AccountServiceImpl extends ArkServiceImpl<AccountMapper, AccountPO> implements IAccountService {
     @Autowired
     private Convertor<PhoneAccount, AccountPO> convertor;
+    @Autowired
+    private IUniqueUserService iUniqueUserService;
+
 
     @Override
     public void doStore(PhoneAccount baseTrace) {
+        List<TenantId> tenantIdList = baseTrace.getTenantIdList();
         AccountPO accountPO = convertor.DOToPO(baseTrace);
         saveOrUpdate(accountPO);
+
+        List<UniqueUserPO> uniqueUserPOList = tenantIdList.stream().map(tenantId -> {
+            UniqueUserPO uniqueUserPO = new UniqueUserPO();
+            BeanUtils.copyProperties(accountPO, uniqueUserPO);
+            uniqueUserPO.setTenantId(tenantId.getTenantId())
+                    .setAccountId(accountPO.getId())
+                    .setId(null);
+            return uniqueUserPO;
+        }).collect(Collectors.toList());
+        iUniqueUserService.saveBatch(uniqueUserPOList);
     }
 
     @Override

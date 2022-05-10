@@ -12,6 +12,9 @@ import java.util.function.Consumer;
 public class ArkMPInfrastructureGenerator {
     public static final String INFRASTUCTURE_BASE_PACKAGE = "infrastucture.persistence";
 
+    /**
+     * 生成带防腐层service
+     */
     public static void generatorInit(String moduleName, String domainName, Class repository) {
         // todo
         FastAutoGenerator.create("jdbc:mysql://mysql.ark.com:3308/ark", "root", "jXpullesLBc8hUdsei")
@@ -33,6 +36,12 @@ public class ArkMPInfrastructureGenerator {
                 .execute();
     }
 
+    /**
+     * 更新PO中的字段
+     * @param moduleName
+     * @param domainName
+     * @param repository
+     */
     public static void generatorUpdatePO(String moduleName, String domainName, Class repository) {
         FastAutoGenerator.create("jdbc:mysql://mysql.ark.com:3308/ark", "root", "jXpullesLBc8hUdsei")
                 .globalConfig(builder -> {
@@ -49,6 +58,30 @@ public class ArkMPInfrastructureGenerator {
                             .disable(TemplateType.SERVICEIMPL)
                             .disable(TemplateType.MAPPER)
                             .disable(TemplateType.XML)
+                            .build();
+                })
+                .strategyConfig(getStrategyConfig(moduleName, domainName, repository))
+                .templateEngine(new FreemarkerTemplateEngine()) // 使用Freemarker引擎模板，默认的是Velocity引擎模板
+                .execute();
+    }
+
+    /**
+     * 生成mapper和po
+     */
+    public static void generatorPOAndMapper(String moduleName, String domainName, Class repository) {
+        FastAutoGenerator.create("jdbc:mysql://mysql.ark.com:3308/ark", "root", "jXpullesLBc8hUdsei")
+                .globalConfig(builder -> {
+                    builder.author("lihang") // 设置作者
+                            .fileOverride()
+//                            .enableSwagger() // 开启 swagger 模式
+                            .outputDir("D:\\code\\ark\\ark-" + moduleName + "\\ark-" + moduleName + "-infrastructure\\src\\main\\java\\"); // 指定输出目录
+
+                })
+                .packageConfig(getPackageConfig(moduleName, domainName))
+                .templateConfig(builder -> {
+                    builder.disable(TemplateType.SERVICE)
+                            .disable(TemplateType.CONTROLLER)
+                            .disable(TemplateType.SERVICEIMPL)
                             .build();
                 })
                 .strategyConfig(getStrategyConfig(moduleName, domainName, repository))
