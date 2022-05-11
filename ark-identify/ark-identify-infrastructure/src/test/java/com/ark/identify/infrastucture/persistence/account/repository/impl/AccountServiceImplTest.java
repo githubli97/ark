@@ -2,7 +2,9 @@ package com.ark.identify.infrastucture.persistence.account.repository.impl;
 
 import com.ark.ApplicationTest;
 import com.ark.base.domain.phone.ChinaPhone;
-import com.ark.identify.domain.account.entity.phone.PhoneAccount;
+import com.ark.identify.domain.account.entity.AccountFactory;
+import com.ark.identify.domain.account.entity.PhoneAccount;
+import com.ark.identify.domain.role.entity.RoleFactory;
 import com.ark.identify.domain.tenant.entity.TenantId;
 import com.ark.identify.infrastucture.persistence.account.repository.IAccountService;
 import org.junit.Test;
@@ -24,7 +26,7 @@ public class AccountServiceImplTest extends ApplicationTest {
      */
     @Test
     public void testStore() throws Exception {
-        PhoneAccount phoneAccount = PhoneAccount.phoneAccountRegister(new TenantId(1L), new ChinaPhone("18888888888"));
+        PhoneAccount phoneAccount = AccountFactory.phoneAccountRegister(new TenantId(1L), new ChinaPhone("18888888888"), RoleFactory.createTenantManager(new TenantId(1L)));
 
         accountService.store(phoneAccount);
     }

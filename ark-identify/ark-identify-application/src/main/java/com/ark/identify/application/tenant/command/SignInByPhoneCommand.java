@@ -1,7 +1,6 @@
 package com.ark.identify.application.tenant.command;
 
 import com.ark.base.domain.phone.ChinaPhone;
-import com.ark.identify.domain.account.entity.phone.PhoneAccount;
 import com.ark.identify.domain.tenant.entity.Tenant;
 import com.ark.identify.domain.tenant.entity.TenantName;
 

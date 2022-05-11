@@ -2,12 +2,16 @@ package com.ark.identify.domain.account.entity;
 
 import com.ark.base.domain.base.ArkEntity;
 import com.ark.common.exception.api.Assert;
+import com.ark.identify.domain.role.entity.Role;
 import lombok.Getter;
+
+import java.util.List;
 
 @Getter
 public class Account extends ArkEntity<Account> {
     private AccountId accountId;
     private AccountStatus accountStatus;
+    private List<Role> roleList;
 
     public Account() {
         this.accountStatus = AccountStatus.Enable;
@@ -43,6 +47,10 @@ public class Account extends ArkEntity<Account> {
 
     protected void setAccountStatus(AccountStatus accountStatus) {
         this.accountStatus = accountStatus;
+    }
+
+    protected void setRoleList(List<Role> roleList) {
+        this.roleList = roleList;
     }
 
     @Override

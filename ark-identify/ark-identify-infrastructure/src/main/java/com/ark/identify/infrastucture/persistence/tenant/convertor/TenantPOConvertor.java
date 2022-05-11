@@ -1,9 +1,7 @@
 package com.ark.identify.infrastucture.persistence.tenant.convertor;
 
 import com.ark.base.convertor.Convertor;
-import com.ark.identify.domain.account.entity.phone.PhoneAccount;
 import com.ark.identify.domain.tenant.entity.Tenant;
-import com.ark.identify.infrastucture.persistence.account.model.AccountPO;
 import com.ark.identify.infrastucture.persistence.tenant.model.TenantPO;
 import org.springframework.stereotype.Component;
 

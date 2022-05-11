@@ -1,7 +1,7 @@
 package com.ark.base.domain.base;
 
-import java.io.Serializable;
+import com.ark.base.domain.trace.BaseTrace;
 
-public interface ValueObject<T> extends Serializable {
-  boolean sameValueAs(T other);
+public abstract class ValueObject<T>  extends BaseTrace {
+  public abstract boolean sameValueAs(T other);
 }

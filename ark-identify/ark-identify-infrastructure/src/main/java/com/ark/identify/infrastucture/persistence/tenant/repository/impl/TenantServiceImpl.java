@@ -2,7 +2,6 @@ package com.ark.identify.infrastucture.persistence.tenant.repository.impl;
 
 import com.ark.base.convertor.Convertor;
 import com.ark.base.domain.trace.OperatorId;
-import com.ark.identify.domain.account.entity.phone.PhoneAccount;
 import com.ark.identify.domain.tenant.entity.Tenant;
 import com.ark.identify.domain.tenant.entity.TenantId;
 import com.ark.identify.infrastucture.persistence.tenant.model.TenantPO;

@@ -1,45 +1,41 @@
-package com.ark.identify.infrastucture.persistence.account.model;
+package com.ark.identify.infrastucture.persistence.account_role.model;
 
 import com.ark.base.object.BaseDO;
 import com.baomidou.mybatisplus.annotation.TableName;
+import java.io.Serializable;
+import java.time.LocalDateTime;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-
 /**
  * <p>
- *
+ * 用户角色表
  * </p>
  *
  * @author lihang
- * @since 2022-05-09
+ * @since 2022-05-11
  */
 @Getter
 @Setter
-@TableName("ark_identify_account")
-public class AccountPO extends BaseDO {
+@TableName("ark_identify_account_role")
+public class AccountRolePO extends BaseDO {
 
     private static final long serialVersionUID = 1L;
-    /**
-     * 账户状态
-     */
-    private Integer accountStatus;
 
     /**
-     * 用户名
+     * 租户id
      */
-    private String userName;
+    private Long tenantId;
 
     /**
-     * 密码密文
+     * 账户id
      */
-    private String password;
+    private Long accountId;
 
     /**
-     * 手机号
+     * 角色id
      */
-    private String phoneNumber;
+    private Long roleId;
 
     /**
      * 创建人

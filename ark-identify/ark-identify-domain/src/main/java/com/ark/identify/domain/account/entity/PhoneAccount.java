@@ -1,7 +1,8 @@
-package com.ark.identify.domain.account.entity.phone;
+package com.ark.identify.domain.account.entity;
 
 import com.ark.base.domain.phone.ChinaPhone;
 import com.ark.identify.domain.account.entity.password.PasswordAccount;
+import com.ark.identify.domain.role.entity.Role;
 import com.ark.identify.domain.tenant.entity.TenantId;
 import com.google.common.collect.Lists;
 import lombok.Getter;
@@ -12,14 +13,9 @@ import java.util.List;
 public class PhoneAccount extends PasswordAccount {
     private ChinaPhone chinaPhone;
 
-    private PhoneAccount(List<TenantId> tenantIdList, ChinaPhone chinaPhone) {
+    PhoneAccount(List<TenantId> tenantIdList, ChinaPhone chinaPhone) {
         super(tenantIdList);
         this.chinaPhone = chinaPhone;
     }
 
-
-    public static PhoneAccount phoneAccountRegister(TenantId tenantId, ChinaPhone chinaPhone) {
-        PhoneAccount phoneAccount = new PhoneAccount(Lists.newArrayList(tenantId), chinaPhone);
-        return phoneAccount;
-    }
 }
