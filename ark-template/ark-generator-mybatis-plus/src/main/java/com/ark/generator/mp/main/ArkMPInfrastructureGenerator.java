@@ -20,7 +20,6 @@ public class ArkMPInfrastructureGenerator {
         FastAutoGenerator.create("jdbc:mysql://mysql.ark.com:3308/ark", "root", "jXpullesLBc8hUdsei")
                 .globalConfig(builder -> {
                     builder.author("lihang") // 设置作者
-                            .fileOverride()
 //                            .enableSwagger() // 开启 swagger 模式
                             .outputDir("D:\\code\\ark\\ark-" + moduleName + "\\ark-" + moduleName + "-infrastructure\\src\\main\\java\\"); // 指定输出目录
                 })
@@ -46,7 +45,6 @@ public class ArkMPInfrastructureGenerator {
         FastAutoGenerator.create("jdbc:mysql://mysql.ark.com:3308/ark", "root", "jXpullesLBc8hUdsei")
                 .globalConfig(builder -> {
                     builder.author("lihang") // 设置作者
-                            .fileOverride()
 //                            .enableSwagger() // 开启 swagger 模式
                             .outputDir("D:\\code\\ark\\ark-" + moduleName + "\\ark-" + moduleName + "-infrastructure\\src\\main\\java\\"); // 指定输出目录
 
@@ -72,7 +70,6 @@ public class ArkMPInfrastructureGenerator {
         FastAutoGenerator.create("jdbc:mysql://mysql.ark.com:3308/ark", "root", "jXpullesLBc8hUdsei")
                 .globalConfig(builder -> {
                     builder.author("lihang") // 设置作者
-                            .fileOverride()
 //                            .enableSwagger() // 开启 swagger 模式
                             .outputDir("D:\\code\\ark\\ark-" + moduleName + "\\ark-" + moduleName + "-infrastructure\\src\\main\\java\\"); // 指定输出目录
 
@@ -114,6 +111,7 @@ public class ArkMPInfrastructureGenerator {
                     .addInclude("ark_" + moduleName + "_" + domainName) // 设置需要生成的表名
                     .addTablePrefix("ark_" + moduleName + "_")
                     .entityBuilder()
+                    .fileOverride()
                     .superClass("com.ark.base.object.BaseDO")
                     .addIgnoreColumns("id", "is_deleted", "version")
                     .enableLombok()

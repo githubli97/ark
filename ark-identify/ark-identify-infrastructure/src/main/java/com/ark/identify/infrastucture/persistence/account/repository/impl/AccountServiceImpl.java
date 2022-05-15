@@ -14,6 +14,7 @@ import com.ark.identify.infrastucture.persistence.account_role.model.AccountRole
 import com.ark.identify.infrastucture.persistence.account_role.repository.IAccountRoleService;
 import com.ark.identify.infrastucture.persistence.unique_user.model.UniqueUserPO;
 import com.ark.identify.infrastucture.persistence.unique_user.repository.IUniqueUserService;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,29 +42,13 @@ public class AccountServiceImpl extends ArkServiceImpl<AccountMapper, AccountPO>
 
     @Override
     public void doStore(PhoneAccount baseTrace) {
-        List<TenantId> tenantIdList = baseTrace.getTenantIdList();
         AccountPO accountPO = convertor.DOToPO(baseTrace);
         saveOrUpdate(accountPO);
 
-        List<UniqueUserPO> uniqueUserPOList = tenantIdList.stream().map(tenantId -> {
-            UniqueUserPO uniqueUserPO = new UniqueUserPO();
-            BeanUtils.copyProperties(accountPO, uniqueUserPO);
-            uniqueUserPO.setTenantId(tenantId.getTenantId())
-                    .setAccountId(accountPO.getId())
-                    .setId(null);
-            return uniqueUserPO;
-        }).collect(Collectors.toList());
+        List<UniqueUserPO> uniqueUserPOList = iUniqueUserService.convertUniqueUserPO(baseTrace, accountPO);
         iUniqueUserService.saveBatch(uniqueUserPOList);
 
-        List<AccountRolePO> accountRolePOList = baseTrace.getRoleList().stream().map(role -> {
-            AccountRolePO accountRolePO = new AccountRolePO();
-            BeanUtils.copyProperties(accountPO, accountRolePO);
-            accountRolePO.setAccountId(accountPO.getId())
-                    .setTenantId(role.getTenantId().getTenantId())
-                    .setRoleId(role.getRoleId().getRoleId())
-                    .setId(null);
-            return accountRolePO;
-        }).collect(Collectors.toList());
+        List<AccountRolePO> accountRolePOList = iAccountRoleService.convertAccountRolePO(baseTrace, accountPO);
         iAccountRoleService.saveBatch(accountRolePOList);
     }
 

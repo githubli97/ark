@@ -7,6 +7,9 @@ import lombok.Getter;
 
 import java.util.List;
 
+/**
+ * 账户，基类
+ */
 @Getter
 public class Account extends ArkEntity<Account> {
     private AccountId accountId;

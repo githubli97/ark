@@ -5,6 +5,10 @@ import com.ark.identify.application.tenant.service.TenantApplicationService;
 import com.ark.identify.domain.account.entity.AccountFactory;
 import com.ark.identify.domain.account.entity.PhoneAccount;
 import com.ark.identify.domain.account.repository.AccountRepository;
+import com.ark.identify.domain.department.Department;
+import com.ark.identify.domain.department.DepartmentFactory;
+import com.ark.identify.domain.department.DepartmentName;
+import com.ark.identify.domain.department.repository.DepartmentRepository;
 import com.ark.identify.domain.role.entity.Role;
 import com.ark.identify.domain.role.entity.RoleFactory;
 import com.ark.identify.domain.role.repository.RoleRepository;
@@ -22,6 +26,8 @@ public class TenantApplicationServiceImpl implements TenantApplicationService {
     private AccountRepository phoneAccountRepository;
     @Autowired
     private RoleRepository roleRepository;
+    @Autowired
+    private DepartmentRepository departmentRepository;
 
     /**
      * 创建租户
@@ -36,11 +42,14 @@ public class TenantApplicationServiceImpl implements TenantApplicationService {
         // 保存租户
         Tenant tenant = signInByPhoneCommand.converTenant();
         tenantRepository.store(tenant);
+        // 创建根部门
+        Department tenantRootDepartment = DepartmentFactory.getTenantRootDepartment(tenant.getTenantId(), new DepartmentName(signInByPhoneCommand.getTenantName()));
+        departmentRepository.store(tenantRootDepartment);
         // 创建角色
         Role tenantManager = RoleFactory.createTenantManager(tenant.getTenantId());
         roleRepository.store(tenantManager);
         // 保存用户
-        PhoneAccount phoneAccount = AccountFactory.phoneAccountRegister(tenant.getTenantId(), signInByPhoneCommand.converChinaPhone(), tenantManager);
+        PhoneAccount phoneAccount = AccountFactory.phoneAccountRegister(tenant.getTenantId(), signInByPhoneCommand.converChinaPhone(), tenantManager, tenantRootDepartment.getDepartmentId());
         phoneAccountRepository.store(phoneAccount);
     }
 }

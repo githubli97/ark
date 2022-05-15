@@ -1,4 +1,4 @@
-package com.ark.identify.infrastucture.persistence.unique_user.model;
+package com.ark.identify.infrastucture.persistence.department.model;
 
 import com.ark.base.object.BaseDO;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -9,7 +9,7 @@ import lombok.Setter;
 
 /**
  * <p>
- * 唯一用户表，表明账户和租户的关系
+ * 部门表
  * </p>
  *
  * @author lihang
@@ -17,8 +17,8 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@TableName("ark_identify_unique_user")
-public class UniqueUserPO extends BaseDO {
+@TableName("ark_identify_department")
+public class DepartmentPO extends BaseDO {
 
     private static final long serialVersionUID = 1L;
 
@@ -28,14 +28,24 @@ public class UniqueUserPO extends BaseDO {
     private Long tenantId;
 
     /**
-     * 账户id
-     */
-    private Long accountId;
-
-    /**
      * 部门id
      */
     private Integer departmentId;
+
+    /**
+     * 部门名称
+     */
+    private String departmentName;
+
+    /**
+     * 部门索引
+     */
+    private String departmentIndex;
+
+    /**
+     * 父部门id
+     */
+    private Integer departmentParentId;
 
     /**
      * 创建人

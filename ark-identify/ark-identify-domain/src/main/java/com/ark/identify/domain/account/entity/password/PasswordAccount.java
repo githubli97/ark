@@ -1,6 +1,8 @@
 package com.ark.identify.domain.account.entity.password;
 
 import com.ark.identify.domain.account.entity.tenant.TenantAccount;
+import com.ark.identify.domain.department.Department;
+import com.ark.identify.domain.department.DepartmentId;
 import com.ark.identify.domain.tenant.entity.TenantId;
 import lombok.Getter;
 
@@ -16,8 +18,8 @@ public abstract class PasswordAccount extends TenantAccount {
     private UserName userName;
     private Password password;
 
-    public PasswordAccount(List<TenantId> tenantIdList) {
-        super(tenantIdList);
+    public PasswordAccount(List<TenantId> tenantIdList, DepartmentId departmentId) {
+        super(tenantIdList, departmentId);
         // 用户名生成器
         this.userName = new UserName("1");
         // 默认 密码

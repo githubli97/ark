@@ -2,6 +2,7 @@ package com.ark.identify.domain.role.entity;
 
 import com.ark.base.domain.base.ArkEntity;
 import com.ark.base.domain.base.ValueObject;
+import com.ark.identify.domain.role.SystemRoleEnum;
 import com.ark.identify.domain.tenant.entity.TenantId;
 import lombok.Getter;
 
@@ -24,6 +25,12 @@ public class Role extends ValueObject<Role> {
     Role(RoleId roleId, RoleName roleName, TenantId tenantId) {
         this.roleId = roleId;
         this.roleName = roleName;
+        this.tenantId = tenantId;
+    }
+
+    Role(SystemRoleEnum roleEnum, TenantId tenantId) {
+        this.roleId = roleEnum.getRoleId();
+        this.roleName = roleEnum.getRoleName();
         this.tenantId = tenantId;
     }
 
