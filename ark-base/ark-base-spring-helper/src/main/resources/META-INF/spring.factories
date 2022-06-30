@@ -3,7 +3,8 @@ org.springframework.boot.SpringApplicationRunListener=\
 com.ark.base.spring.listener.ArkSpringApplicationRunListener
 
 # Application Context Initializers
-#org.springframework.context.ApplicationContextInitializer=\
+org.springframework.context.ApplicationContextInitializer=\
+com.ark.base.spring.aware.ArkApplicationContextInitializer
 #org.springframework.boot.context.ConfigurationWarningsApplicationContextInitializer
 
 # Application Listeners
