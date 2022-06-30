@@ -1,0 +1,15 @@
+# Run Listeners
+org.springframework.boot.SpringApplicationRunListener=\
+com.ark.base.spring.listener.ArkSpringApplicationRunListener
+
+# Application Context Initializers
+#org.springframework.context.ApplicationContextInitializer=\
+#org.springframework.boot.context.ConfigurationWarningsApplicationContextInitializer
+
+# Application Listeners
+#org.springframework.context.ApplicationListener=\
+#org.springframework.boot.ClearCachesApplicationListener
+
+# Environment Post Processors
+#org.springframework.boot.env.EnvironmentPostProcessor=\
+#org.springframework.boot.cloud.CloudFoundryVcapEnvironmentPostProcessor
