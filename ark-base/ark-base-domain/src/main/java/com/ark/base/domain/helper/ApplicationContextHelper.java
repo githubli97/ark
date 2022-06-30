@@ -1,8 +1,7 @@
 package com.ark.base.domain.helper;
 
-import org.springframework.beans.BeansException;
+import com.ark.base.spring.aware.ArkApplicationContextAware;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,13 +11,8 @@ import org.springframework.stereotype.Component;
  * @date 2020-11-14 1:58 PM
  */
 @Component
-public class ApplicationContextHelper implements ApplicationContextAware {
-    private static ApplicationContext applicationContext;
-
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        ApplicationContextHelper.applicationContext = applicationContext;
-    }
+public class ApplicationContextHelper {
+    private static ApplicationContext applicationContext = ArkApplicationContextAware.applicationContext;
 
     public static <T> T getBean(Class<T> targetClz) {
         T beanInstance = null;

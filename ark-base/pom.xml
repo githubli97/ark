@@ -18,6 +18,7 @@
         <module>ark-base-domain</module>
         <module>ark-base-infrastructure-starter</module>
         <module>ark-base-test-starter</module>
+        <module>ark-base-spring-helper</module>
     </modules>
 
     <properties>
