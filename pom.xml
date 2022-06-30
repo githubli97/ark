@@ -49,6 +49,11 @@
             </dependency>
             <dependency>
                 <groupId>com.ark</groupId>
+                <artifactId>ark-base-spring-helper</artifactId>
+                <version>${ark.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ark</groupId>
                 <artifactId>ark-base-domain</artifactId>
                 <version>${ark.version}</version>
             </dependency>

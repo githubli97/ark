@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>ark-base-domain</artifactId>
+    <artifactId>ark-base-spring-helper</artifactId>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -17,12 +17,13 @@
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>com.ark</groupId>
-            <artifactId>ark-base-spring-helper</artifactId>
+            <artifactId>ark-base-common</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
     </dependencies>
-
 </project>

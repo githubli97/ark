@@ -1,3 +1,9 @@
 spring:
   application:
     name: ark-identify
+logging:
+  level:
+    root: trace
+    sun: warn
+    java: warn
+    javax: warn
