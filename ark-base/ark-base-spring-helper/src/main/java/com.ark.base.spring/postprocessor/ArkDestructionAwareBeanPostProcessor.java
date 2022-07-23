@@ -23,7 +23,7 @@ public class ArkDestructionAwareBeanPostProcessor implements DestructionAwareBea
 
     @Override
     public boolean requiresDestruction(Object bean) {
-        log.info("{} 对象创建时，检查对象是否具有销毁前的后置方法", bean.getClass());
+//        log.info("{} 对象创建时，检查对象是否具有销毁前的后置方法", bean.getClass());
         return DestructionAwareBeanPostProcessor.super.requiresDestruction(bean);
     }
 }

@@ -21,6 +21,10 @@
             <artifactId>mybatis-plus-boot-starter-test</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.ark</groupId>
+            <artifactId>ark-base-infrastructure-starter</artifactId>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
