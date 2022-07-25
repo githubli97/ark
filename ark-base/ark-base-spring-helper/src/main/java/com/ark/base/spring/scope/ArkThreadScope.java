@@ -4,7 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.config.Scope;
 import org.springframework.lang.Nullable;
-import org.springframework.stereotype.Component;
 
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -22,9 +21,8 @@ public class ArkThreadScope implements Scope {
             if (retrievedObject != null) {
                 scopedObject = retrievedObject;
             }
-            return scopedObject;
         }
-        return null;
+        return scopedObject;
     }
 
     @Nullable
