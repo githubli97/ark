@@ -1,22 +1,28 @@
 package com.ark.base.spring.scope;
 
 import com.ark.ApplicationTest;
-import com.ark.base.spring.aware.ArkApplicationContextAware;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class ArkThreadScopeTest extends ApplicationTest {
+    @Autowired
+    private ArkThreadScopeBean arkThreadScopeBean;
+
+    /**
+     * 如果在scope上设置了proxyMode为TARGET_CLASS，
+     * 成员变量arkThreadTargetClassScopeBean在不同的scope下就是不同的对象
+     */
+    @Autowired
+    private ArkThreadTargetClassScopeBean arkThreadTargetClassScopeBean;
 
     @Test
     public void get() {
-        ArkThreadScopeBean arkThreadScopeBean = ArkApplicationContextAware.applicationContext.getBean("arkThreadScopeBean", ArkThreadScopeBean.class);
         arkThreadScopeBean.printThreadNameProperties();
+        arkThreadTargetClassScopeBean.printThreadNameProperties();
 
         Thread thread = new Thread(() -> {
-            ArkThreadScopeBean arkThreadScopeBean1 = ArkApplicationContextAware.applicationContext.getBean("arkThreadScopeBean", ArkThreadScopeBean.class);
-            arkThreadScopeBean1.printThreadNameProperties();
-
-            ArkThreadScopeBean arkThreadScopeBean2 = ArkApplicationContextAware.applicationContext.getBean("arkThreadScopeBean", ArkThreadScopeBean.class);
-            arkThreadScopeBean2.printThreadNameProperties();
+            arkThreadScopeBean.printThreadNameProperties();
+            arkThreadTargetClassScopeBean.printThreadNameProperties();
         });
         thread.start();
     }
