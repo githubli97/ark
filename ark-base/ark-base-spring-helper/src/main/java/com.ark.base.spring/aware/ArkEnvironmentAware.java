@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 public class ArkEnvironmentAware implements EnvironmentAware {
-    public static Environment environment;
+    public static volatile Environment environment;
 
     @Override
     public void setEnvironment(Environment environment) {
