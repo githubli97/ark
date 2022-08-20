@@ -10,7 +10,10 @@ import org.springframework.stereotype.Component;
 
 /**
  * @Classname ArkBeanFactoryPostProcessor
- * @Description TODO
+ * @Description 扫描BeanDefinition属性方法，添加到RootBeanDefinition中
+ *
+ * @see org.springframework.context.annotation.CommonAnnotationBeanPostProcessor
+ * @see org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor
  * @Date 2022/6/30 9:44
  * @Created by hang.li
  */

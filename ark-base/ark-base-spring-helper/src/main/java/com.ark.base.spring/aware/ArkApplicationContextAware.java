@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 public class ArkApplicationContextAware implements ApplicationContextAware {
-    public static ApplicationContext applicationContext;
+    public static volatile ApplicationContext applicationContext;
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
