@@ -11,6 +11,7 @@
         <module>ark-template</module>
         <module>ark-identify</module>
         <module>ark-base</module>
+        <module>ark-base-myspringtest</module>
     </modules>
     <packaging>pom</packaging>
 
