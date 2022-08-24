@@ -1,4 +1,4 @@
-package com.ark.base.myspringtest.aop.proxy;
+package com.ark.spring.aop.proxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
