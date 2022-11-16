@@ -1,4 +1,4 @@
-package com.ark.base.spring.postprocessor;
+package com.ark.base.spring.beandefinition;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
