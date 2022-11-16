@@ -14,14 +14,15 @@
         <module>ark-identify-application</module>
         <module>ark-identify-infrastructure</module>
         <module>ark-identify-adapter</module>
+        <module>ark-identify-client</module>
         <module>ark-identify-starter</module>
     </modules>
 
     <artifactId>ark-identify</artifactId>
 
     <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -39,6 +40,12 @@
 
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>com.ark</groupId>
+                <artifactId>ark-identify-client</artifactId>
+                <version>${ark.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>com.ark</groupId>

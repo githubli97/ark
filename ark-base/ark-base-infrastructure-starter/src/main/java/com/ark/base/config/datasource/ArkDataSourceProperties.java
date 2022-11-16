@@ -13,7 +13,7 @@ public class ArkDataSourceProperties {
     public static final String ARK_DATASOURCE_PREFIX = "ark.datascource.druid";
 
     private String driverClassName = "com.mysql.cj.jdbc.Driver"; // 数据库驱动程序
-    private String url = "jdbc:mysql://mysql.ark.com:3308/ark"; // 数据库连接地址
+    private String url = "jdbc:mysql://mysql.ark.com:3308/ark?autoReconnect=true&failOverReadOnly=false"; // 数据库连接地址
     private String username = "root"; // 数据库的用户名
     private String password = "jXpullesLBc8hUdsei"; // 数据库的用户名
 
