@@ -40,7 +40,6 @@
 
     <dependencyManagement>
         <dependencies>
-
             <dependency>
                 <groupId>com.ark</groupId>
                 <artifactId>ark-identify-client</artifactId>
@@ -69,4 +68,5 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
 </project>

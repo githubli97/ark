@@ -1,5 +1,6 @@
 package com.ark.identify.application.tenant.service;
 
+import com.ark.common.dto.Response;
 import com.ark.identify.application.tenant.command.SignInByPhoneCommand;
 
 public interface TenantApplicationService {
@@ -10,5 +11,5 @@ public interface TenantApplicationService {
      *
      * 登录
      */
-    void signInByPhone(SignInByPhoneCommand signInByPhoneCommand);
+    Response signInByPhone(SignInByPhoneCommand signInByPhoneCommand);
 }

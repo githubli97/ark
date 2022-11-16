@@ -18,8 +18,7 @@ public class TenantController {
 
     @PostMapping("signInByPhone")
     public Response<Long> signInByPhone(@RequestBody SignInByPhoneCommand signInByPhoneCommand) {
-        tenantApplicationService.signInByPhone(signInByPhoneCommand);
-        return Response.ok();
+        return tenantApplicationService.signInByPhone(signInByPhoneCommand);
     }
 
 }

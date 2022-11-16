@@ -1,6 +1,7 @@
 package com.ark.identify.domain.person.entity;
 
 import com.ark.common.exception.api.Assert;
+import com.ark.common.util.MapUtil;
 import lombok.Getter;
 
 import java.util.Map;
@@ -10,7 +11,7 @@ public class PersonName {
     private String personName;
 
     public PersonName(String personName) {
-        Assert.inLengthRange(personName, 20, Map.of("personName", "姓名字数在20个内"));
+        Assert.inLengthRange(personName, 20, MapUtil.simpleMap("personName", "姓名字数在20个内"));
         this.personName = personName;
     }
 }

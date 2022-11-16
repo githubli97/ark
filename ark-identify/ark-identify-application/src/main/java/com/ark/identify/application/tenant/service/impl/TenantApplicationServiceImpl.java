@@ -1,5 +1,6 @@
 package com.ark.identify.application.tenant.service.impl;
 
+import com.ark.common.dto.Response;
 import com.ark.identify.application.tenant.command.SignInByPhoneCommand;
 import com.ark.identify.application.tenant.service.TenantApplicationService;
 import com.ark.identify.domain.account.entity.AccountFactory;
@@ -38,7 +39,7 @@ public class TenantApplicationServiceImpl implements TenantApplicationService {
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void signInByPhone(SignInByPhoneCommand signInByPhoneCommand) {
+    public Response signInByPhone(SignInByPhoneCommand signInByPhoneCommand) {
         // 保存租户
         Tenant tenant = signInByPhoneCommand.converTenant();
         tenantRepository.store(tenant);
@@ -51,5 +52,6 @@ public class TenantApplicationServiceImpl implements TenantApplicationService {
         // 保存用户
         PhoneAccount phoneAccount = AccountFactory.phoneAccountRegister(tenant.getTenantId(), signInByPhoneCommand.converChinaPhone(), tenantManager, tenantRootDepartment.getDepartmentId());
         phoneAccountRepository.store(phoneAccount);
+        return Response.ok();
     }
 }

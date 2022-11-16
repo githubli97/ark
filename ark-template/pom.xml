@@ -13,7 +13,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>ark-module-template</module>
         <module>ark-generator-mybatis-plus</module>
     </modules>
 
