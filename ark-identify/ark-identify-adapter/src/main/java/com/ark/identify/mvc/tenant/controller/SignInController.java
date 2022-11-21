@@ -2,9 +2,9 @@ package com.ark.identify.mvc.tenant.controller;
 
 
 import com.ark.common.dto.Response;
+import com.ark.identify.application.service.SignInApplicationService;
 import com.ark.identify.application.service.command.SignInByPasswordCommand;
 import com.ark.identify.application.service.command.SignInBySmsCommand;
-import com.ark.identify.application.service.SignInApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * 登录
  */
 @RestController
-@RequestMapping("/signin")
+@RequestMapping("/signin/{tenantId}")
 public class SignInController {
     @Autowired
     private SignInApplicationService signInApplicationService;

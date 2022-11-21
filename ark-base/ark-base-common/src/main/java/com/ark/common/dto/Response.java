@@ -22,6 +22,15 @@ public class Response<T> implements Serializable {
                 .build();
     }
 
+    public static final <T> Response ok(T data) {
+        return Response.builder()
+                .data(data)
+                .isSuccess(true)
+                .errCode(ResponseCodeEnum.OK.getErrCode())
+                .msg(ResponseCodeEnum.OK.getMsg())
+                .build();
+    }
+
     public static final Response error(ResponseCodeEnum responseCodeEnum) {
         return Response.builder()
                 .isSuccess(false)
