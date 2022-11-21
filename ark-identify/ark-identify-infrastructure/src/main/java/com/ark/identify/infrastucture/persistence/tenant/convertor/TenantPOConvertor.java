@@ -18,10 +18,6 @@ public class TenantPOConvertor implements Convertor<Tenant, TenantPO> {
     @Override
     public TenantPO DOToPO(Tenant DO) {
         return new TenantPO()
-                .setCreater(Long.parseLong(DO.getCreater().getOperatorId()))
-                .setModifier(Long.parseLong(DO.getModifier().getOperatorId()))
-                .setCreateTime(DO.getCreateTime())
-                .setModifyTime(DO.getModifyTime())
                 .setTenantName(DO.getTenantName().getName())
                 .setTenantStatus(DO.getTenantStatus().getCode());
     }

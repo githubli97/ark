@@ -1,32 +1,36 @@
 package com.ark.identify.domain.account.entity;
 
+import com.alibaba.fastjson.JSON;
 import com.ark.base.domain.base.ArkEntity;
+import com.ark.base.domain.phone.ChinaPhone;
 import com.ark.common.exception.api.Assert;
-import com.ark.identify.domain.role.entity.Role;
+import com.ark.identify.domain.account.entity.valueobject.AccountStatus;
+import com.ark.identify.domain.account.entity.valueobject.AccountTenant;
+import com.ark.identify.domain.account.entity.valueobject.Password;
+import com.google.common.collect.Maps;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
  * 账户，基类
  */
 @Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Account extends ArkEntity<Account> {
-    private AccountId accountId;
+    private Long accountId;
     private AccountStatus accountStatus;
-    private List<Role> roleList;
+    private Password password;
 
-    public Account() {
-        this.accountStatus = AccountStatus.Enable;
-    }
+    private ChinaPhone chinaPhone;
 
-    /**
-     * 账户修改操作统一校验status
-     * 状态为禁用时，不允许修改操作
-     */
-    public void update() {
-        Assert.serviceInvaild(AccountStatus.DISABLE.equals(accountStatus), "账户禁用，不允许修改");
-    }
+    private List<AccountTenant> tenantList;
 
     /**
      * 账户禁用
@@ -44,20 +48,12 @@ public class Account extends ArkEntity<Account> {
         this.accountStatus = AccountStatus.Enable;
     }
 
-    protected void setAccountId(AccountId accountId) {
-        this.accountId = accountId;
-    }
-
-    protected void setAccountStatus(AccountStatus accountStatus) {
-        this.accountStatus = accountStatus;
-    }
-
-    protected void setRoleList(List<Role> roleList) {
-        this.roleList = roleList;
-    }
-
-    @Override
-    public boolean sameIdentityAs(Account other) {
-        return accountId.equals(other.getAccountId());
+    /**
+     * 生成sign-in token
+     */
+    public String createSignInToken() {
+        HashMap<String, String> tokenMap = Maps.newHashMap();
+        tokenMap.put("id", String.valueOf(accountId));
+        return JSON.toJSONString(tokenMap);
     }
 }

@@ -1,9 +1,6 @@
 package com.ark.identify.infrastucture.persistence.unique_user.repository;
 
-import com.ark.common.util.BeanUtils;
-import com.ark.identify.domain.account.entity.PhoneAccount;
-import com.ark.identify.domain.tenant.entity.TenantId;
-import com.ark.identify.domain.tenant.repository.TenantRepository;
+import com.ark.identify.domain.account.entity.Account;
 import com.ark.identify.infrastucture.persistence.account.model.AccountPO;
 import com.ark.identify.infrastucture.persistence.unique_user.model.UniqueUserPO;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -23,13 +20,12 @@ import java.util.stream.Collectors;
 public interface IUniqueUserService extends IService<UniqueUserPO> {
 
     @NotNull
-    default List<UniqueUserPO> convertUniqueUserPO(PhoneAccount baseTrace, AccountPO accountPO) {
-        return baseTrace.getTenantIdList().stream().map(tenantId -> {
+    default List<UniqueUserPO> convertUniqueUserPO(Account account, AccountPO accountPO) {
+        return account.getTenantList().stream().map(tenant -> {
             UniqueUserPO uniqueUserPO = new UniqueUserPO();
-            BeanUtils.copyProperties(accountPO, uniqueUserPO);
-            uniqueUserPO.setTenantId(tenantId.getTenantId())
-                    .setAccountId(accountPO.getId())
-                    .setDepartmentId(baseTrace.getDepartmentId().getDepartmentId())
+            uniqueUserPO.setTenantId(tenant.getTenantId())
+                    .setAccountId(account.getAccountId())
+                    .setDepartmentId(tenant.getDepartmentId())
                     .setId(null);
             return uniqueUserPO;
         }).collect(Collectors.toList());

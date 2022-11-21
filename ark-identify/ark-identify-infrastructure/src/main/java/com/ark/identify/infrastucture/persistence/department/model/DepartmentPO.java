@@ -2,10 +2,10 @@ package com.ark.identify.infrastucture.persistence.department.model;
 
 import com.ark.base.object.BaseDO;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
-import java.time.LocalDateTime;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -30,7 +30,7 @@ public class DepartmentPO extends BaseDO {
     /**
      * 部门id
      */
-    private Integer departmentId;
+    private Long departmentId;
 
     /**
      * 部门名称
@@ -45,7 +45,7 @@ public class DepartmentPO extends BaseDO {
     /**
      * 父部门id
      */
-    private Integer departmentParentId;
+    private Long departmentParentId;
 
     /**
      * 创建人

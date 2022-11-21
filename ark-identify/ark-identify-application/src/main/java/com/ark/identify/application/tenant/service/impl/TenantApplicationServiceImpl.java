@@ -3,18 +3,13 @@ package com.ark.identify.application.tenant.service.impl;
 import com.ark.common.dto.Response;
 import com.ark.identify.application.tenant.command.SignInByPhoneCommand;
 import com.ark.identify.application.tenant.service.TenantApplicationService;
-import com.ark.identify.domain.account.entity.AccountFactory;
-import com.ark.identify.domain.account.entity.PhoneAccount;
-import com.ark.identify.domain.account.repository.AccountRepository;
-import com.ark.identify.domain.department.Department;
-import com.ark.identify.domain.department.DepartmentFactory;
-import com.ark.identify.domain.department.DepartmentName;
-import com.ark.identify.domain.department.repository.DepartmentRepository;
-import com.ark.identify.domain.role.entity.Role;
-import com.ark.identify.domain.role.entity.RoleFactory;
-import com.ark.identify.domain.role.repository.RoleRepository;
+import com.ark.identify.domain.account.entity.Account;
+import com.ark.identify.domain.account.service.AccountDomainService;
+import com.ark.identify.domain.department.entity.Department;
+import com.ark.identify.domain.department.entity.valueobject.DeptartmentTenant;
+import com.ark.identify.domain.department.service.DepartmentDomainService;
 import com.ark.identify.domain.tenant.entity.Tenant;
-import com.ark.identify.domain.tenant.repository.TenantRepository;
+import com.ark.identify.domain.tenant.service.TenantDomainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,13 +17,11 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class TenantApplicationServiceImpl implements TenantApplicationService {
     @Autowired
-    private TenantRepository tenantRepository;
+    private TenantDomainService tenantDomainService;
     @Autowired
-    private AccountRepository phoneAccountRepository;
+    private AccountDomainService accountDomainService;
     @Autowired
-    private RoleRepository roleRepository;
-    @Autowired
-    private DepartmentRepository departmentRepository;
+    private DepartmentDomainService departmentDomainService;
 
     /**
      * 创建租户
@@ -41,17 +34,13 @@ public class TenantApplicationServiceImpl implements TenantApplicationService {
     @Transactional(rollbackFor = Exception.class)
     public Response signInByPhone(SignInByPhoneCommand signInByPhoneCommand) {
         // 保存租户
-        Tenant tenant = signInByPhoneCommand.converTenant();
-        tenantRepository.store(tenant);
+        Tenant tenant = tenantDomainService.registerTenant(signInByPhoneCommand.getTenantName());
+
         // 创建根部门
-        Department tenantRootDepartment = DepartmentFactory.getTenantRootDepartment(tenant.getTenantId(), new DepartmentName(signInByPhoneCommand.getTenantName()));
-        departmentRepository.store(tenantRootDepartment);
-        // 创建角色
-        Role tenantManager = RoleFactory.createTenantManager(tenant.getTenantId());
-        roleRepository.store(tenantManager);
+        Department rootDepartment = departmentDomainService.createTenantRootDepartment(DeptartmentTenant.convertThis(tenant));
+
         // 保存用户
-        PhoneAccount phoneAccount = AccountFactory.phoneAccountRegister(tenant.getTenantId(), signInByPhoneCommand.converChinaPhone(), tenantManager, tenantRootDepartment.getDepartmentId());
-        phoneAccountRepository.store(phoneAccount);
+        Account account = accountDomainService.phoneAccountRegister(tenant, rootDepartment, signInByPhoneCommand.getPhoneNumber());
         return Response.ok();
     }
 }

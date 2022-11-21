@@ -10,8 +10,8 @@
     <modules>
 <!--        <module>ark-template</module>-->
         <module>ark-identify</module>
-<!--        <module>ark-base</module>-->
-<!--        <module>ark-spring</module>-->
+        <module>ark-base</module>
+        <!--        <module>ark-spring</module>-->
     </modules>
     <packaging>pom</packaging>
 
@@ -46,6 +46,16 @@
             <dependency>
                 <groupId>com.ark</groupId>
                 <artifactId>ark-base-common</artifactId>
+                <version>${ark.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ark</groupId>
+                <artifactId>ark-base-client</artifactId>
+                <version>${ark.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ark</groupId>
+                <artifactId>ark-base-adapter</artifactId>
                 <version>${ark.version}</version>
             </dependency>
             <dependency>
