@@ -8,5 +8,5 @@ import com.ark.identify.domain.account.entity.valueobject.Password;
 import java.util.Optional;
 
 public interface AccountRepository extends ArkRepository<Account> {
-    Optional<Account> selectByPhoneAndPassword(ChinaPhone phone, Password password);
+    Account getByPhone(String phone);
 }

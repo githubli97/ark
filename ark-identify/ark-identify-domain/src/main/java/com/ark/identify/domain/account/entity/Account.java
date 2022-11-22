@@ -7,6 +7,7 @@ import com.ark.common.exception.api.Assert;
 import com.ark.identify.domain.account.entity.valueobject.AccountStatus;
 import com.ark.identify.domain.account.entity.valueobject.AccountTenant;
 import com.ark.identify.domain.account.entity.valueobject.Password;
+import com.ark.identify.domain.account.entity.valueobject.UserName;
 import com.google.common.collect.Maps;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,6 +28,7 @@ public class Account extends ArkEntity<Account> {
     private Long accountId;
     private AccountStatus accountStatus;
     private Password password;
+    private UserName username;
 
     private ChinaPhone chinaPhone;
 
@@ -44,8 +46,8 @@ public class Account extends ArkEntity<Account> {
      * 账户启用
      */
     public void enable() {
-        Assert.serviceInvaild(AccountStatus.Enable.equals(accountStatus), "账户已经在启用状态");
-        this.accountStatus = AccountStatus.Enable;
+        Assert.serviceInvaild(AccountStatus.ENABLE.equals(accountStatus), "账户已经在启用状态");
+        this.accountStatus = AccountStatus.ENABLE;
     }
 
     /**

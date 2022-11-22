@@ -24,7 +24,7 @@ public class SignInController {
      */
     @PostMapping("password")
     public Response signInByPassword(@RequestBody SignInByPasswordCommand command) {
-        return signInApplicationService.signInByPassword(command);
+        return signInApplicationService.signInByPassword(command.convetTo());
     }
 
     /**

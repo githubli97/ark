@@ -10,6 +10,7 @@ import com.ark.identify.infrastucture.persistence.account.model.AccountPO;
 import com.ark.identify.infrastucture.persistence.account.repository.IAccountService;
 import com.ark.identify.infrastucture.persistence.unique_user.model.UniqueUserPO;
 import com.ark.identify.infrastucture.persistence.unique_user.repository.IUniqueUserService;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,8 +44,11 @@ public class AccountServiceImpl extends ArkServiceImpl<AccountMapper, AccountPO>
         return entiy;
     }
 
+
     @Override
-    public Optional<Account> selectByPhoneAndPassword(ChinaPhone phone, Password password) {
-        return Optional.empty();
+    public Account getByPhone(String phone) {
+        AccountPO accountPO = this.getOne(new LambdaQueryWrapper<AccountPO>()
+                .eq(AccountPO::getPhoneNumber, phone));
+        return convertor.POToDO(accountPO);
     }
 }

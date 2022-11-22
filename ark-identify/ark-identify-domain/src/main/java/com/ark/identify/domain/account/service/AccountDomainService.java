@@ -12,12 +12,7 @@ import com.ark.identify.domain.tenant.entity.Tenant;
  * @Created by hang.li
  */
 public interface AccountDomainService {
-
-    /**
-     * 登录
-     * @return token
-     */
-    Response<String> signInByPhoneAndPassword(Account account);
-
     Account phoneAccountRegister(Tenant tenant, Department department, String chinaPhone);
+
+    Account getByPhone(String username);
 }
