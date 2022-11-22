@@ -1,4 +1,4 @@
-package com.ark.identify.domain.tenant.entity;
+package com.ark.identify.domain.tenant.entity.valueobject;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -21,4 +21,9 @@ public class TenantPOConvertor implements Convertor<Tenant, TenantPO> {
                 .setTenantName(DO.getTenantName().getName())
                 .setTenantStatus(DO.getTenantStatus().getCode());
     }
+
+    @Override
+    public Tenant POToDO(TenantPO PO) {
+        return null;
+    }
 }

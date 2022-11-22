@@ -7,8 +7,17 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum AccountStatus {
     DISABLE(0, "禁用，封存"),
-    Enable(1, "启用");
+    ENABLE(1, "启用");
 
     private Integer code;
     private String name;
+
+    public static final AccountStatus getByCode(Integer code) {
+        for (AccountStatus status : AccountStatus.values()) {
+            if (status.getCode() == code) {
+                return status;
+            }
+        }
+        return null;
+    }
 }

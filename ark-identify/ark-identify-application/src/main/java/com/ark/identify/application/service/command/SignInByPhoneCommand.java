@@ -1,4 +1,4 @@
-package com.ark.identify.application.tenant.command;
+package com.ark.identify.application.service.command;
 
 import com.ark.base.domain.phone.ChinaPhone;
 

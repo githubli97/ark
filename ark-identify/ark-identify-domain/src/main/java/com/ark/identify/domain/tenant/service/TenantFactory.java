@@ -1,8 +1,8 @@
 package com.ark.identify.domain.tenant.service;
 
 import com.ark.identify.domain.tenant.entity.Tenant;
-import com.ark.identify.domain.tenant.entity.TenantName;
-import com.ark.identify.domain.tenant.entity.TenantStatus;
+import com.ark.identify.domain.tenant.entity.valueobject.TenantName;
+import com.ark.identify.domain.tenant.entity.valueobject.TenantStatus;
 import lombok.Getter;
 
 @Getter

@@ -19,13 +19,13 @@ import org.springframework.stereotype.Component;
 public class ArkBeanPostProcessor implements BeanPostProcessor, ArkPriorityOrderedFirstHandle {
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        log.info("{} 对象，{} 类初始化前执行", beanName, bean.getClass());
+//        log.info("{} 对象，{} 类初始化前执行", beanName, bean.getClass());
         return BeanPostProcessor.super.postProcessBeforeInitialization(bean, beanName);
     }
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        log.info("{} 对象，{} 类初始化后执行", beanName, bean.getClass());
+//        log.info("{} 对象，{} 类初始化后执行", beanName, bean.getClass());
         return BeanPostProcessor.super.postProcessAfterInitialization(bean, beanName);
     }
 }

@@ -25,18 +25,13 @@ public class AccountDomainServiceImpl implements AccountDomainService {
     private AccountRepository accountRepository;
 
     @Override
-    public Response<String> signInByPhoneAndPassword(Account account) {
-        Optional<Account> optionalAccount = accountRepository.selectByPhoneAndPassword(account.getChinaPhone(), account.getPassword());
-        if (optionalAccount.isPresent()) {
-            return Response.ok(optionalAccount.get().createSignInToken());
-        } else {
-            return Response.error(ResponseCodeEnum.PHONE_PASSWORD_AUTH_FAIL);
-        }
-    }
-
-    @Override
     public Account phoneAccountRegister(Tenant tenant, Department department, String chinaPhone) {
         Account account = AccountFactory.signUpByPhone(tenant, department, chinaPhone);
         return accountRepository.store(account);
+    }
+
+    @Override
+    public Account getByPhone(String phone) {
+        return accountRepository.getByPhone(phone);
     }
 }

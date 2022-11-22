@@ -2,7 +2,7 @@ package com.ark.identify.mvc.tenant.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.ark.ApplicationTest;
-import com.ark.identify.application.tenant.command.SignInByPhoneCommand;
+import com.ark.identify.application.service.command.SignInByPhoneCommand;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.After;
 import org.junit.Before;
@@ -40,9 +40,9 @@ public class TenantControllerTest extends ApplicationTest {
     public void testSignInByPhone() throws Exception {
         SignInByPhoneCommand signInByPhoneCommand = new SignInByPhoneCommand()
                 .setPhoneNumber("18888888888")
-                .setTenantName("【方舟2】");
+                .setTenantName("【方舟3】");
         mvc.perform(MockMvcRequestBuilders
-                .post("/tenant/signInByPhone")
+                .post("/tenant/signUpByPhone")
                 .content(JSON.toJSONString(signInByPhoneCommand))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andDo(result -> {

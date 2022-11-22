@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 public class ArkDestructionAwareBeanPostProcessor implements DestructionAwareBeanPostProcessor, ArkPriorityOrderedFirstHandle {
     @Override
     public void postProcessBeforeDestruction(Object bean, String beanName) throws BeansException {
-        log.info("{} 对象，{} 类实例被销毁之前", beanName, bean.getClass());
+//        log.info("{} 对象，{} 类实例被销毁之前", beanName, bean.getClass());
     }
 
     @Override

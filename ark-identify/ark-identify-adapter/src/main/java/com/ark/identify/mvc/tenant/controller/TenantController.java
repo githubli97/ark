@@ -2,8 +2,8 @@ package com.ark.identify.mvc.tenant.controller;
 
 
 import com.ark.common.dto.Response;
-import com.ark.identify.application.tenant.command.SignInByPhoneCommand;
-import com.ark.identify.application.tenant.service.TenantApplicationService;
+import com.ark.identify.application.service.command.SignInByPhoneCommand;
+import com.ark.identify.application.service.TenantApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,9 +16,8 @@ public class TenantController {
     @Autowired
     private TenantApplicationService tenantApplicationService;
 
-    @PostMapping("signInByPhone")
+    @PostMapping("signUpByPhone")
     public Response<Long> signInByPhone(@RequestBody SignInByPhoneCommand signInByPhoneCommand) {
-        return tenantApplicationService.signInByPhone(signInByPhoneCommand);
+        return tenantApplicationService.signUpByPhone(signInByPhoneCommand);
     }
-
 }

@@ -23,12 +23,12 @@ public class ArkMergedBeanDefinitionPostProcessor implements MergedBeanDefinitio
 
     @Override
     public void postProcessMergedBeanDefinition(RootBeanDefinition beanDefinition, Class<?> beanType, String beanName) {
-        log.info("{}， {}，对指定bean的给定合并bean定义进行后期处理", beanType.getName(), beanName);
+//        log.info("{}， {}，对指定bean的给定合并bean定义进行后期处理", beanType.getName(), beanName);
     }
 
     @Override
     public void resetBeanDefinition(String beanName) {
-        log.info("{}，通知指定名称的bean定义已重置，并且该后处理器应清除受影响bean的任何元数据。", beanName);
+//        log.info("{}，通知指定名称的bean定义已重置，并且该后处理器应清除受影响bean的任何元数据。", beanName);
         MergedBeanDefinitionPostProcessor.super.resetBeanDefinition(beanName);
     }
 }

@@ -12,7 +12,7 @@ import com.google.common.collect.Lists;
 public class AccountFactory {
     public static Account signUpByPhone(Tenant tenant, Department department, String chinaPhone) {
         return new Account()
-                .setAccountStatus(AccountStatus.Enable)
+                .setAccountStatus(AccountStatus.ENABLE)
                 .setChinaPhone(new ChinaPhone(chinaPhone))
                 .setPassword(new Password(Password.DEFAULT_PASSWORD))
                 .setTenantList(Lists.newArrayList(signUp(tenant, department)));

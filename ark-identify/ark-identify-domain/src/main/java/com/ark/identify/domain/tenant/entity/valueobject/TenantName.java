@@ -1,4 +1,4 @@
-package com.ark.identify.domain.tenant.entity;
+package com.ark.identify.domain.tenant.entity.valueobject;
 
 import com.ark.common.exception.api.Assert;
 import com.ark.common.util.MapUtil;

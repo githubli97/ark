@@ -29,4 +29,9 @@ public class DepartmentPOConvertor implements Convertor<Department, DepartmentPO
         }
         return departmentPO;
     }
+
+    @Override
+    public Department POToDO(DepartmentPO PO) {
+        return null;
+    }
 }
