@@ -51,4 +51,10 @@ public class AccountServiceImpl extends ArkServiceImpl<AccountMapper, AccountPO>
                 .eq(AccountPO::getPhoneNumber, phone));
         return convertor.POToDO(accountPO);
     }
+
+    @Override
+    public AccountPO selectByPhone(String phone) {
+        return this.getOne(new LambdaQueryWrapper<AccountPO>()
+                .eq(AccountPO::getPhoneNumber, phone));
+    }
 }

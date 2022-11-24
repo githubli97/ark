@@ -11,6 +11,7 @@
 <!--        <module>ark-template</module>-->
         <module>ark-identify</module>
         <module>ark-base</module>
+        <module>ark-gateway</module>
         <!--        <module>ark-spring</module>-->
     </modules>
     <packaging>pom</packaging>
@@ -22,7 +23,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <spring.boot.version>2.5.13</spring.boot.version>
+        <spring-cloud.version>2021.0.0</spring-cloud.version>
         <hutool.version>5.4.1</hutool.version>
         <ark.version>1.0-SNAPSHOT</ark.version>
     </properties>
@@ -34,8 +35,8 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -86,13 +87,13 @@
                 <version>${ark.version}</version>
             </dependency>
             <!--            ark end-->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring.boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
+                <dependency>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-dependencies</artifactId>
+                    <version>${spring-cloud.version}</version>
+                    <type>pom</type>
+                    <scope>import</scope>
+                </dependency>
 
             <!--            log-->
             <dependency>

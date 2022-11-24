@@ -1,6 +1,7 @@
 package com.ark.identify.infrastucture.persistence.account.repository;
 
 import com.ark.identify.domain.account.repository.AccountRepository;
+import com.ark.identify.infrastucture.persistence.account.model.AccountPO;
 
 /**
  * <p>
@@ -12,4 +13,5 @@ import com.ark.identify.domain.account.repository.AccountRepository;
  */
 public interface IAccountService extends AccountRepository {
 
+    AccountPO selectByPhone(String phone);
 }
