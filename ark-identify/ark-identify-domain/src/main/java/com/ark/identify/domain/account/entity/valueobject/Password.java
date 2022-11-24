@@ -19,6 +19,6 @@ public class Password {
 
     public Password(String password) {
         Assert.isBlank(password, MapUtil.simpleMap("password", "密码必填"));
-        this.password = EncryptUtils.getSHA256Str(password);
+        this.password = password;
     }
 }
