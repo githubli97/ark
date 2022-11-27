@@ -1,17 +1,4 @@
 server:
-  port: 9010
+  port: 10010
   servlet:
     context-path: /identify
-spring:
-  logging:
-    level:
-      root: trace
-      sun: warn
-      java: warn
-      javax: warn
-      org:
-        springframework: warn
-        apache: warn
-        mybatis: warn
-    pattern:
-      console: '%clr(${LOG_LEVEL_PATTERN:%5p}) %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}'

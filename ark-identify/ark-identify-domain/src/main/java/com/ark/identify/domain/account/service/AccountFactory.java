@@ -5,6 +5,7 @@ import com.ark.identify.domain.account.entity.Account;
 import com.ark.identify.domain.account.entity.valueobject.AccountStatus;
 import com.ark.identify.domain.account.entity.valueobject.AccountTenant;
 import com.ark.identify.domain.account.entity.valueobject.Password;
+import com.ark.identify.domain.account.entity.valueobject.UserName;
 import com.ark.identify.domain.department.entity.Department;
 import com.ark.identify.domain.tenant.entity.Tenant;
 import com.google.common.collect.Lists;
@@ -12,6 +13,7 @@ import com.google.common.collect.Lists;
 public class AccountFactory {
     public static Account signUpByPhone(Tenant tenant, Department department, String chinaPhone) {
         return new Account()
+                .setUsername(new UserName(chinaPhone))
                 .setAccountStatus(AccountStatus.ENABLE)
                 .setChinaPhone(new ChinaPhone(chinaPhone))
                 .setPassword(new Password(Password.DEFAULT_PASSWORD))

@@ -9,6 +9,7 @@ import com.ark.identify.domain.account.service.AccountFactory;
 import com.ark.identify.domain.department.entity.Department;
 import com.ark.identify.domain.tenant.entity.Tenant;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -23,6 +24,8 @@ import java.util.Optional;
 public class AccountDomainServiceImpl implements AccountDomainService {
     @Autowired
     private AccountRepository accountRepository;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public Account phoneAccountRegister(Tenant tenant, Department department, String chinaPhone) {
