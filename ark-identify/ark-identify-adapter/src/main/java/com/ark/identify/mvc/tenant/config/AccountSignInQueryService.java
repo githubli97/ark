@@ -1,4 +1,4 @@
-package com.ark.identify.application.query.impl;
+package com.ark.identify.mvc.tenant.config;
 
 import com.ark.identify.application.query.AccountQueryService;
 import com.ark.identify.application.query.dto.AccountDTO;

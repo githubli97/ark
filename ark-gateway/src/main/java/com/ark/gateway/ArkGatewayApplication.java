@@ -4,8 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ArkApplication {
+public class ArkGatewayApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(ArkApplication.class, args);
+		SpringApplication.run(ArkGatewayApplication.class, args);
 	}
 }

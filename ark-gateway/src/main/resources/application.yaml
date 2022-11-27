@@ -1,5 +1,11 @@
 spring:
+  thymeleaf:
+    cache: false
   application:
     name: ark-gateway
   profiles:
     active: dev
+
+jwt:
+  private.key: classpath:app.key
+  public.key: classpath:app.pub
