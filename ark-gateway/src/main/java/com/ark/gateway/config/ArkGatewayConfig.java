@@ -1,27 +1,21 @@
 package com.ark.gateway.config;
 
-import com.ark.gateway.util.JwtTokenUtil;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
 
 @Configuration
 public class ArkGatewayConfig {
-	@Autowired
-	private JwtTokenUtil jwtTokenUtil;
 
 	@Bean
 	public RouteLocator arkRouteLocator(RouteLocatorBuilder builder) {
 		//@formatter:off
 		return builder.routes()
-				.route("path_route", r -> r.path("/identify/login*")
-						.uri("http://127.0.0.1:10010"))
-				.route("token", r -> r.path("/identify/system/ping")
-							.filters(f -> f.addRequestHeader("jwt-token",
-									jwtTokenUtil.getJwtToken()))
-				.uri("http://127.0.0.1:9010"))
+				.route("path_route", r -> r.path("/message")
+						.uri("http://localhost:8090"))
+				.build();
 //				.route("host_route", r -> r.host("*.myhost.org")
 //						.uri("http://httpbin.org"))
 //				.route("rewrite_route", r -> r.host("*.rewrite.org")
@@ -41,9 +35,8 @@ public class ArkGatewayConfig {
 //						.filters(f -> f.requestRateLimiter(c -> c.setRateLimiter(redisRateLimiter())))
 //					.uri("http://httpbin.org"))
 				// ws
-				.route("websocket_route", r -> r.path("/echo")
-					.uri("ws://localhost:9000"))
-				.build();
+//				.route("websocket_route", r -> r.path("/echo")
+//					.uri("ws://localhost:9000"))
 		//@formatter:on
 	}
 }

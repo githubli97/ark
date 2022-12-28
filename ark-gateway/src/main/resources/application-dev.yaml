@@ -1,6 +1,10 @@
 server:
   port: 10000
 
+logging:
+  level:
+    root: debug
+
 spring:
   security:
     oauth2:
@@ -14,7 +18,7 @@ spring:
             authorization-grant-type: authorization_code
             redirect-uri: http://127.0.0.1:10000/login/oauth2/code/login-client
             scope: openid,profile
-            client-name: ${spring.application.name}
+            client-name: Spring
         provider:
           spring:
             authorization-uri: http://localhost:10010/identify/oauth2/authorize
