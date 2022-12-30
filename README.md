@@ -15,3 +15,9 @@
 - 创建时间，创建人，修改时间，修改人
 ### 高级数据追踪（一对多）
 - 修改内容，详细记录
+
+## deploy
+- local
+ 1. 配置hosts文件添加 localhost.hosts配置
+ 2. 启动nginx，添加nginx-*.conf
+ 3. 在mysql.ark.com指定的机器上执行ark.sql
