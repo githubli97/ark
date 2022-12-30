@@ -3,7 +3,7 @@ server:
 
 logging:
   level:
-    root: debug
+    root: info
 
 spring:
   security:
@@ -16,11 +16,11 @@ spring:
             client-secret: openid-connect
             client-authentication-method: client_secret_basic
             authorization-grant-type: authorization_code
-            redirect-uri: http://127.0.0.1:10000/login/oauth2/code/login-client
+            redirect-uri: http://api.ark.com/login/oauth2/code/login-client
             scope: openid,profile
             client-name: Spring
         provider:
           spring:
             authorization-uri: http://account.ark.com/oauth2/authorize
-            token-uri: http://account.ark.com/oauth2/token
-            jwk-set-uri: http://account.ark.com/oauth2/jwks
+            token-uri: http://ark-account/oauth2/token
+            jwk-set-uri: http://ark-account/oauth2/jwks
