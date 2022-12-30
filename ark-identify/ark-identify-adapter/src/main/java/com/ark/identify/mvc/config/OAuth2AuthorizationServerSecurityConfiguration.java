@@ -79,17 +79,9 @@ public class OAuth2AuthorizationServerSecurityConfiguration {
 				.scope(OidcScopes.PROFILE)
 				.clientSettings(ClientSettings.builder().requireAuthorizationConsent(false).build())
 				.build();
-		RegisteredClient registeredClient = RegisteredClient.withId(UUID.randomUUID().toString())
-				.clientId("messaging-client")
-				.clientSecret("{noop}secret")
-				.clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
-				.authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS)
-				.scope("message:read")
-				.scope("message:write")
-				.build();
 		// @formatter:on
 
-		return new InMemoryRegisteredClientRepository(loginClient, registeredClient);
+		return new InMemoryRegisteredClientRepository(loginClient);
 	}
 
 	@Bean
@@ -113,7 +105,7 @@ public class OAuth2AuthorizationServerSecurityConfiguration {
 
 	@Bean
 	public ProviderSettings providerSettings() {
-		return ProviderSettings.builder().issuer("http://localhost:10010/identify").build();
+		return ProviderSettings.builder().issuer("http://account.ark.com").build();
 	}
 
 	@Bean
