@@ -1,4 +1,6 @@
 server:
   port: 10010
-  servlet:
-    context-path: /identify
+
+logging:
+  level:
+    root: debug
