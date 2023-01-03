@@ -12,7 +12,7 @@
         <module>ark-identify</module>
         <module>ark-base</module>
         <module>ark-gateway</module>
-        <module>ark-sample-resource-server</module>
+        <module>ark-simple-resource-server</module>
         <!--        <module>ark-spring</module>-->
     </modules>
     <packaging>pom</packaging>

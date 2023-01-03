@@ -14,7 +14,7 @@ public class ArkGatewayConfig {
 		//@formatter:off
 		return builder.routes()
 				.route("path_route", r -> r.path("/message")
-						.uri("http://localhost:8090"))
+						.uri("http://ark-simple-resource"))
 				.build();
 //				.route("host_route", r -> r.host("*.myhost.org")
 //						.uri("http://httpbin.org"))
