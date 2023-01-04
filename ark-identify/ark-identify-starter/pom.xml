@@ -30,7 +30,9 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                    <imageName>${project.artifactId}:${project.version}</imageName>
+                    <image>
+                        <name>${project.artifactId}:${project.version}</name>
+                    </image>
                 </configuration>
                 <executions>
                     <execution>
