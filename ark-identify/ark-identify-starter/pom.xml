@@ -29,16 +29,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
-                <configuration>
-                    <docker>
-                        <builderRegistry>
-                            <username>469995363</username>
-                            <password>dckr_pat_KEHyXkvXxuA76GzNldVRmdEU1kY</password>
-                            <url>https://hub.docker.com/repository/docker/469995363/ark</url>
-                            <email>469995363@qq.com</email>
-                        </builderRegistry>
-                    </docker>
-                </configuration>
                 <executions>
                     <execution>
                         <goals>
