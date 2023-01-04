@@ -29,6 +29,9 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
+                <configuration>
+                    <imageName>${project.artifactId}:${project.version}</imageName>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>
