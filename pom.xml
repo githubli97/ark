@@ -8,12 +8,12 @@
     <artifactId>ark</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <!--        <module>ark-template</module>-->
+        <module>ark-template</module>
         <module>ark-identify</module>
         <module>ark-base</module>
         <module>ark-gateway</module>
         <module>ark-simple-resource-server</module>
-        <!--        <module>ark-spring</module>-->
+        <module>ark-spring</module>
     </modules>
     <packaging>pom</packaging>
 
