@@ -27,10 +27,10 @@ jobs:
         java-version: '8'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
-      run: mvn -DskipTests=true -B install --file pom.xml
+    - name: All Build with Maven
+      run: mvn install -DskipTests=true --file pom.xml
     - name: Build with identify image
-      run: mvn -DskipTests=true -DskipTests=true --file ark-identify/pom.xml org.springframework.boot:spring-boot-maven-plugin:2.6.1:build-image
+      run: mvn spring-boot:build-image -DskipTests=true --file ark-identify/ark-identify-starter/pom.xml
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
