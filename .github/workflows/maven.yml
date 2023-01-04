@@ -27,7 +27,7 @@ jobs:
         java-version: '8'
         distribution: 'temurin'
         cache: maven
-    - name: All Build with Maven
+    - name: 构建root项目
       run: mvn install -DskipTests=true --file pom.xml
 
     - name: maven插件创建镜像
