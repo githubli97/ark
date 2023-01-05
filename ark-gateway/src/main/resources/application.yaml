@@ -4,4 +4,22 @@ spring:
   application:
     name: ark-gateway
   profiles:
-    active: dev
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+  security:
+    oauth2:
+      client:
+        registration:
+          login-client:
+            provider: spring
+            client-id: login-client
+            client-secret: openid-connect
+            client-authentication-method: client_secret_basic
+            authorization-grant-type: authorization_code
+            redirect-uri: http://api.ark.com/login/oauth2/code/login-client
+            scope: openid,profile
+            client-name: Spring
+        provider:
+          spring:
+            authorization-uri: http://account.ark.com/oauth2/authorize
+            token-uri: http://${ARK_IDENTIFY_SERVICE:ark-account}/oauth2/token
+            jwk-set-uri: http://${ARK_IDENTIFY_SERVICE:ark-account}/oauth2/jwks

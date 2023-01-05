@@ -8,7 +8,6 @@ import org.springframework.core.Ordered;
 
 @Configuration
 public class ArkGatewayConfig {
-
 	@Bean
 	public RouteLocator arkRouteLocator(RouteLocatorBuilder builder) {
 		//@formatter:off
