@@ -1,9 +1,17 @@
 package com.ark.gateway.config;
 
+import com.ark.gateway.filter.AddJwtTokenGatewayFilterFactory;
+import org.springframework.cloud.gateway.config.conditional.ConditionalOnEnabledFilter;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class ArkGatewayConfig {
+    @Bean
+    @ConditionalOnEnabledFilter
+    public AddJwtTokenGatewayFilterFactory addJwtTokenGatewayFilterFactory() {
+        return new AddJwtTokenGatewayFilterFactory();
+    }
 //	@Bean
 //	public RouteLocator arkRouteLocator(RouteLocatorBuilder builder) {
 //		//@formatter:off
