@@ -39,9 +39,6 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: 改名
-      run: docker tag ark-identify-starter:1.0-SNAPSHOT 469995363/ark-identify-starter:1.0-SNAPSHOT
-
     - name: 推送镜像
       run: docker push 469995363/ark-identify-starter:1.0-SNAPSHOT
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive

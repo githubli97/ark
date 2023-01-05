@@ -31,7 +31,7 @@
                 <version>${spring-boot.version}</version>
                 <configuration>
                     <image>
-                        <name>${project.artifactId}:${project.version}</name>
+                        <name>469995363/${project.artifactId}:${project.version}</name>
                     </image>
                 </configuration>
                 <executions>
