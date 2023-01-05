@@ -1,5 +1,6 @@
 package com.ark.identify.mvc.config;
 
+import com.ark.base.spring.aware.ArkApplicationContextAware;
 import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.jwk.source.ImmutableJWKSet;
@@ -16,6 +17,7 @@ import org.springframework.security.config.annotation.web.configuration.OAuth2Au
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
 import org.springframework.security.oauth2.core.oidc.OidcScopes;
@@ -67,9 +69,11 @@ public class OAuth2AuthorizationServerSecurityConfiguration {
 	@Bean
 	public RegisteredClientRepository registeredClientRepository() {
 		// @formatter:off
+		PasswordEncoder passwordEncoder = ArkApplicationContextAware.applicationContext.getBean("passwordEncoder", PasswordEncoder.class);
+
 		RegisteredClient loginClient = RegisteredClient.withId(UUID.randomUUID().toString())
 				.clientId("login-client")
-				.clientSecret("{noop}openid-connect")
+				.clientSecret(passwordEncoder.encode("openid-connect"))
 				.clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
 				.authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
 				.authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
@@ -106,19 +110,6 @@ public class OAuth2AuthorizationServerSecurityConfiguration {
 	@Bean
 	public ProviderSettings providerSettings() {
 		return ProviderSettings.builder().issuer("http://account.ark.com").build();
-	}
-
-	@Bean
-	public UserDetailsService userDetailsService() {
-		// @formatter:off
-		UserDetails userDetails = User.withDefaultPasswordEncoder()
-				.username("user")
-				.password("password")
-				.roles("USER")
-				.build();
-		// @formatter:on
-
-		return new InMemoryUserDetailsManager(userDetails);
 	}
 
 	@Bean
