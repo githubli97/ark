@@ -38,9 +38,15 @@ jobs:
 
     - name: build ark-identify-starter镜像
       run: mvn spring-boot:build-image -DskipTests=true --file ark-identify/ark-identify-starter/pom.xml
-
     - name: 推送 ark-identify-starter镜像
       run: docker push 469995363/ark-identify-starter:`docker images|grep ark-identify-starter|awk '{print $2}'`
-    # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
-#    - name: Update dependency graph
-#      uses: advanced-security/maven-dependency-submission-action@571e99aab1055c2e71a1e2309b9691de18d6b7d6
+
+    - name: build ark-gateway镜像
+      run: mvn spring-boot:build-image -DskipTests=true --file ark-gateway/pom.xml
+    - name: 推送 ark-gateway镜像
+      run: docker push 469995363/ark-gateway:`docker images|grep ark-gateway|awk '{print $2}'`
+
+    - name: build ark-simple-resource-server镜像
+      run: mvn spring-boot:build-image -DskipTests=true --file ark-simple-resource-server/pom.xml
+    - name: 推送 ark-simple-resource-server镜像
+      run: docker push 469995363/ark-simple-resource-server:`docker images|grep ark-simple-resource-server|awk '{print $2}'`
