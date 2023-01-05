@@ -4,7 +4,7 @@ services:
   ark-identify-service:
     image: 469995363/ark-identify-starter:1.0-SNAPSHOT
     ports:
-      - 10010:8080
+      - 10010:80
     environment:
       - SPRING_PROFILES_ACTIVE=docker
     networks:
@@ -16,18 +16,18 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=docker
     ports:
-      - 8090:8080
+      - 8090:80
     networks:
       - ark_internal_access
       - ark_external_access # db access
-
   ark-gateway-service:
     image: 469995363/ark-gateway:1.0-SNAPSHOT
     ports:
-      - 10000:8080
+      - 10000:80
     environment:
       - SPRING_PROFILES_ACTIVE=docker
       - ARK_IDENTIFY_SERVICE=ark-identify-service
+      - ARK_SIMPLE_RESOURCE_SERVICE=ark-simple-resource-service
     depends_on:
       - ark-identify-service
       - ark-simple-resource-service

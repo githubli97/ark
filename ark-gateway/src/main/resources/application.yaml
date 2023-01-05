@@ -5,6 +5,13 @@ spring:
     name: ark-gateway
   profiles:
     active: ${SPRING_PROFILES_ACTIVE:dev}
+  cloud:
+    gateway:
+      routes:
+        - id: path_route
+          uri: http://${ARK_SIMPLE_RESOURCE_SERVICE:ark-simple-resource}
+          predicates:
+            - Path=/message
   security:
     oauth2:
       client:
