@@ -12,6 +12,9 @@ spring:
           uri: http://${ARK_SIMPLE_RESOURCE_SERVICE:ark-simple-resource}
           predicates:
             - Path=/message
+          filters:
+            - name: AddJwtToken
+
   security:
     oauth2:
       client:
