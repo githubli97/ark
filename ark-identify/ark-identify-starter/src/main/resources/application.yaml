@@ -2,4 +2,4 @@ spring:
   application:
     name: ark-identify
   profiles:
-    active: dev
+    active: ${SPRING_PROFILES_ACTIVE:dev}
