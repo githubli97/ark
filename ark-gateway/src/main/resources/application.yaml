@@ -33,3 +33,6 @@ spring:
             authorization-uri: http://account.ark.com/oauth2/authorize
             token-uri: http://${ARK_IDENTIFY_SERVICE:ark-account}/oauth2/token
             jwk-set-uri: http://${ARK_IDENTIFY_SERVICE:ark-account}/oauth2/jwks
+ark:
+  jwt:
+    public.key: classpath:app.pub
