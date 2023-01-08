@@ -15,22 +15,29 @@ import org.springframework.security.oauth2.jwt.JwtEncoder;
 import org.springframework.security.oauth2.jwt.NimbusJwtEncoder;
 
 import java.security.interfaces.RSAPublicKey;
+import java.security.interfaces.RSAPrivateKey;
 
 @Configuration
 public class ArkGatewayConfig {
     @Value("${ark.jwt.public.key}")
-    RSAPublicKey key;
+    private RSAPublicKey key;
+    @Value("${ark.jwt.private.key}")
+    private RSAPrivateKey priv;
+
+    private volatile JwtEncoder jwtEncoder;
+
 
     @Bean
-    JwtEncoder jwtEncoder() {
-        JWK jwk = new RSAKey.Builder(this.key).build();
+    public JwtEncoder jwtEncoder() {
+        JWK jwk = new RSAKey.Builder(this.key).privateKey(this.priv).build();
         JWKSource<SecurityContext> jwks = new ImmutableJWKSet<>(new JWKSet(jwk));
-        return new NimbusJwtEncoder(jwks);
+        jwtEncoder = new NimbusJwtEncoder(jwks);
+        return jwtEncoder;
     }
 
     @Bean
     @ConditionalOnEnabledFilter
     public AddJwtTokenGatewayFilterFactory addJwtTokenGatewayFilterFactory() {
-        return new AddJwtTokenGatewayFilterFactory();
+        return new AddJwtTokenGatewayFilterFactory(jwtEncoder);
     }
 }

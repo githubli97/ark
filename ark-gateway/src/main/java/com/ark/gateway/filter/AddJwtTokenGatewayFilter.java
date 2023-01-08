@@ -1,6 +1,6 @@
 package com.ark.gateway.filter;
 
-import com.ark.base.spring.aware.ArkApplicationContextAware;
+import lombok.AllArgsConstructor;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.core.Ordered;
@@ -17,25 +17,26 @@ import reactor.core.publisher.Mono;
 import java.time.Instant;
 import java.util.stream.Collectors;
 
+@AllArgsConstructor
 public class AddJwtTokenGatewayFilter implements GatewayFilter, Ordered {
     public static final String JWT_TOKEN_PREFIX = "Bearer ";
+
+    public final JwtEncoder jwtEncoder;
 
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         return ReactiveSecurityContextHolder.getContext().map(SecurityContext::getAuthentication)
-                .map((authentication) -> {
+                .flatMap((authentication) -> {
                     String value = JWT_TOKEN_PREFIX + getJwtToken(authentication);
                     exchange.getRequest().mutate()
                             .headers((httpHeaders) -> httpHeaders.add("Authorization", value))
                             .build();
-                    return chain.filter(exchange.mutate().request(exchange.getRequest()).build()).block();
+                    return chain.filter(exchange.mutate().request(exchange.getRequest()).build());
                 });
     }
 
-    private static String getJwtToken(Authentication authentication) {
-        JwtEncoder jwtEncoder = ArkApplicationContextAware.applicationContext.getBean("jwtEncoder", JwtEncoder.class);
-
+    private String getJwtToken(Authentication authentication) {
         Instant now = Instant.now();
         long expiry = 36000L;
         String scope = authentication.getAuthorities().stream()
