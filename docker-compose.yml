@@ -20,7 +20,6 @@ services:
     networks:
       - ark_internal_access
       - ark_external_access # db access
-      -
   ark-gateway-service:
     image: 469995363/ark-gateway:1.0-SNAPSHOT
     ports:
