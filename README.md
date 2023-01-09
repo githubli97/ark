@@ -19,5 +19,4 @@
 ## deploy
 - local
  1. 配置hosts文件添加 localhost.hosts配置
- 2. 启动nginx，添加nginx-*.conf
- 3. 在mysql.ark.com指定的机器上执行ark.sql
+ 2. 在mysql.ark.com指定的机器上执行ark.sql
