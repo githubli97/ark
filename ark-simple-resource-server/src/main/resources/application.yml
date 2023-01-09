@@ -6,3 +6,8 @@ spring:
     name: ark-simple-resource-server
   profiles:
     active: ${SPRING_PROFILES_ACTIVE:dev}
+
+ark:
+  jwt:
+    public.key: classpath:app.pub
+    private.key: classpath:app.key
