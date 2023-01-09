@@ -1,5 +1,8 @@
 # 方舟
 
+# 系统架构图
+![系统架构图.png](images/系统架构图.png)
+
 ## 一、逆向工程
 ### 领域项目模板（待考量）
 ### 依托mybatis-plus代码生成工具开发(开发中)
@@ -10,13 +13,8 @@
 - 角色子领域
 - 资源外部领域（面向接口）
 
-## 三、数据追踪领域（划到base模块，统一继承）
-### 基础追踪 (一对一)
-- 创建时间，创建人，修改时间，修改人
-### 高级数据追踪（一对多）
-- 修改内容，详细记录
-
 ## deploy
-- local
  1. 配置hosts文件添加 localhost.hosts配置
- 2. 在mysql.ark.com指定的机器上执行ark.sql
+ 2. 运行[docker-compose.yml](docker-compose.yml)
+
+
