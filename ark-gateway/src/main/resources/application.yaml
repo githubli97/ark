@@ -11,8 +11,7 @@ spring:
         - id: path_route
           uri: http://${ARK_SIMPLE_RESOURCE_SERVICE:ark-simple-resource}
           predicates:
-#            - Path=/message
-            - Path=/authinfo
+            - Path=/auth-info,/message,/auth-message
           filters:
             - name: AddJwtToken
 
