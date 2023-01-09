@@ -1,6 +1,24 @@
 version: '3'
 
 services:
+  ark-nginx-gateway:
+    image: nginx:1.19.0
+    ports:
+      - 80:80
+    environment:
+      - ARK_IDENTIFY_SERVICE=ark-identify-service
+      - ARK_SIMPLE_RESOURCE_SERVICE=ark-simple-resource-service
+      - ARK_GATEWAY_SERVICE=ark-gateway-service
+    depends_on:
+      - ark-identify-service
+      - ark-simple-resource-service
+      - ark-gateway-service
+    volumes:
+      - ./nginx.template:/etc/nginx/templates/default.conf.template:ro
+    networks:
+      - ark_internal_access
+      - ark_external_access
+
   ark-identify-service:
     image: 469995363/ark-identify-starter:1.0-SNAPSHOT
     ports:
