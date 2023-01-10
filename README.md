@@ -15,6 +15,6 @@
 
 ## deploy
  1. 配置hosts文件添加 localhost.hosts配置
- 2. 运行[docker-compose.yml](docker-compose.yml)
+ 2. 运行[docker-compose.yml](docker-compose/docker-compose.yml)
 
 
