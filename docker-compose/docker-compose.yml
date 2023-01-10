@@ -5,10 +5,8 @@ services:
     image: nginx:1.19.0
     ports:
       - 80:80
-    environment:
-      - ARK_IDENTIFY_SERVICE=ark-identify-service
-      - ARK_SIMPLE_RESOURCE_SERVICE=ark-simple-resource-service
-      - ARK_GATEWAY_SERVICE=ark-gateway-service
+    env_file:
+      - .env
     depends_on:
       - ark-identify-service
       - ark-simple-resource-service
@@ -23,16 +21,16 @@ services:
     image: 469995363/ark-identify-starter:1.0-SNAPSHOT
     ports:
       - 10010:80
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
+    env_file:
+      - .env
     networks:
       - ark_internal_access
       - ark_external_access # db access
 
   ark-simple-resource-service:
     image: 469995363/ark-simple-resource-server:1.0-SNAPSHOT
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
+    env_file:
+      - .env
     ports:
       - 8090:80
     networks:
@@ -42,10 +40,8 @@ services:
     image: 469995363/ark-gateway:1.0-SNAPSHOT
     ports:
       - 10000:80
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-      - ARK_IDENTIFY_SERVICE=ark-identify-service
-      - ARK_SIMPLE_RESOURCE_SERVICE=ark-simple-resource-service
+    env_file:
+      - .env
     depends_on:
       - ark-identify-service
       - ark-simple-resource-service
