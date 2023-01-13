@@ -13,7 +13,6 @@
         <module>ark-base</module>
         <module>ark-gateway</module>
         <module>ark-simple-resource-server</module>
-        <module>ark-spring</module>
     </modules>
     <packaging>pom</packaging>
 
