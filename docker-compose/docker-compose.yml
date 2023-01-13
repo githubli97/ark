@@ -7,10 +7,6 @@ services:
       - 80:80
     env_file:
       - .env
-    depends_on:
-      - ark-identify-service
-      - ark-simple-resource-service
-      - ark-gateway-service
     volumes:
       - ./nginx.template:/etc/nginx/templates/default.conf.template:ro
     networks:
@@ -42,9 +38,6 @@ services:
       - 10000:80
     env_file:
       - .env
-    depends_on:
-      - ark-identify-service
-      - ark-simple-resource-service
     networks:
       - ark_internal_access
       - ark_external_access # db access

@@ -4,6 +4,3 @@ server:
 logging:
   level:
     root: debug
-
-spring:
-  profiles: dev
