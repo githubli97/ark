@@ -22,7 +22,6 @@ public class SignInByPasswordCommand {
 
     public Account convetTo() {
         return new Account()
-                .setChinaPhone(new ChinaPhone(account))
                 .setPassword(new Password(password))
                 .setTenantList(Lists.newArrayList(new AccountTenant().setTenantId(ArkContext.ACCOUNT_CONTEXT.get().getTenantId())));
     }

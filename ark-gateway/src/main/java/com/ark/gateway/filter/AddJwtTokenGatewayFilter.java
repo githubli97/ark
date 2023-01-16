@@ -33,7 +33,8 @@ public class AddJwtTokenGatewayFilter implements GatewayFilter, Ordered {
                             .headers((httpHeaders) -> httpHeaders.add("Authorization", value))
                             .build();
                     return chain.filter(exchange.mutate().request(exchange.getRequest()).build());
-                });
+                })
+                .switchIfEmpty(chain.filter(exchange));
     }
 
     private String getJwtToken(Authentication authentication) {

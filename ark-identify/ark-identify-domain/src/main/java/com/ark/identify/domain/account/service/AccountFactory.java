@@ -15,7 +15,6 @@ public class AccountFactory {
         return new Account()
                 .setUsername(new UserName(chinaPhone))
                 .setAccountStatus(AccountStatus.ENABLE)
-                .setChinaPhone(new ChinaPhone(chinaPhone))
                 .setPassword(new Password(Password.DEFAULT_PASSWORD))
                 .setTenantList(Lists.newArrayList(signUp(tenant, department)));
     }
