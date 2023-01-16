@@ -30,8 +30,6 @@ public class Account extends ArkEntity<Account> {
     private Password password;
     private UserName username;
 
-    private ChinaPhone chinaPhone;
-
     private List<AccountTenant> tenantList;
 
     /**
@@ -48,14 +46,5 @@ public class Account extends ArkEntity<Account> {
     public void enable() {
         Assert.serviceInvaild(AccountStatus.ENABLE.equals(accountStatus), "账户已经在启用状态");
         this.accountStatus = AccountStatus.ENABLE;
-    }
-
-    /**
-     * 生成sign-in token
-     */
-    public String createSignInToken() {
-        HashMap<String, String> tokenMap = Maps.newHashMap();
-        tokenMap.put("id", String.valueOf(accountId));
-        return JSON.toJSONString(tokenMap);
     }
 }

@@ -24,7 +24,6 @@ public class AccountPOConvertor implements Convertor<Account, AccountPO> {
         AccountPO accountPO = new AccountPO()
                 .setPassword(DO.getPassword().getPassword())
                 .setUserName(DO.getUsername().getUserName())
-                .setPhoneNumber(DO.getChinaPhone().getPhoneNumber())
                 .setAccountStatus(DO.getAccountStatus().getCode());
         return accountPO;
     }
@@ -34,7 +33,6 @@ public class AccountPOConvertor implements Convertor<Account, AccountPO> {
         return new Account()
                 .setUsername(new UserName(PO.getUserName()))
                 .setPassword(new Password().setPassword(PO.getPassword()))
-                .setChinaPhone(new ChinaPhone(PO.getPhoneNumber()))
                 .setAccountStatus(AccountStatus.getByCode(PO.getAccountStatus()));
     }
 }
