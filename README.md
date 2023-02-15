@@ -1,3 +1,6 @@
+<p align="center">
+    <strong>感谢JetBrains提供的<a target="_blank" href="https://www.jetbrains.com/community/opensource">免费授权</a>.</strong>
+</p>
 # 方舟
 
 # 系统架构图
