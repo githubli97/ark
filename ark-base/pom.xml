@@ -15,18 +15,11 @@
 
     <modules>
         <module>ark-base-common</module>
-        <module>ark-base-client</module>
-        <module>ark-base-domain</module>
-        <module>ark-base-infrastructure-starter</module>
         <module>ark-base-test-starter</module>
-        <module>ark-base-spring-helper</module>
-        <module>ark-base-adapter</module>
     </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
-
-
 </project>

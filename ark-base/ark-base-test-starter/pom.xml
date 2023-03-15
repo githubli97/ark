@@ -23,7 +23,7 @@
         </dependency>
         <dependency>
             <groupId>com.ark</groupId>
-            <artifactId>ark-base-infrastructure-starter</artifactId>
+            <artifactId>ark-base-common</artifactId>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

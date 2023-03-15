@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.ark.infrastructure.config.datasource.ArkDataSourceAutoConfiguration,\
+  com.ark.infrastructure.config.mp.ArkMybatisPlusAutoConfiguration

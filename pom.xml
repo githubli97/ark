@@ -54,31 +54,6 @@
             </dependency>
             <dependency>
                 <groupId>com.ark</groupId>
-                <artifactId>ark-base-client</artifactId>
-                <version>${ark.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.ark</groupId>
-                <artifactId>ark-base-adapter</artifactId>
-                <version>${ark.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.ark</groupId>
-                <artifactId>ark-base-spring-helper</artifactId>
-                <version>${ark.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.ark</groupId>
-                <artifactId>ark-base-domain</artifactId>
-                <version>${ark.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.ark</groupId>
-                <artifactId>ark-base-infrastructure-starter</artifactId>
-                <version>${ark.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.ark</groupId>
                 <artifactId>ark-base-test-starter</artifactId>
                 <version>${ark.version}</version>
                 <scope>test</scope>
