@@ -1,12 +1,12 @@
 package com.ark.adapter;
 
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.context.request.ServletWebRequest;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * @Classname RequestUtil
@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  * @Created by hang.li
  */
 public class RequestUtil {
+
     public static HttpServletRequest getRequest() {
         HttpServletRequest req = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest();
         return req;

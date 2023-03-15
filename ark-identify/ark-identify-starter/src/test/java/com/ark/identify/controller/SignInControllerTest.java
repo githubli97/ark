@@ -1,8 +1,8 @@
 package com.ark.identify.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.ark.ApplicationTest;
 import com.ark.identify.application.service.command.SignInByPasswordCommand;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.After;
 import org.junit.Before;
@@ -43,7 +43,7 @@ public class SignInControllerTest extends ApplicationTest {
                 .setAccount("18888888888");
         mvc.perform(MockMvcRequestBuilders
                 .post("/signin/0/password")
-                .content(JSON.toJSONString(command))
+                .content(new ObjectMapper().writeValueAsString(command))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andDo(result -> {
                     log.info("{}", result.getResponse().getContentAsString());

@@ -1,6 +1,6 @@
 package com.ark.controller;
 
-import com.nimbusds.jose.shaded.json.JSONValue;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,8 +21,8 @@ public class OAuth2ResourceServerController {
 	}
 
 	@GetMapping("/auth-info")
-	public String authinfo(Authentication authentication) {
-		return String.format("user name: %s", JSONValue.toJSONString(authentication.getName()));
+	public String authinfo(Authentication authentication) throws Exception {
+		return String.format("user name: %s", new ObjectMapper().writeValueAsString(authentication.getName()));
 	}
 
 }

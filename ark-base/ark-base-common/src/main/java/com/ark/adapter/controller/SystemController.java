@@ -2,11 +2,11 @@ package com.ark.adapter.controller;
 
 
 import com.ark.common.dto.Response;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
 
 
 /**

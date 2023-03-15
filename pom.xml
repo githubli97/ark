@@ -24,11 +24,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <spring-boot.version>2.6.1</spring-boot.version>
-        <spring-cloud.version>2021.0.0</spring-cloud.version>
-        <hutool.version>5.4.1</hutool.version>
+        <spring-boot.version>3.0.4</spring-boot.version>
+        <spring-cloud.version>2022.0.1</spring-cloud.version>
         <ark.version>1.0-SNAPSHOT</ark.version>
-        <oauth2-authorization-server.version>0.2.0</oauth2-authorization-server.version>
+        <oauth2-authorization-server.version>1.0.1</oauth2-authorization-server.version>
     </properties>
 
     <dependencies>
@@ -86,11 +85,6 @@
             </dependency>
 
             <!--            log-->
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-api</artifactId>
-                <version>1.7.30</version>
-            </dependency>
 
             <dependency>
                 <groupId>org.projectlombok</groupId>
@@ -112,11 +106,6 @@
                 <groupId>commons-beanutils</groupId>
                 <artifactId>commons-beanutils</artifactId>
                 <version>1.9.3</version>
-            </dependency>
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-                <version>2.0.1</version>
             </dependency>
             <dependency>
                 <groupId>com.squareup.okhttp3</groupId>
@@ -147,7 +136,7 @@
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>3.5.1</version>
+                <version>3.5.3.1</version>
             </dependency>
             <dependency>
                 <groupId>org.freemarker</groupId>

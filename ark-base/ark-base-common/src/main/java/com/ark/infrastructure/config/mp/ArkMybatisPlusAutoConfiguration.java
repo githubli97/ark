@@ -1,19 +1,12 @@
 package com.ark.infrastructure.config.mp;
 
-import com.ark.infrastructure.config.datasource.ArkDataSourceAutoConfiguration;
-import com.alibaba.druid.pool.DruidDataSource;
 import com.baomidou.mybatisplus.annotation.DbType;
-import com.baomidou.mybatisplus.autoconfigure.SpringBootVFS;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
-import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.logging.Log;
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -25,36 +18,9 @@ import org.springframework.context.annotation.Configuration;
  */
 @Slf4j
 @Configuration
-@AutoConfigureAfter(ArkDataSourceAutoConfiguration.class)
 @EnableConfigurationProperties(ArkMybatisPlusProperties.class)
 @MapperScan("com.ark.*.infrastucture.persistence.*.mapper")
 public class ArkMybatisPlusAutoConfiguration {
-
-    /**
-     * 通用配置
-     */
-    @Bean
-    public MybatisSqlSessionFactoryBean getMybatisSqlSessionFactoryBean(@Autowired DruidDataSource druidDataSource, ArkMybatisPlusProperties properties) {
-        MybatisSqlSessionFactoryBean mybatisPlus = new MybatisSqlSessionFactoryBean();
-        mybatisPlus.setDataSource(druidDataSource); // 配置项目中要使用的数据源
-        mybatisPlus.setVfs(SpringBootVFS.class); // 配置程序的扫描类
-
-        mybatisPlus.setPlugins(getMybatisPlusInterceptor()); // 设置分页拦截器
-        mybatisPlus.setConfiguration(properties.getConfiguration());
-
-        if (properties.getPrintSql()) {
-            try {
-                properties.getConfiguration().setLogImpl((Class<? extends Log>) Class.forName("org.apache.ibatis.logging.stdout.StdOutImpl"));
-            } catch (ClassNotFoundException e) {
-                log.warn("打印sql日志实现类加载失败。");
-            }
-
-        }
-
-        mybatisPlus.setGlobalConfig(properties.getGlobalConfig());
-        return mybatisPlus;
-    }
-
     /**
      * 分页
      */

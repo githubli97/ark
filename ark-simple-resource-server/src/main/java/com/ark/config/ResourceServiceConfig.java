@@ -33,7 +33,7 @@ public class ResourceServiceConfig {
 		// @formatter:off
 		http
 				.authorizeHttpRequests((authorize) -> authorize
-						.mvcMatchers("/message").permitAll()
+						.requestMatchers("/message").permitAll()
 						.anyRequest().authenticated()
 				)
 				.csrf(csrf -> csrf.disable())

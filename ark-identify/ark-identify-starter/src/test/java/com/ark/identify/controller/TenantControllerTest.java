@@ -1,8 +1,8 @@
 package com.ark.identify.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.ark.ApplicationTest;
 import com.ark.identify.application.service.command.SignInByPhoneCommand;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.After;
 import org.junit.Before;
@@ -43,7 +43,7 @@ public class TenantControllerTest extends ApplicationTest {
                 .setTenantName("【方舟3】");
         mvc.perform(MockMvcRequestBuilders
                 .post("/tenant/signUpByPhone")
-                .content(JSON.toJSONString(signInByPhoneCommand))
+                .content(new ObjectMapper().writeValueAsString(signInByPhoneCommand))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andDo(result -> {
                     log.info("{}", result.getResponse().getContentAsString());
