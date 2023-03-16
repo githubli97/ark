@@ -12,28 +12,9 @@ spring:
           uri: http://${ARK_SIMPLE_RESOURCE_SERVICE:ark-simple-resource}
           predicates:
             - Path=/auth-info,/message,/auth-message
-          filters:
-            - name: AddJwtToken
-
-  security:
-    oauth2:
-      client:
-        registration:
-          login-client:
-            provider: spring
-            client-id: login-client
-            client-secret: openid-connect
-            client-authentication-method: client_secret_basic
-            authorization-grant-type: authorization_code
-            redirect-uri: http://api.ark.com/login/oauth2/code/login-client
-            scope: openid,profile
-            client-name: Spring
-        provider:
-          spring:
-            authorization-uri: http://account.ark.com/oauth2/authorize
-            token-uri: http://${ARK_IDENTIFY_SERVICE:ark-account}/oauth2/token
-            jwk-set-uri: http://${ARK_IDENTIFY_SERVICE:ark-account}/oauth2/jwks
-ark:
-  jwt:
-    public.key: classpath:app.pub
-    private.key: classpath:app.key
+#          filters:
+#            - name: AddJwtToken
+        - id: ark-identify
+          uri: http://${ARK_IDENTIFY_SERVICE:ark-account}
+          predicates:
+            - Path=/ark-identify/**
