@@ -99,7 +99,7 @@ export default {
      * @param type
      */
     Vue.prototype.$restBack = function (res, fn = () => {}, message, type = "success") {
-      if (res.code === 200) {
+      if (res.status === 200) {
         this.$message({
           message: message || res.message,
           type: type

@@ -23,7 +23,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: devEnv.PROXY_REQUEST === false ? {} : {
       '/api': {
-        target: 'http://127.0.0.1',
+        target: 'http://localhost:10000/',
         changeOrigin: true,
         pathRewrite: {
           '^/api': '/'

@@ -13,6 +13,20 @@ server {
     }
 }
 
+server {
+    listen       80;
+    server_name  www.ark.com;
+
+    location ^~/api/ {
+        proxy_pass   http://${ARK_GATEWAY_SERVICE}/;
+    }
+
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   html;
+    }
+}
+
 # 统一认证 外部转发
 server {
     listen       80;

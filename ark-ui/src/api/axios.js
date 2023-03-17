@@ -15,10 +15,7 @@ axios.defaults.baseURL = process.env.API_HOST
 // http request 拦截器
 axios.interceptors.request.use(config => {
   NProgress.start()
-  config.headers["Content-Type"] = "application/json;charset=UTF-8"
-  if (Cookies.get("access_token")) {
-    config.headers.Authorization = "Bearer" + Cookies.get("access_token")
-  }
+  // config.headers["Content-Type"] = "application/json;charset=UTF-8"
   return config
 },
 error => {
@@ -28,18 +25,7 @@ error => {
 // http response 拦截器
 axios.interceptors.response.use(response => {
   NProgress.done()
-  if (response.data.code === 11000) {
-    Cookies.set("access_token", response.data.message, { expires: 1 / 12 })
-    return Promise.resolve()
-  } else if (response.data.code === 10000) {
-    Message({
-      message: response.data.message,
-      type: "warning"
-    })
-    return Promise.reject(response)
-  } else {
-    return Promise.resolve(response)
-  }
+  return Promise.resolve()
 },
 error => {
   if (error.response.status === 404) {
