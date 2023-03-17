@@ -13,24 +13,11 @@ server {
     }
 }
 
-server {
-    listen       80;
-    server_name  www.ark.com;
-
-    location ^~/api/ {
-        proxy_pass   http://${ARK_GATEWAY_SERVICE}/;
-    }
-
-    error_page   500 502 503 504  /50x.html;
-    location = /50x.html {
-        root   html;
-    }
-}
 
 # 统一认证 外部转发
 server {
     listen       80;
-    server_name  account.ark.com;
+    server_name  account.ark.com|;
 
     location / {
         proxy_pass   http://${ARK_IDENTIFY_SERVICE}/;
@@ -41,8 +28,6 @@ server {
         root   html;
     }
 }
-
-# 统一认证 内部转发
 server {
     listen       80;
     server_name  ark-account;
@@ -56,13 +41,12 @@ server {
         root   html;
     }
 }
-# 统一认证 内部转发
 server {
     listen       80;
-    server_name  ark-simple-resource;
+    server_name  ark-userinfo;
 
     location / {
-        proxy_pass   http://${ARK_SIMPLE_RESOURCE_SERVICE}/;
+        proxy_pass   http://${ARK_USERINFO_SERVICE}/;
     }
 
     error_page   500 502 503 504  /50x.html;
