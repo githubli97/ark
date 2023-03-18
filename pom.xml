@@ -59,6 +59,11 @@
             </dependency>
             <dependency>
                 <groupId>com.ark</groupId>
+                <artifactId>ark-identify-client</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ark</groupId>
                 <artifactId>ark-base-test-starter</artifactId>
                 <version>${ark.version}</version>
                 <scope>test</scope>

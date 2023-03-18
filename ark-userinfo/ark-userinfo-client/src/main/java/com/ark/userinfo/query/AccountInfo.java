@@ -4,7 +4,6 @@ import com.google.common.collect.Sets;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.io.Serializable;
@@ -15,6 +14,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AccountInfo implements UserDetails, Serializable {
+    private Long id;
     private String username;
     private String password;
 
@@ -29,6 +29,6 @@ public class AccountInfo implements UserDetails, Serializable {
     private String userProfilePicture;
 
     public AccountInfo(String username, String password, Collection<ArkGrantedAuthority> authorities) {
-        this(username, password, true, true, true, true, Sets.newHashSet(authorities), null);
+        this(1L, username, password, true, true, true, true, Sets.newHashSet(authorities), null);
     }
 }

@@ -4,7 +4,7 @@ server:
       cookie:
         http-only: true
         path: /
-        domain: ark.com
+#        domain: ark.com
 
 spring:
   application:
