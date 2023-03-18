@@ -1,54 +1,99 @@
 <template>
-  <div id="app">
-    <transition name="fade" mode="out-in">
-      <router-view></router-view>
-    </transition>
-  </div>
+  <el-config-provider :locale="i18nLocale">
+    <router-view />
+    <!-- <Setings ref="setingsRef" v-show="getThemeConfig.lockScreenTime !== 0"/> -->
+  </el-config-provider>
 </template>
 
-<script>
-export default {
-  name: "app"
-}
+<script lang="ts">
+import {
+  computed,
+  ref,
+  getCurrentInstance,
+  onBeforeMount,
+  onMounted,
+  onUnmounted,
+  nextTick,
+  defineComponent,
+  watch,
+  reactive,
+  toRefs
+} from 'vue';
+import {useRoute} from 'vue-router';
+import {useStore} from '/@/store/index';
+import {useTitle} from '/@/utils/setWebTitle';
+import {Local} from '/@/utils/storage';
+import setIntroduction from '/@/utils/setIconfont';
+import LockScreen from '/@/layout/lockScreen/index.vue';
+import Setings from '/@/layout/navBars/breadcrumb/setings.vue';
+import CloseFull from '/@/layout/navBars/breadcrumb/closeFull.vue';
 
+export default defineComponent({
+  name: 'app',
+  components: {LockScreen, Setings, CloseFull},
+  setup() {
+    const {proxy} = getCurrentInstance() as any;
+    const setingsRef = ref();
+    const route = useRoute();
+    const store = useStore();
+    const title = useTitle();
+    const state = reactive({
+      i18nLocale: '',
+    });
+    // 获取布局配置信息
+    const getThemeConfig = computed(() => {
+      return store.state.themeConfig.themeConfig;
+    });
+    // 布局配置弹窗打开
+    const openSetingsDrawer = () => {
+      setingsRef.value.openDrawer();
+    };
+    // 设置初始化，防止刷新时恢复默认
+    onBeforeMount(() => {
+      // 设置批量第三方 icon 图标
+      setIntroduction.cssCdn();
+      // 设置批量第三方 js
+      setIntroduction.jsCdn();
+    });
+    // 页面加载时
+    onMounted(() => {
+      nextTick(() => {
+        // 暂时固定展示中文国际化内容；
+        state.i18nLocale = proxy.$i18n.messages['zh-cn'];
+        // // 监听布局配置弹窗点击打开
+        // proxy.mittBus.on('openSetingsDrawer', () => {
+        //   openSetingsDrawer();
+        // });
+        // // 设置 i18n，App.vue 中的 el-config-provider
+        // proxy.mittBus.on('getI18nConfig', (locale: string) => {
+        //   state.i18nLocale = locale;
+        // });
+        // // 获取缓存中的布局配置
+        // if (Local.get('themeConfig')) {
+        //   store.dispatch('themeConfig/setThemeConfig', Local.get('themeConfig'));
+        //   document.documentElement.style.cssText = Local.get('themeConfigStyle');
+        // }
+      });
+    });
+    // 页面销毁时，关闭监听布局配置/i18n监听
+    onUnmounted(() => {
+      proxy.mittBus.off('openSetingsDrawer', () => {
+      });
+      proxy.mittBus.off('getI18nConfig', () => {
+      });
+    });
+    // 监听路由的变化，设置网站标题
+    watch(
+      () => route.path,
+      () => {
+        title();
+      }
+    );
+    return {
+      setingsRef,
+      getThemeConfig,
+      ...toRefs(state),
+    };
+  },
+});
 </script>
-
-<style lang="scss">
-body {
-	margin: 0px;
-	padding: 0px;
-	font-family: Microsoft YaHei, Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,  SimSun, sans-serif;
-	font-size: 14px;
-	-webkit-font-smoothing: antialiased;
-}
-
-#app {
-	position: absolute;
-	top: 0px;
-	bottom: 0px;
-	width: 100%;
-}
-a{
-  color: #56a9ff;
-}
-.fade-enter-active,
-.fade-leave-active {
-	transition: all .2s ease;
-}
-
-.fade-enter,
-.fade-leave-active {
-	opacity: 0;
-}
-.cardshadow {
-  padding: 10px;
-  background: #fff;
-  -webkit-box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.2);
-  box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.2);
-  border-color: rgba(0, 0, 0, 0.2);
-}
-#nprogress .bar {
-  height: 3px !important;
-  background: #56a9ff !important; //自定义颜色
-}
-</style>
