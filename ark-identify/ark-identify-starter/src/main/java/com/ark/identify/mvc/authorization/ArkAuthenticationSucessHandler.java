@@ -1,4 +1,4 @@
-package com.ark.identify.mvc.config;
+package com.ark.identify.mvc.authorization;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
@@ -20,6 +20,6 @@ public class ArkAuthenticationSucessHandler implements AuthenticationSuccessHand
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
                                         Authentication authentication) throws IOException {
         response.setContentType("application/json;charset=utf-8");
-        response.getWriter().write(mapper.writeValueAsString(authentication));
+        response.getWriter().write(mapper.writeValueAsString(authentication.getName()));
     }
 }

@@ -13,14 +13,15 @@
         <module>ark-base</module>
         <module>ark-gateway</module>
         <module>ark-simple-resource-server</module>
+        <module>ark-userinfo</module>
     </modules>
     <packaging>pom</packaging>
 
     <properties>
         <maven.test.skip>true</maven.test.skip>
-        <java.version>8</java.version>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <java.version>17</java.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -53,6 +54,16 @@
             </dependency>
             <dependency>
                 <groupId>com.ark</groupId>
+                <artifactId>ark-userinfo-client</artifactId>
+                <version>${ark.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ark</groupId>
+                <artifactId>ark-identify-client</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ark</groupId>
                 <artifactId>ark-base-test-starter</artifactId>
                 <version>${ark.version}</version>
                 <scope>test</scope>
@@ -79,7 +90,18 @@
                 <scope>import</scope>
             </dependency>
 
-            <!--            log-->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>2.9.2</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>2.9.2</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>

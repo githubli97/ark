@@ -1,0 +1,3 @@
+ark:
+  feign:
+    url: http://ark-userinfo

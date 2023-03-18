@@ -1,4 +1,4 @@
-package com.ark.identify.mvc.config;
+package com.ark.identify.mvc.authorization;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

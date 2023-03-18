@@ -1,0 +1,6 @@
+server:
+  port: 10020
+
+logging:
+  level:
+    root: debug
