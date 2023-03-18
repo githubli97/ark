@@ -1,0 +1,45 @@
+<template>
+  <template v-for="val in chils">
+    <el-submenu v-if="val.children && val.children.length > 0" :key="val.path" :index="val.path">
+      <template #title>
+        <i :class="val.meta.icon" />
+        <span>{{ $t(val.meta.title) }}</span>
+      </template>
+      <sub-item :chil="val.children" />
+    </el-submenu>
+    <el-menu-item v-else :key="val.path" :index="val.path">
+      <template v-if="!val.meta.isLink || (val.meta.isLink && val.meta.isIframe)">
+        <i :class="val.meta.icon ? val.meta.icon : ''" />
+        <span>{{ $t(val.meta.title) }}</span>
+      </template>
+      <template v-else>
+        <a :href="val.meta.isLink" target="_blank" rel="opener">
+          <i :class="val.meta.icon ? val.meta.icon : ''" />
+          {{ $t(val.meta.title) }}
+        </a>
+      </template>
+    </el-menu-item>
+  </template>
+</template>
+
+<script lang="ts">
+import { computed, defineComponent } from 'vue';
+export default defineComponent({
+  name: 'NavMenuSubItem',
+  props: {
+    chil: {
+      type: Array,
+      default: () => [],
+    },
+  },
+  setup(props) {
+    // 获取父级菜单数据
+    const chils = computed(() => {
+      return props.chil;
+    });
+    return {
+      chils,
+    };
+  },
+});
+</script>
