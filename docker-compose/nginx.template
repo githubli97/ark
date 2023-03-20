@@ -17,7 +17,7 @@ server {
 # 统一认证 外部转发
 server {
     listen       80;
-    server_name  account.ark.com|;
+    server_name  account.ark.com;
 
     location / {
         proxy_pass   http://${ARK_IDENTIFY_SERVICE}/;

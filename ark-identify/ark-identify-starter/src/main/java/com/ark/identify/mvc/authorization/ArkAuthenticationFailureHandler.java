@@ -22,7 +22,7 @@ public class ArkAuthenticationFailureHandler implements AuthenticationFailureHan
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
                                         AuthenticationException exception) throws IOException {
         response.setContentType("application/json;charset=utf-8");
-        response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
-        response.getWriter().write(mapper.writeValueAsString(HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase()));
+        response.setStatus(HttpStatus.UNAUTHORIZED.value());
+        response.getWriter().write(mapper.writeValueAsString(HttpStatus.UNAUTHORIZED.getReasonPhrase()));
     }
 }

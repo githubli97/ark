@@ -27,6 +27,10 @@ mybatis-plus:
       logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
 
 ark:
+  service-domain:
+    gateway: localhost:10000
+    identify: localhost:10010
+    userinfo: localhost:10020
   service-name:
     gateway: ark-gateway
     identify: ark-identify

@@ -26,7 +26,9 @@ public class UserinfoApiImpl implements UserinfoApi {
     public AccountInfo getUserinfoById(@PathVariable("argType") String argType, @PathVariable("arg") String arg) {
         log.info("argType: {}, arg: {}", argType, arg);
         return new AccountInfo(arg,
-                this.passwordEncoder.encode("admin"),
-                Sets.newHashSet(new ArkGrantedAuthority("admin")));
+                "张三",
+                this.passwordEncoder.encode("123456"),
+                Sets.newHashSet(new ArkGrantedAuthority("admin")),
+                "https://vben.vvbin.cn/assets/header.1b5fa5f8.jpg");
     }
 }

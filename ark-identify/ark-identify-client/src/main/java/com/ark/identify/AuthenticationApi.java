@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 @Api(value = "鉴权接口", tags = "鉴权接口")
-@FeignClient(name = "AuthenticationApi", url = "${ark.feign.protocol}://${ark.service-name.identify}")
+@FeignClient(name = "AuthenticationApi", url = "${ark.feign.protocol}://${ark.service-domain.identify}")
 public interface AuthenticationApi {
     @ApiOperation(value = "对服务下uri鉴权", notes = "用户信息")
     @ApiImplicitParam(name = "id", value = "id", required = true, dataType = "long", paramType = "arg")

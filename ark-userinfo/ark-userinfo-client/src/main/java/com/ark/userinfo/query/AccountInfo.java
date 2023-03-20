@@ -4,6 +4,7 @@ import com.google.common.collect.Sets;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.security.core.CredentialsContainer;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.io.Serializable;
@@ -13,9 +14,10 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AccountInfo implements UserDetails, Serializable {
+public class AccountInfo implements UserDetails, CredentialsContainer, Serializable {
     private Long id;
     private String username;
+    private String realName;
     private String password;
 
     private boolean accountNonExpired;
@@ -28,7 +30,12 @@ public class AccountInfo implements UserDetails, Serializable {
     private Set<ArkGrantedAuthority> authorities;
     private String userProfilePicture;
 
-    public AccountInfo(String username, String password, Collection<ArkGrantedAuthority> authorities) {
-        this(1L, username, password, true, true, true, true, Sets.newHashSet(authorities), null);
+    public AccountInfo(String username, String realName, String password, Collection<ArkGrantedAuthority> authorities, String userProfilePicture) {
+        this(1L, username, realName, password, true, true, true, true, Sets.newHashSet(authorities), userProfilePicture);
+    }
+
+    @Override
+    public void eraseCredentials() {
+        this.password = null;
     }
 }

@@ -14,6 +14,6 @@ import org.springframework.web.filter.HiddenHttpMethodFilter;
 
 
 @Api(value = "授权接口", tags = "授权接口")
-@FeignClient(name = "AuthenticationApi", url = "${ark.feign.protocol}://${ark.service-name.identify}")
+@FeignClient(name = "AuthenticationApi", url = "${ark.feign.protocol}://${ark.service-domain.identify}")
 public interface AuthorizationApi extends ClientApi {
 }

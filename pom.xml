@@ -12,8 +12,8 @@
         <module>ark-identify</module>
         <module>ark-base</module>
         <module>ark-gateway</module>
-        <module>ark-simple-resource-server</module>
         <module>ark-userinfo</module>
+        <module>ark-platform</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -60,7 +60,7 @@
             <dependency>
                 <groupId>com.ark</groupId>
                 <artifactId>ark-identify-client</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <version>${ark.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.ark</groupId>
