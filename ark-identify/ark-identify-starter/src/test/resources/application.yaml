@@ -1,0 +1,13 @@
+server:
+  servlet:
+    session:
+      cookie:
+        http-only: true
+        path: /
+#        domain: ark.com
+
+spring:
+  application:
+    name: ark-identify
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}

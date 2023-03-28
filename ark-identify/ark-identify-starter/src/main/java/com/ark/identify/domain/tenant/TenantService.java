@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class TenantService {
     private ITenantRepository iTenantRepository;
-    public void save(Tenant tenant) {
-//        iTenantRepository.save(tenant);
+    public Tenant store(Tenant tenant) {
+        return iTenantRepository.store(tenant);
     }
 }

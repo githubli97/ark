@@ -9,6 +9,7 @@ public abstract class AbstractEntity {
     protected Long id;
     protected Long creator;
     protected Long modifier;
-    protected LocalDateTime createdDateTime;
-    protected LocalDateTime modifiedDateTime;
+    protected LocalDateTime createdTime;
+    protected LocalDateTime modifiedTime;
+    protected Long version;
 }

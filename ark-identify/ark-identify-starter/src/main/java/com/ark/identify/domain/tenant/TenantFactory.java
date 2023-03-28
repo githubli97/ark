@@ -1,14 +1,21 @@
 package com.ark.identify.domain.tenant;
 
+import com.ark.domain.AbstractEntityFactory;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TenantFactory {
-
+@AllArgsConstructor
+public class TenantFactory extends AbstractEntityFactory<Tenant> {
     public Tenant createTenant(String name) {
-        Tenant tenant = new Tenant();
+        Tenant tenant = createAbstractEntity();
 
         tenant.setName(name);
         return tenant;
+    }
+
+    @Override
+    protected Tenant getInstance() {
+        return new Tenant();
     }
 }

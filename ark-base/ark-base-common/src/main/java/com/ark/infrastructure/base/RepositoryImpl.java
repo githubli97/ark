@@ -2,23 +2,26 @@ package com.ark.infrastructure.base;
 
 import com.ark.domain.AbstractEntity;
 import com.ark.domain.IRepository;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * Repository 基类
  * @param <D> domain class
- * @param <M> mapper class
  * @param <P> persistent class
  */
-public abstract class RepositoryImpl<D extends AbstractEntity, M extends BaseMapper<P>, P extends AbstractPersistent> extends ServiceImpl<M, P> implements IRepository<D> {
+public abstract class RepositoryImpl<D extends AbstractEntity, P extends AbstractPersistent> implements IRepository<D> {
     @Autowired
-    private Convertor<D, P> convertor;
+    protected Convertor<D, P> convertor;
+    @Lazy
+    @Autowired
+    protected JpaRepository<P, Long> jpaRepository;
 
     @Override
-    public void store(D entity) {
+    public D store(D entity) {
         P po = convertor.DOToPO(entity);
-        saveOrUpdate(po);
+        jpaRepository.save(po);
+        return entity;
     }
 }

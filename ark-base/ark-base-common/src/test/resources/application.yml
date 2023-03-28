@@ -1,14 +1,13 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver # MySQL8之后的驱动
-    url: jdbc:mysql://mysql.ark.com:3308/ark-ddd?useSSL=false # 数据库的JDBC连接地址
+    url: jdbc:mysql://mysql.ark.com:3308/ark-ddd # 数据库的JDBC连接地址
     username: root # 用户名
     password: jXpullesLBc8hUdsei # 密码
-  jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect
-
+    jpa:
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.MySQLDialect
 
 ark:
   service-domain:

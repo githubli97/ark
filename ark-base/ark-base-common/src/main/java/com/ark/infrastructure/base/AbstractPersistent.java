@@ -1,16 +1,27 @@
 package com.ark.infrastructure.base;
 
-import com.ark.domain.AbstractEntity;
+import jakarta.persistence.Column;
+import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
 import lombok.Data;
-import lombok.Getter;
 
 import java.time.LocalDateTime;
 
 @Data
-public abstract class AbstractPersistent<D extends AbstractEntity> {
+@MappedSuperclass
+public abstract class AbstractPersistent {
+    @Id
     protected Long id;
+    @Column(name = "CREATOR")
     protected Long creator;
+    @Column(name = "MODIFIER")
     protected Long modifier;
-    protected LocalDateTime createdDateTime;
-    protected LocalDateTime modifiedDateTime;
+    @Column(name = "CREATED_TIME")
+    protected LocalDateTime createdTime;
+    @Column(name = "MODIFIED_TIME")
+    protected LocalDateTime modifiedTime;
+    @Column(name = "IS_DELETED")
+    protected boolean isDeleted;
+    @Column(name = "VERSION")
+    protected Long version;
 }

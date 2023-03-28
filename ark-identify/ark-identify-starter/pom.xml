@@ -48,15 +48,9 @@
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
 
-
         <dependency>
             <groupId>com.ark</groupId>
-            <artifactId>ark-generator-mybatis-plus</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.ark</groupId>
-            <artifactId>ark-generator-mybatis-plus</artifactId>
+            <artifactId>ark-base-test-starter</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>

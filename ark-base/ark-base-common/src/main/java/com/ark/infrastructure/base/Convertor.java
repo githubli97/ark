@@ -10,8 +10,10 @@ public interface Convertor<D extends AbstractEntity, P extends AbstractPersisten
         poInstance.id = DO.getId();
         poInstance.creator = DO.getCreator();
         poInstance.modifier = DO.getModifier();
-        poInstance.createdDateTime = DO.getCreatedDateTime();
-        poInstance.modifiedDateTime = DO.getModifiedDateTime();
+        poInstance.createdTime = DO.getCreatedTime();
+        poInstance.modifiedTime = DO.getModifiedTime();
+        poInstance.isDeleted = false;
+        poInstance.version = DO.getVersion();
         doDOToPO(poInstance, DO);
         return poInstance;
     };

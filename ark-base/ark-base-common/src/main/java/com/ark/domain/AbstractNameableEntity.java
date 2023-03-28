@@ -13,6 +13,7 @@ public abstract class AbstractNameableEntity extends AbstractEntity {
     public void setName(String name){
         if (verifyName(name)) {
             this.name = name;
+            return;
         }
         throw new ArkRuntimeException();
     }
