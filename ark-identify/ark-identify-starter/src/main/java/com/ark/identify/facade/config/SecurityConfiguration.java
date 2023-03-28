@@ -19,7 +19,7 @@ package com.ark.identify.facade.config;
 import com.ark.identify.facade.authorization.ArkAuthenticationFailureHandler;
 import com.ark.identify.facade.authorization.ArkAuthenticationSucessHandler;
 import com.ark.identify.facade.authorization.ArkLogOutSuccessHandler;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -35,14 +35,12 @@ import org.springframework.security.web.SecurityFilterChain;
  */
 @Configuration
 @EnableWebSecurity
+@AllArgsConstructor
 public class SecurityConfiguration {
-    @Autowired
     private ArkAuthenticationSucessHandler sucessHandler;
-
-    @Autowired
     private ArkAuthenticationFailureHandler failureHandler;
-    @Autowired
     private ArkLogOutSuccessHandler logOutSuccessHandler;
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

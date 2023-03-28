@@ -20,33 +20,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up JDK 8
-      uses: actions/setup-java@v3
-      with:
-        java-version: '8'
-        distribution: 'temurin'
-        cache: maven
-    - name: install root项目
-      run: mvn install -DskipTests=true --file pom.xml
+      - uses: actions/checkout@v3
+      - name: Set up JDK 8
+        uses: actions/setup-java@v3
+        with:
+          java-version: '8'
+          distribution: 'temurin'
+          cache: maven
+      - name: install root项目
+        run: mvn install -DskipTests=true --file pom.xml
 
-    - name: 登录dockerhub
-      uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
-      with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: 登录dockerhub
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: build ark-identify-starter镜像
-      run: mvn spring-boot:build-image -DskipTests=true --file ark-identify/ark-identify-starter/pom.xml
-    - name: 推送 ark-identify-starter镜像
-      run: docker push 469995363/ark-identify-starter:`docker images|grep ark-identify-starter|awk '{print $2}'`
+      - name: build ark-identify-starter镜像
+        run: mvn spring-boot:build-image -DskipTests=true --file ark-identify/ark-identify-starter/pom.xml
+      - name: 推送 ark-identify-starter镜像
+        run: docker push 469995363/ark-identify-starter:`docker images|grep ark-identify-starter|awk '{print $2}'`
 
-    - name: build ark-gateway镜像
-      run: mvn spring-boot:build-image -DskipTests=true --file ark-gateway/pom.xml
-    - name: 推送 ark-gateway镜像
-      run: docker push 469995363/ark-gateway:`docker images|grep ark-gateway|awk '{print $2}'`
+      - name: build ark-gateway镜像
+        run: mvn spring-boot:build-image -DskipTests=true --file ark-gateway/pom.xml
+      - name: 推送 ark-gateway镜像
+        run: docker push 469995363/ark-gateway:`docker images|grep ark-gateway|awk '{print $2}'`
 
-    - name: build ark-simple-resource-server镜像
-      run: mvn spring-boot:build-image -DskipTests=true --file ark-simple-resource-server/pom.xml
-    - name: 推送 ark-simple-resource-server镜像
-      run: docker push 469995363/ark-simple-resource-server:`docker images|grep ark-simple-resource-server|awk '{print $2}'`
+      - name: build ark-simple-resource-server镜像
+        run: mvn spring-boot:build-image -DskipTests=true --file ark-simple-resource-server/pom.xml
+      - name: 推送 ark-simple-resource-server镜像
+        run: docker push 469995363/ark-simple-resource-server:`docker images|grep ark-simple-resource-server|awk '{print $2}'`

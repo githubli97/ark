@@ -8,8 +8,8 @@ public class Employee extends User {
     private String gender;
     private LocalDate birthday;
     private Organiztion organiztion;
+
     @Override
-    protected boolean verifyName(String name) {
-        return true;
+    protected void assertVerifyName(String name) {
     }
 }

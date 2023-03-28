@@ -8,23 +8,23 @@ spring:
   cloud:
     gateway:
       # 允许全局跨域
-#      globalcors:
-#        corsConfigurations:
-#          '[/**]':
-#            allowedOriginPatterns: "http://localhost:*"
-#            allowedMethods:
-#              - GET
-#              - POST
-#            allowed-headers: "*"
-#            allowCredentials: true
-#            maxAge: 3600
+      #      globalcors:
+      #        corsConfigurations:
+      #          '[/**]':
+      #            allowedOriginPatterns: "http://localhost:*"
+      #            allowedMethods:
+      #              - GET
+      #              - POST
+      #            allowed-headers: "*"
+      #            allowCredentials: true
+      #            maxAge: 3600
       routes:
         - id: path_route
           uri: http://${ARK_SIMPLE_RESOURCE_SERVICE:ark-simple-resource}
           predicates:
             - Path=/auth-info,/message,/auth-message
-#          filters:
-#            - name: AddJwtToken
+        #          filters:
+        #            - name: AddJwtToken
         - id: ark-identify
           uri: http://localhost:10010
           predicates:

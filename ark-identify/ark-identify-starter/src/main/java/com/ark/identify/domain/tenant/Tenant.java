@@ -5,7 +5,6 @@ import com.ark.domain.AbstractNameableEntity;
 public class Tenant extends AbstractNameableEntity {
 
     @Override
-    protected boolean verifyName(String name) {
-        return true;
+    protected void assertVerifyName(String name) {
     }
 }

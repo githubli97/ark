@@ -13,6 +13,7 @@ import java.io.Serializable;
 public class ArkGrantedAuthority implements GrantedAuthority, Serializable {
 
     private String authority;
+
     @Override
     public String getAuthority() {
         return authority;

@@ -4,7 +4,7 @@ services:
   ark-nginx-gateway:
     image: nginx:1.19.0
     ports:
-      - 80:80
+      - "80:80"
     env_file:
       - .env
     volumes:
@@ -16,7 +16,7 @@ services:
   ark-identify-service:
     image: 469995363/ark-identify-starter:1.0-SNAPSHOT
     ports:
-      - 10010:80
+      - "10010:80"
     env_file:
       - .env
     networks:
@@ -28,14 +28,14 @@ services:
     env_file:
       - .env
     ports:
-      - 8090:80
+      - "8090:80"
     networks:
       - ark_internal_access
       - ark_external_access # db access
   ark-gateway-service:
     image: 469995363/ark-gateway:1.0-SNAPSHOT
     ports:
-      - 10000:80
+      - "10000:80"
     env_file:
       - .env
     networks:

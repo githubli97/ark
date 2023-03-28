@@ -1,7 +1,6 @@
 package com.ark.common.util;
 
 import com.ark.common.exception.ArkRuntimeException;
-import org.apache.commons.beanutils.PropertyUtils;
 import org.springframework.util.ReflectionUtils;
 
 import java.lang.reflect.Field;
@@ -37,7 +36,7 @@ public final class BeanUtils {
     /**
      * 属性拷贝
      */
-    public static<S, T> void copyProperties(S source, T target)  {
+    public static <S, T> void copyProperties(S source, T target) {
         try {
             org.springframework.beans.BeanUtils.copyProperties(source, target);
         } catch (Exception e) {

@@ -8,12 +8,15 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * Repository 基类
+ *
  * @param <D> domain class
  * @param <P> persistent class
  */
 public abstract class RepositoryImpl<D extends AbstractEntity, P extends AbstractPersistent> implements IRepository<D> {
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     protected Convertor<D, P> convertor;
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Lazy
     @Autowired
     protected JpaRepository<P, Long> jpaRepository;

@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 public abstract class AbstractEntityFactory<E extends AbstractEntity> {
     @Autowired
     protected SnowflakeIdGeneratorHelper snowflakeIdGeneratorHelper;
+
     protected E createAbstractEntity() {
         E entity = getInstance();
         entity.id = snowflakeIdGeneratorHelper.nextId();
@@ -20,5 +21,6 @@ public abstract class AbstractEntityFactory<E extends AbstractEntity> {
         entity.version = Constants.ZERO;
         return entity;
     }
+
     protected abstract E getInstance();
 }

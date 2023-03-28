@@ -9,7 +9,6 @@ public class Role extends AbstractNameableEntity {
     private List<Resource> resourceList;
 
     @Override
-    protected boolean verifyName(String name) {
-        return true;
+    protected void assertVerifyName(String name) {
     }
 }

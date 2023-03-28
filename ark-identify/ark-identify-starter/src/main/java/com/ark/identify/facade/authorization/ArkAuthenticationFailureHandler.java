@@ -3,7 +3,7 @@ package com.ark.identify.facade.authorization;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
@@ -12,10 +12,9 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 
 @Component
+@AllArgsConstructor
 public class ArkAuthenticationFailureHandler implements AuthenticationFailureHandler {
-
-    @Autowired
-    private ObjectMapper mapper;
+    private final ObjectMapper mapper;
 
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,

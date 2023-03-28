@@ -16,7 +16,7 @@ public interface Convertor<D extends AbstractEntity, P extends AbstractPersisten
         poInstance.version = DO.getVersion();
         doDOToPO(poInstance, DO);
         return poInstance;
-    };
+    }
 
     P doDOToPO(P PO, D DO);
 

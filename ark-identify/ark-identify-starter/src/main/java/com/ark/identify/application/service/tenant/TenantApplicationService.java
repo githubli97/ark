@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class TenantApplicationService {
     private TenantService tenantService;
     private TenantCommandHandler tenantCommandHandler;
+
     @Transactional
     public void createTenantByPhone(CreateTenantByPhoneCommand createTenantByPhoneCommand) {
         // 创建租户
