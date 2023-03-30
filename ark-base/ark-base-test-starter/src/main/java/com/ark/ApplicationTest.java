@@ -8,4 +8,5 @@ import org.springframework.test.context.ContextConfiguration;
 @ContextConfiguration(classes = Application.class)
 @AutoConfigureMockMvc
 public class ApplicationTest {
+
 }

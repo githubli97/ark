@@ -37,6 +37,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 @AllArgsConstructor
 public class SecurityConfiguration {
+
     private ArkAuthenticationSucessHandler sucessHandler;
     private ArkAuthenticationFailureHandler failureHandler;
     private ArkLogOutSuccessHandler logOutSuccessHandler;
@@ -50,29 +51,29 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .formLogin(formLogin -> {
-                    formLogin
-                            .loginProcessingUrl("/login")
-                            .successHandler(sucessHandler)
-                            .failureHandler(failureHandler);
-                })
-                .logout(logout -> {
-                    logout
-                            .logoutUrl("/logout")
-                            .logoutSuccessHandler(logOutSuccessHandler)
-                            .deleteCookies("JSESSIONID");
+            .formLogin(formLogin -> {
+                formLogin
+                    .loginProcessingUrl("/login")
+                    .successHandler(sucessHandler)
+                    .failureHandler(failureHandler);
+            })
+            .logout(logout -> {
+                logout
+                    .logoutUrl("/logout")
+                    .logoutSuccessHandler(logOutSuccessHandler)
+                    .deleteCookies("JSESSIONID");
 
-                })
-                .authorizeHttpRequests(registry -> {
-                    registry
-                            // 白名单
-                            .requestMatchers("/authentication/require").permitAll()
-                            // 其余所有请求，都需要认证
-                            .anyRequest().authenticated();
-                })
-                .csrf(csrf -> {
-                    csrf.disable();
-                });
+            })
+            .authorizeHttpRequests(registry -> {
+                registry
+                    // 白名单
+                    .requestMatchers("/authentication/require").permitAll()
+                    // 其余所有请求，都需要认证
+                    .anyRequest().authenticated();
+            })
+            .csrf(csrf -> {
+                csrf.disable();
+            });
         return http.build();
     }
 }

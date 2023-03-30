@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class TenantService {
+
     private ITenantRepository iTenantRepository;
 
     public Tenant store(Tenant tenant) {

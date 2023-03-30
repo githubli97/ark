@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class CreateTenantByPhoneCommand {
+
     private String phone;
     private String tenantName;
     private String verifyCode;

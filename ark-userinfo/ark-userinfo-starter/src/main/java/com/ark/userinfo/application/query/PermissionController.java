@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Service
 @RestController
 public class PermissionController {
+
     @GetMapping("permissionCode")
     public ResponseEntity permissionCode() {
         return ResponseEntity.ok(Lists.newArrayList("1000", "3000", "5000"));

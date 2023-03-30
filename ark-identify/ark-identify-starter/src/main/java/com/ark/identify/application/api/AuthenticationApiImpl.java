@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Service
 @RestController
 public class AuthenticationApiImpl implements AuthenticationApi {
+
     @Override
     public boolean authentication(String serviceName, String uri) {
         return true;

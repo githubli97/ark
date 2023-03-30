@@ -11,13 +11,15 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @AllArgsConstructor
 public class TenantApplicationService {
+
     private TenantService tenantService;
     private TenantCommandHandler tenantCommandHandler;
 
     @Transactional
     public void createTenantByPhone(CreateTenantByPhoneCommand createTenantByPhoneCommand) {
         // 创建租户
-        Tenant tenant = tenantCommandHandler.doFromCreateTenantByPhoneCommand(createTenantByPhoneCommand);
+        Tenant tenant = tenantCommandHandler.doFromCreateTenantByPhoneCommand(
+            createTenantByPhoneCommand);
         tenantService.store(tenant);
 
         // 创建组织

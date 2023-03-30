@@ -1,6 +1,7 @@
 package com.ark.domain;
 
 public abstract class AbstractNameableEntity extends AbstractEntity {
+
     private String name;
 
     public String getName() {

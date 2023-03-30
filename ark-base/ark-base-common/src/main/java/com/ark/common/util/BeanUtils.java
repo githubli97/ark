@@ -1,12 +1,12 @@
 package com.ark.common.util;
 
 import com.ark.common.exception.ArkRuntimeException;
-import org.springframework.util.ReflectionUtils;
-
 import java.lang.reflect.Field;
 import java.util.Objects;
+import org.springframework.util.ReflectionUtils;
 
 public final class BeanUtils {
+
     private BeanUtils() {
     }
 

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
  */
 @FeignClient(name = "AuthenticationApi", url = "${ark.feign.protocol}://${ark.service-domain.identify}")
 public interface AuthenticationApi {
+
     /**
      * 对服务下uri鉴权
      *
@@ -17,5 +18,6 @@ public interface AuthenticationApi {
      * @return 通过校验
      */
     @PostMapping("/authentication/{serviceName}/{uri}")
-    boolean authentication(@PathVariable("serviceName") String serviceName, @PathVariable("uri") String uri);
+    boolean authentication(@PathVariable("serviceName") String serviceName,
+        @PathVariable("uri") String uri);
 }

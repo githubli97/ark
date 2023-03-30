@@ -12,6 +12,7 @@ import lombok.EqualsAndHashCode;
 @Entity
 @Table(name = "ark_identify_tenant")
 public class TenantPO extends AbstractPersistent {
+
     @Column(name = "name")
     private String name;
 }

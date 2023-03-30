@@ -4,6 +4,7 @@ import com.ark.domain.AbstractNameableEntity;
 import com.google.common.base.Preconditions;
 
 public class User extends AbstractNameableEntity {
+
     private Long tenantId;
 
     @Override

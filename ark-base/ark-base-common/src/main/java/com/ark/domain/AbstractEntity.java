@@ -1,11 +1,11 @@
 package com.ark.domain;
 
-import lombok.Getter;
-
 import java.time.LocalDateTime;
+import lombok.Getter;
 
 @Getter
 public abstract class AbstractEntity {
+
     protected Long id;
     protected Long creator;
     protected Long modifier;

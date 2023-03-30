@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class TenantFactory extends AbstractEntityFactory<Tenant> {
+
     public Tenant createTenant(String name) {
         Tenant tenant = createAbstractEntity();
 

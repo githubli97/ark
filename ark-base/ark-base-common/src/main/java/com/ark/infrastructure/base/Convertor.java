@@ -3,6 +3,7 @@ package com.ark.infrastructure.base;
 import com.ark.domain.AbstractEntity;
 
 public interface Convertor<D extends AbstractEntity, P extends AbstractPersistent> {
+
     P getPOInstance();
 
     default P DOToPO(D DO) {

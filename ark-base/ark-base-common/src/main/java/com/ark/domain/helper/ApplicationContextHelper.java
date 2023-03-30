@@ -7,10 +7,11 @@ import org.springframework.stereotype.Component;
  * ApplicationContextHelper
  *
  * @author Frank Zhang
- * @date 2020-11-14 1:58 PM
+ * {@code @date} 2020-11-14 1:58 PM
  */
 @Component
 public class ApplicationContextHelper {
+
     private static final ApplicationContext applicationContext = ArkApplicationContextAware.applicationContext;
 
     public static <T> T getBean(Class<T> targetClz) {
@@ -28,7 +29,8 @@ public class ApplicationContextHelper {
             beanInstance = applicationContext.getBean(simpleName, targetClz);
         }
         if (beanInstance == null) {
-            throw new RuntimeException("Component " + targetClz + " can not be found in Spring Container");
+            throw new RuntimeException(
+                "Component " + targetClz + " can not be found in Spring Container");
         }
         return beanInstance;
     }

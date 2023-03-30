@@ -10,5 +10,7 @@ import org.springframework.stereotype.Service;
  * Repository 基类
  */
 @Service
-public class TenantRepositoryImpl extends RepositoryImpl<Tenant, TenantPO> implements ITenantRepository {
+public class TenantRepositoryImpl extends RepositoryImpl<Tenant, TenantPO> implements
+    ITenantRepository {
+
 }

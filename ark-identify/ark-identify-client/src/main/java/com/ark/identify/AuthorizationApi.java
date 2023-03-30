@@ -7,4 +7,5 @@ import org.springframework.cloud.openfeign.FeignClient;
  */
 @FeignClient(name = "AuthenticationApi", url = "${ark.feign.protocol}://${ark.service-domain.identify}")
 public interface AuthorizationApi {
+
 }

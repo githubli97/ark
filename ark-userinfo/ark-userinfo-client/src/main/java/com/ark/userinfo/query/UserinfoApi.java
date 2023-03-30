@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  */
 @FeignClient(name = "UserinfoApi", url = "${ark.feign.protocol}://${ark.service-domain.userinfo}/${ark.service-name.userinfo}")
 public interface UserinfoApi {
+
     /**
      * 获取用户信息
      *
@@ -18,5 +19,6 @@ public interface UserinfoApi {
      * @return 用户
      */
     @GetMapping("/user/{argType}/{arg}")
-    AccountInfo getUserinfoById(@PathVariable("argType") String argType, @PathVariable("arg") String arg);
+    AccountInfo getUserinfoById(@PathVariable("argType") String argType,
+        @PathVariable("arg") String arg);
 }

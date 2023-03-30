@@ -1,13 +1,13 @@
 package com.ark.domain.helper;
 
-import org.springframework.stereotype.Component;
-
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Random;
+import org.springframework.stereotype.Component;
 
 @Component
 public class SnowflakeIdGeneratorHelper {
+
     private static final long START_TIMESTAMP = 1622505600000L; // 2021-06-01 00:00:00
     private static final long WORKER_ID_BITS = 10L;
     private static final long SEQUENCE_BITS = 12L;
@@ -24,7 +24,9 @@ public class SnowflakeIdGeneratorHelper {
             InetAddress ip = InetAddress.getLocalHost();
             NetworkInterface network = NetworkInterface.getByInetAddress(ip);
             byte[] mac = network.getHardwareAddress();
-            long macAddressAsLong = ((0x000000FF & (long) mac[0]) | (0x0000FF00 & (((long) mac[1]) << 8)) | (0x00FF0000 & (((long) mac[2]) << 16)) | (0xFF000000L & (((long) mac[3]) << 24)));
+            long macAddressAsLong = ((0x000000FF & (long) mac[0]) | (0x0000FF00 & (((long) mac[1])
+                << 8))
+                | (0x00FF0000 & (((long) mac[2]) << 16)) | (0xFF000000L & (((long) mac[3]) << 24)));
             this.workerId = macAddressAsLong % MAX_WORKER_ID;
         } catch (Exception e) {
             // 如果获取IP地址或MAC地址失败，则随机生成一个机器ID
@@ -51,8 +53,8 @@ public class SnowflakeIdGeneratorHelper {
         lastTimestamp = timestamp;
 
         return ((timestamp - START_TIMESTAMP) << (WORKER_ID_BITS + SEQUENCE_BITS)) |
-                (workerId << SEQUENCE_BITS) |
-                sequence;
+            (workerId << SEQUENCE_BITS) |
+            sequence;
     }
 
     private long tilNextMillis(long lastTimestamp) {

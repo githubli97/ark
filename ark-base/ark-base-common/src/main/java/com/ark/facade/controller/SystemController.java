@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/system")
 public class SystemController {
+
     @GetMapping("ping")
     public ResponseEntity<String> ping(HttpServletRequest request) {
         request.getRequestURL();

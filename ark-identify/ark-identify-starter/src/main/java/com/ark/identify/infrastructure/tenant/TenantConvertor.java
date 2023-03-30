@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class TenantConvertor implements Convertor<Tenant, TenantPO> {
+
     @Override
     public TenantPO getPOInstance() {
         return new TenantPO();

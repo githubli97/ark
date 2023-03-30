@@ -8,9 +8,11 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class TenantCommandHandler {
+
     private TenantFactory tenantFactory;
 
-    public Tenant doFromCreateTenantByPhoneCommand(CreateTenantByPhoneCommand createTenantByPhoneCommand) {
+    public Tenant doFromCreateTenantByPhoneCommand(
+        CreateTenantByPhoneCommand createTenantByPhoneCommand) {
         return tenantFactory.createTenant(createTenantByPhoneCommand.getTenantName());
     }
 }
