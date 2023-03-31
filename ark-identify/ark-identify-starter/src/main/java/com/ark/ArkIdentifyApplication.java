@@ -8,7 +8,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableFeignClients(basePackages = {"com.ark.userinfo.query"})
 public class ArkIdentifyApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(ArkIdentifyApplication.class, args);
-    }
+  public static void main(String[] args) {
+    SpringApplication.run(ArkIdentifyApplication.class, args);
+  }
 }

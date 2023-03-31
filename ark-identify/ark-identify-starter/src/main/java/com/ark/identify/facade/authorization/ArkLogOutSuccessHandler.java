@@ -14,11 +14,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class ArkLogOutSuccessHandler implements LogoutSuccessHandler {
 
-    @Override
-    public void onLogoutSuccess(HttpServletRequest httpServletRequest,
-        HttpServletResponse httpServletResponse, Authentication authentication) throws IOException {
-        httpServletResponse.setStatus(HttpStatus.UNAUTHORIZED.value());
-        httpServletResponse.setContentType("application/json;charset=utf-8");
-        httpServletResponse.getWriter().write("退出成功，请重新登录");
-    }
+  @Override
+  public void onLogoutSuccess(HttpServletRequest httpServletRequest,
+                              HttpServletResponse httpServletResponse,
+                              Authentication authentication) throws IOException {
+    httpServletResponse.setStatus(HttpStatus.UNAUTHORIZED.value());
+    httpServletResponse.setContentType("application/json;charset=utf-8");
+    httpServletResponse.getWriter().write("退出成功，请重新登录");
+  }
 }

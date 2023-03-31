@@ -2,24 +2,39 @@ package com.ark.infrastructure.base;
 
 import com.ark.domain.AbstractEntity;
 
+/**
+ * 领域对象和持久化对象转换器.
+ *
+ * @param <D> 领域对象
+ * @param <P> 持久化对象
+ */
 public interface Convertor<D extends AbstractEntity, P extends AbstractPersistent> {
 
-    P getPOInstance();
+  /**
+   * 待优化, 需要创建泛型对应的子类.
+   *
+   * @return 持久化对象子类
+   */
+  P getPersistentObjInstance();
 
-    default P DOToPO(D DO) {
-        P poInstance = getPOInstance();
-        poInstance.id = DO.getId();
-        poInstance.creator = DO.getCreator();
-        poInstance.modifier = DO.getModifier();
-        poInstance.createdTime = DO.getCreatedTime();
-        poInstance.modifiedTime = DO.getModifiedTime();
-        poInstance.isDeleted = false;
-        poInstance.version = DO.getVersion();
-        doDOToPO(poInstance, DO);
-        return poInstance;
-    }
+  /**
+   * 领域对象转换持久化对象.
+   *
+   * @param domainObj 领域对象
+   * @return 持久化对象
+   */
+  default P domainObjToPersistentObj(D domainObj) {
+    P poInstance = getPersistentObjInstance();
+    poInstance.id = domainObj.getId();
+    poInstance.creator = domainObj.getCreator();
+    poInstance.modifier = domainObj.getModifier();
+    poInstance.createdTime = domainObj.getCreatedTime();
+    poInstance.modifiedTime = domainObj.getModifiedTime();
+    poInstance.isDeleted = false;
+    poInstance.version = domainObj.getVersion();
+    persistentObjToDomainObj(poInstance, domainObj);
+    return poInstance;
+  }
 
-    P doDOToPO(P PO, D DO);
-
-    D POToDO(P PO);
+  P persistentObjToDomainObj(P persistentObj, D domainObj);
 }

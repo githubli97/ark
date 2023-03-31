@@ -11,10 +11,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 @AllArgsConstructor
 public class UserDetailService implements UserDetailsService {
 
-    private UserinfoApi userinfoApi;
+  private UserinfoApi userinfoApi;
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return userinfoApi.getUserinfoById("username", username);
-    }
+  @Override
+  public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    return userinfoApi.getUserinfoById("username", username);
+  }
 }

@@ -7,14 +7,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * permission相关接口.
+ */
 @Slf4j
 @Service
 @RestController
 public class PermissionController {
 
-    @GetMapping("permissionCode")
-    public ResponseEntity permissionCode() {
-        return ResponseEntity.ok(Lists.newArrayList("1000", "3000", "5000"));
+  @GetMapping("permissionCode")
+  public ResponseEntity permissionCode() {
+    return ResponseEntity.ok(Lists.newArrayList("1000", "3000", "5000"));
 
-    }
+  }
 }

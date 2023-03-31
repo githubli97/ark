@@ -4,6 +4,6 @@ import com.ark.domain.AbstractNameableEntity;
 
 public abstract class Resource extends AbstractNameableEntity {
 
-    private Long tenantId;
-    private ResourceType resourceType;
+  private Long tenantId;
+  private ResourceType resourceType;
 }

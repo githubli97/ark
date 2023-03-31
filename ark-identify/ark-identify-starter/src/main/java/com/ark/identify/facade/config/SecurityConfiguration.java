@@ -38,42 +38,42 @@ import org.springframework.security.web.SecurityFilterChain;
 @AllArgsConstructor
 public class SecurityConfiguration {
 
-    private ArkAuthenticationSucessHandler sucessHandler;
-    private ArkAuthenticationFailureHandler failureHandler;
-    private ArkLogOutSuccessHandler logOutSuccessHandler;
+  private ArkAuthenticationSucessHandler sucessHandler;
+  private ArkAuthenticationFailureHandler failureHandler;
+  private ArkLogOutSuccessHandler logOutSuccessHandler;
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+  @Bean
+  public PasswordEncoder passwordEncoder() {
+    return new BCryptPasswordEncoder();
+  }
 
 
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-            .formLogin(formLogin -> {
-                formLogin
-                    .loginProcessingUrl("/login")
-                    .successHandler(sucessHandler)
-                    .failureHandler(failureHandler);
-            })
-            .logout(logout -> {
-                logout
-                    .logoutUrl("/logout")
-                    .logoutSuccessHandler(logOutSuccessHandler)
-                    .deleteCookies("JSESSIONID");
+  @Bean
+  public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    http
+        .formLogin(formLogin -> {
+          formLogin
+              .loginProcessingUrl("/login")
+              .successHandler(sucessHandler)
+              .failureHandler(failureHandler);
+        })
+        .logout(logout -> {
+          logout
+              .logoutUrl("/logout")
+              .logoutSuccessHandler(logOutSuccessHandler)
+              .deleteCookies("JSESSIONID");
 
-            })
-            .authorizeHttpRequests(registry -> {
-                registry
-                    // 白名单
-                    .requestMatchers("/authentication/require").permitAll()
-                    // 其余所有请求，都需要认证
-                    .anyRequest().authenticated();
-            })
-            .csrf(csrf -> {
-                csrf.disable();
-            });
-        return http.build();
-    }
+        })
+        .authorizeHttpRequests(registry -> {
+          registry
+              // 白名单
+              .requestMatchers("/authentication/require").permitAll()
+              // 其余所有请求，都需要认证
+              .anyRequest().authenticated();
+        })
+        .csrf(csrf -> {
+          csrf.disable();
+        });
+    return http.build();
+  }
 }

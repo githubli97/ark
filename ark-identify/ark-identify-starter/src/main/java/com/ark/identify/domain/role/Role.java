@@ -5,10 +5,10 @@ import java.util.List;
 
 public class Role extends AbstractNameableEntity {
 
-    private Long tenantId;
-    private List<Resource> resourceList;
+  private Long tenantId;
+  private List<Resource> resourceList;
 
-    @Override
-    protected void assertVerifyName(String name) {
-    }
+  @Override
+  protected void assertVerifyName(String name) {
+  }
 }

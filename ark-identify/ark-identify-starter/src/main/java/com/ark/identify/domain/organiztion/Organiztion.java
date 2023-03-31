@@ -4,9 +4,9 @@ import com.ark.domain.AbstractNameableEntity;
 
 public class Organiztion extends AbstractNameableEntity {
 
-    private Employee manager;
+  private Employee manager;
 
-    @Override
-    protected void assertVerifyName(String name) {
-    }
+  @Override
+  protected void assertVerifyName(String name) {
+  }
 }

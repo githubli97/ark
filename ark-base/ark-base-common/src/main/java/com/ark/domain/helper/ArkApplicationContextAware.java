@@ -8,8 +8,9 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 /**
+ * 获取ApplicationContext工具类.
+ *
  * @Classname ArkApplicationContextAware
- * @Description TODO
  * @Date 2022/6/30 9:44
  * @Created by hang.li
  */
@@ -17,11 +18,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class ArkApplicationContextAware implements ApplicationContextAware {
 
-    public static volatile ApplicationContext applicationContext;
+  public static volatile ApplicationContext applicationContext;
 
-    @Override
-    public void setApplicationContext(@NotNull ApplicationContext applicationContext) throws BeansException {
-        log.info("织入applicationContext");
-        ArkApplicationContextAware.applicationContext = applicationContext;
-    }
+  @Override
+  public void setApplicationContext(@NotNull ApplicationContext applicationContext)
+      throws BeansException {
+    log.info("织入applicationContext");
+    ArkApplicationContextAware.applicationContext = applicationContext;
+  }
 }

@@ -1,12 +1,12 @@
 package com.ark.common.util;
 
 /**
- * 常量
+ * 常量.
  */
 public interface Constants {
 
-    int INT_YES = 1;
-    int INT_NO = 0;
+  int INT_YES = 1;
+  int INT_NO = 0;
 
-    long ZERO = 0L;
+  long ZERO = 0L;
 }

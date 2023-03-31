@@ -5,11 +5,11 @@ import java.time.LocalDate;
 
 public class Employee extends User {
 
-    private String gender;
-    private LocalDate birthday;
-    private Organiztion organiztion;
+  private String gender;
+  private LocalDate birthday;
+  private Organiztion organiztion;
 
-    @Override
-    protected void assertVerifyName(String name) {
-    }
+  @Override
+  protected void assertVerifyName(String name) {
+  }
 }

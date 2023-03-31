@@ -11,10 +11,10 @@ import org.springframework.security.core.GrantedAuthority;
 @AllArgsConstructor
 public class ArkGrantedAuthority implements GrantedAuthority, Serializable {
 
-    private String authority;
+  private String authority;
 
-    @Override
-    public String getAuthority() {
-        return authority;
-    }
+  @Override
+  public String getAuthority() {
+    return authority;
+  }
 }

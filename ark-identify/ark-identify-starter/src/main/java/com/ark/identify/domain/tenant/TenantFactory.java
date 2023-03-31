@@ -8,15 +8,15 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class TenantFactory extends AbstractEntityFactory<Tenant> {
 
-    public Tenant createTenant(String name) {
-        Tenant tenant = createAbstractEntity();
+  public Tenant createTenant(String name) {
+    Tenant tenant = createAbstractEntity();
 
-        tenant.setName(name);
-        return tenant;
-    }
+    tenant.setName(name);
+    return tenant;
+  }
 
-    @Override
-    protected Tenant getInstance() {
-        return new Tenant();
-    }
+  @Override
+  protected Tenant getInstance() {
+    return new Tenant();
+  }
 }

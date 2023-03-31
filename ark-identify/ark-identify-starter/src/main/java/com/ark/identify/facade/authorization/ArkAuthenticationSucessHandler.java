@@ -13,12 +13,12 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class ArkAuthenticationSucessHandler implements AuthenticationSuccessHandler {
 
-    private ObjectMapper mapper;
+  private ObjectMapper mapper;
 
-    @Override
-    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
-        Authentication authentication) throws IOException {
-        response.setContentType("application/json;charset=utf-8");
-        response.getWriter().write(mapper.writeValueAsString(authentication.getPrincipal()));
-    }
+  @Override
+  public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
+                                      Authentication authentication) throws IOException {
+    response.setContentType("application/json;charset=utf-8");
+    response.getWriter().write(mapper.writeValueAsString(authentication.getPrincipal()));
+  }
 }

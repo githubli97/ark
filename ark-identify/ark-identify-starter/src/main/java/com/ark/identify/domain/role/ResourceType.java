@@ -4,10 +4,10 @@ import com.ark.domain.AbstractNameableEntity;
 
 public class ResourceType extends AbstractNameableEntity {
 
-    private Long tenantId;
+  private Long tenantId;
 
 
-    @Override
-    protected void assertVerifyName(String name) {
-    }
+  @Override
+  protected void assertVerifyName(String name) {
+  }
 }

@@ -14,14 +14,14 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class ArkAuthenticationFailureHandler implements AuthenticationFailureHandler {
 
-    private final ObjectMapper mapper;
+  private final ObjectMapper mapper;
 
-    @Override
-    public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
-        AuthenticationException exception) throws IOException {
-        response.setContentType("application/json;charset=utf-8");
-        response.setStatus(HttpStatus.UNAUTHORIZED.value());
-        response.getWriter()
-            .write(mapper.writeValueAsString(HttpStatus.UNAUTHORIZED.getReasonPhrase()));
-    }
+  @Override
+  public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
+                                      AuthenticationException exception) throws IOException {
+    response.setContentType("application/json;charset=utf-8");
+    response.setStatus(HttpStatus.UNAUTHORIZED.value());
+    response.getWriter()
+        .write(mapper.writeValueAsString(HttpStatus.UNAUTHORIZED.getReasonPhrase()));
+  }
 }
