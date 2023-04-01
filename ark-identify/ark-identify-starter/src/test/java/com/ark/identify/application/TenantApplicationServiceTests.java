@@ -6,6 +6,9 @@ import com.ark.identify.application.service.tenant.command.CreateTenantByPhoneCo
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+/**
+ * 租户应用服务测试类.
+ */
 public class TenantApplicationServiceTests extends ApplicationTest {
 
   @Autowired

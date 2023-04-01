@@ -7,11 +7,14 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+/**
+ * 租户数据库层对象映射.
+ */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "ark_identify_tenant")
-public class TenantPO extends AbstractPersistent {
+public class TenantPo extends AbstractPersistent {
 
   @Column(name = "name")
   private String name;

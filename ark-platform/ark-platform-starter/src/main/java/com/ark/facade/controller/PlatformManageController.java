@@ -8,11 +8,17 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+/**
+ * 平台mvc接口.
+ */
 @Slf4j
 @Controller
 @AllArgsConstructor
 public class PlatformManageController {
 
+  /**
+   * 菜单列表接口,打通前端时使用, 后期要加实现逻辑.
+   */
   @GetMapping("menuList")
   public ResponseEntity menuList() {
     String menu = """

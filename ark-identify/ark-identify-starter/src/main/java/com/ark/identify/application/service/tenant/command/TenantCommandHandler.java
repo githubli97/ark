@@ -5,6 +5,9 @@ import com.ark.identify.domain.tenant.TenantFactory;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+/**
+ * 租户相关命令向 租户实体 转换器.
+ */
 @Service
 @AllArgsConstructor
 public class TenantCommandHandler {

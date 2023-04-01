@@ -6,6 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 
+/**
+ * 适配spring security 权限实现类.
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

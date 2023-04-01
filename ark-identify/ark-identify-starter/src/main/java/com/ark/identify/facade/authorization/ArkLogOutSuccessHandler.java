@@ -9,7 +9,7 @@ import org.springframework.security.web.authentication.logout.LogoutSuccessHandl
 import org.springframework.stereotype.Component;
 
 /**
- * @author MrBird
+ * 注销成功结果处理类.
  */
 @Component
 public class ArkLogOutSuccessHandler implements LogoutSuccessHandler {

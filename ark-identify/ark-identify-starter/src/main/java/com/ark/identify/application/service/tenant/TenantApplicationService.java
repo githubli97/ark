@@ -8,6 +8,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * 租户应用服务.
+ */
 @Service
 @AllArgsConstructor
 public class TenantApplicationService {
@@ -15,6 +18,11 @@ public class TenantApplicationService {
   private TenantService tenantService;
   private TenantCommandHandler tenantCommandHandler;
 
+  /**
+   * 根据手机号创建租户.
+   *
+   * @param createTenantByPhoneCommand 手机号创建租户命令
+   */
   @Transactional
   public void createTenantByPhone(CreateTenantByPhoneCommand createTenantByPhoneCommand) {
     // 创建租户

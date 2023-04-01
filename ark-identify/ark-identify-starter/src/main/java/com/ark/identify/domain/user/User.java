@@ -3,6 +3,9 @@ package com.ark.identify.domain.user;
 import com.ark.domain.AbstractNameableEntity;
 import com.google.common.base.Preconditions;
 
+/**
+ * 租户用户.
+ */
 public class User extends AbstractNameableEntity {
 
   private Long tenantId;

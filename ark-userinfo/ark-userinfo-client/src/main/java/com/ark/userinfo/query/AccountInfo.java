@@ -10,6 +10,9 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.CredentialsContainer;
 import org.springframework.security.core.userdetails.UserDetails;
 
+/**
+ * 适配spring security 用户的实现类.
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

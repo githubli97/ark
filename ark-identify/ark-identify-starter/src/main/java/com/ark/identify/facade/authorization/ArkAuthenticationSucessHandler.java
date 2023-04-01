@@ -9,6 +9,9 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 
+/**
+ * 登录成功处理器.
+ */
 @Component
 @AllArgsConstructor
 public class ArkAuthenticationSucessHandler implements AuthenticationSuccessHandler {

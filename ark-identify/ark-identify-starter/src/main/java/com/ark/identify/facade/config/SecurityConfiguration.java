@@ -48,6 +48,9 @@ public class SecurityConfiguration {
   }
 
 
+  /**
+   * 配置spring security认证规则.
+   */
   @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
     http

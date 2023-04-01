@@ -6,13 +6,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 
 /**
- * 账户信息
+ * 账户信息.
  */
-@FeignClient(name = "UserinfoApi", url = "${ark.feign.protocol}://${ark.service-domain.userinfo}/${ark.service-name.userinfo}")
+@FeignClient(name = "UserinfoApi",
+    url = "${ark.feign.protocol}://${ark.service-domain.userinfo}/${ark.service-name.userinfo}")
 public interface UserinfoApi {
 
   /**
-   * 获取用户信息
+   * 获取用户信息.
    *
    * @param argType 类型
    * @param arg     参数

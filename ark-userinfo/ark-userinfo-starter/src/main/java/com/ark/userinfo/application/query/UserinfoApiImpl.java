@@ -11,6 +11,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 账户信息实现.
+ */
 @Slf4j
 @Service
 @RestController

@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * 1234
+ * 平台服务启动引导类.
  */
 @SpringBootApplication
 public class ArkPlatformApplication {

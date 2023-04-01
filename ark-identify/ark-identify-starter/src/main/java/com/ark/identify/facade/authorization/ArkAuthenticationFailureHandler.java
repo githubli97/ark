@@ -10,6 +10,9 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.stereotype.Component;
 
+/**
+ * 登录失败处理器.
+ */
 @Component
 @AllArgsConstructor
 public class ArkAuthenticationFailureHandler implements AuthenticationFailureHandler {
