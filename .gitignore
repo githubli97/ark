@@ -22,7 +22,6 @@ nbbuild/
 dist/
 nbdist/
 bin/
-doc/
 .DS_Store
 
 ### maven

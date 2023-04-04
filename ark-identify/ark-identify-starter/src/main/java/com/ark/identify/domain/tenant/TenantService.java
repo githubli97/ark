@@ -1,6 +1,12 @@
 package com.ark.identify.domain.tenant;
 
+import com.ark.identify.domain.organiztion.Organization;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
+import java.util.List;
+import java.util.Map;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,4 +21,9 @@ public class TenantService {
   public Tenant store(Tenant tenant) {
     return tenantRepository.store(tenant);
   }
+
+  public void removeTenant(Tenant tenant) {
+  }
+
+
 }

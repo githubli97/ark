@@ -2,6 +2,7 @@ package com.ark.identify.application.service.tenant;
 
 import com.ark.identify.application.service.tenant.command.CreateTenantByPhoneCommand;
 import com.ark.identify.application.service.tenant.command.TenantCommandHandler;
+import com.ark.identify.domain.organiztion.OrganizationService;
 import com.ark.identify.domain.tenant.Tenant;
 import com.ark.identify.domain.tenant.TenantService;
 import lombok.AllArgsConstructor;
@@ -16,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class TenantApplicationService {
 
   private TenantService tenantService;
+  private OrganizationService organizationService;
   private TenantCommandHandler tenantCommandHandler;
 
   /**
@@ -31,6 +33,7 @@ public class TenantApplicationService {
     tenantService.store(tenant);
 
     // 创建组织
-    // 创建用户
+    organizationService.createTenantOrganization(tenant.getName(),
+        createTenantByPhoneCommand.getPhone());
   }
 }

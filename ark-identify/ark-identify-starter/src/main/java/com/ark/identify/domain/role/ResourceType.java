@@ -1,11 +1,11 @@
 package com.ark.identify.domain.role;
 
-import com.ark.domain.AbstractNameableEntity;
+import com.ark.domain.AbstractCommonEntity;
 
 /**
  * 资源类型值对象.
  */
-public class ResourceType extends AbstractNameableEntity {
+public class ResourceType extends AbstractCommonEntity {
 
   private Long tenantId;
 

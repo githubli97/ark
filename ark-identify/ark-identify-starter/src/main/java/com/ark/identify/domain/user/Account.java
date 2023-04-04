@@ -8,8 +8,6 @@ import com.ark.identify.domain.user.valueobject.AccountTypeEnum;
  */
 public class Account extends AbstractEntity {
 
-  private String username;
-  private AccountTypeEnum accountType;
-  private String password;
-  private User user;
+  String username;
+  AccountTypeEnum accountType;
 }
