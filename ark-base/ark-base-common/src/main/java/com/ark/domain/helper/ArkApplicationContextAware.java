@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ArkApplicationContextAware implements ApplicationContextAware {
 
-  public static volatile ApplicationContext applicationContext;
+  static volatile ApplicationContext applicationContext;
 
   @Override
   public void setApplicationContext(@NotNull ApplicationContext applicationContext)

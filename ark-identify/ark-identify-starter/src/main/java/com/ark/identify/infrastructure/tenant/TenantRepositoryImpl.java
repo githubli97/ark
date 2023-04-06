@@ -1,4 +1,4 @@
-package com.ark.identify.infrastructure;
+package com.ark.identify.infrastructure.tenant;
 
 import com.ark.identify.domain.tenant.Tenant;
 import com.ark.identify.domain.tenant.TenantRepository;

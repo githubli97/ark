@@ -18,10 +18,11 @@ public class OrganizationFactory extends AbstractEntityFactory<Organization> {
    * @param name 租户名称
    * @return 租户实体
    */
-  public Organization createOrganization(String name) {
+  public Organization createOrganization(String name, Long tenantId) {
     Organization organization = createAbstractEntity();
 
     organization.setName(name);
+    organization.tenantId = tenantId;
     return organization;
   }
 

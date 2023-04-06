@@ -1,15 +1,16 @@
 package com.ark.identify.domain.user.valueobject;
 
-import com.ark.domain.helper.ApplicationContextHelper;
+import lombok.Getter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * 密码值对象.
  */
+@Getter
 public class Password {
-  private final PasswordEncoder passwordEncoder =
-      ApplicationContextHelper.getBean(PasswordEncoder.class);
-  private String value;
+  private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+  String value;
 
   public Password(String value) {
     this.value = passwordEncoder.encode(value);

@@ -16,7 +16,7 @@ public class TenantConvertor implements Convertor<Tenant, TenantPo> {
   }
 
   @Override
-  public TenantPo persistentObjToDomainObj(TenantPo persistentObj, Tenant domainObj) {
+  public TenantPo domainObjToPersistentObj(TenantPo persistentObj, Tenant domainObj) {
     persistentObj.setName(domainObj.getName());
     return persistentObj;
   }

@@ -1,9 +1,9 @@
 package com.ark.identify.domain.organiztion;
 
 import com.ark.domain.AbstractCommonService;
+import com.ark.identify.domain.tenant.Tenant;
 import com.ark.identify.domain.user.User;
 import com.ark.identify.domain.user.UserService;
-import com.google.common.base.Preconditions;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,14 +19,17 @@ public class OrganizationService extends AbstractCommonService<Organization> {
   /**
    * 创建租户对应的组织, 并设置责任人.
    *
-   * @param name 组织名称.
+   * @param tenant 租户.
    */
-  public Organization createTenantOrganization(String name, String phone) {
-    Organization organization = organizationFactory.createOrganization(name);
+  public Organization createTenantOrganization(Tenant tenant, String phone) {
+    Organization organization =
+        organizationFactory.createOrganization(tenant.getName(), tenant.getId());
     // 创建用户
-    User user = userService.createUser(name, phone, organization);
+    User user = userService.createUser(tenant.getName(), phone, organization);
     // 给组织绑定责任人
-    organization.setResponsiblePerson(user);
+    organization.responsibleUser = user;
+    organization.tenantId = tenant.getId();
+    organization.description = tenant.getName();
 
     repository.store(organization);
     return organization;
@@ -36,7 +39,7 @@ public class OrganizationService extends AbstractCommonService<Organization> {
    * 给组织设置责任人.
    */
   public void setResponsiblePerson(Organization organization, User user) {
-    organization.setResponsiblePerson(user);
+    organization.setResponsibleUser(user);
     repository.store(organization);
   }
 
@@ -44,8 +47,10 @@ public class OrganizationService extends AbstractCommonService<Organization> {
    * 创建子组织.
    */
   public Organization createSubOrganization(Organization parentOrganization, String name) {
-    Organization organization = organizationFactory.createOrganization(name);
+    Organization organization =
+        organizationFactory.createOrganization(name, parentOrganization.getTenantId());
     organization.setParentOrganization(parentOrganization);
+    repository.store(organization);
     return organization;
   }
 }

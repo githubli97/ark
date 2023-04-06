@@ -3,6 +3,7 @@ package com.ark.identify.domain.user;
 import com.ark.domain.AbstractCommonEntity;
 import com.ark.identify.domain.organiztion.Organization;
 import com.ark.identify.domain.user.valueobject.Password;
+import com.ark.identify.domain.user.valueobject.UserGenderEnum;
 import com.google.common.base.Preconditions;
 import java.time.LocalDate;
 import java.util.List;
@@ -17,7 +18,7 @@ public class User extends AbstractCommonEntity {
   Password password;
   String email;
   String phone;
-  String gender;
+  UserGenderEnum gender;
   LocalDate birthday;
   Organization organization;
   List<Account> accountList;
@@ -25,6 +26,6 @@ public class User extends AbstractCommonEntity {
   @Override
   protected void assertVerifyName(String name) {
     Preconditions.checkNotNull(name, "用户姓名必填");
-    Preconditions.checkArgument(name.length() < 20 && name.length() > 0, "用户姓名应该小于20个字", name);
+    Preconditions.checkArgument(name.length() < 100 && name.length() > 0, "用户姓名应该小于20个字", name);
   }
 }

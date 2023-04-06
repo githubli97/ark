@@ -42,12 +42,6 @@ public class SecurityConfiguration {
   private ArkAuthenticationFailureHandler failureHandler;
   private ArkLogOutSuccessHandler logOutSuccessHandler;
 
-  @Bean
-  public PasswordEncoder passwordEncoder() {
-    return new BCryptPasswordEncoder();
-  }
-
-
   /**
    * 配置spring security认证规则.
    */
@@ -70,7 +64,8 @@ public class SecurityConfiguration {
         .authorizeHttpRequests(registry -> {
           registry
               // 白名单
-              .requestMatchers("/authentication/require").permitAll()
+              .requestMatchers("/authentication/require",
+                  "/tenant/phone").permitAll()
               // 其余所有请求，都需要认证
               .anyRequest().authenticated();
         })

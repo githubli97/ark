@@ -15,6 +15,8 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class UserFactory extends AbstractEntityFactory<User> {
+  private AccountFactory accountFactory;
+
   /**
    * 创建员工,默认初始化审计相关字段.
    *
@@ -25,14 +27,12 @@ public class UserFactory extends AbstractEntityFactory<User> {
     User user = createAbstractEntity();
 
     user.organization = organization;
+    user.tenantId = organization.getTenantId();
     user.phone = phone;
     user.password = new Password("password");
     user.setName(name);
 
-    Account account = new Account();
-    account.accountType = AccountTypeEnum.PHONE;
-    account.username = phone;
-
+    Account account = accountFactory.createAccount(phone, AccountTypeEnum.PHONE);
     user.accountList = Lists.newArrayList(account);
     return user;
   }

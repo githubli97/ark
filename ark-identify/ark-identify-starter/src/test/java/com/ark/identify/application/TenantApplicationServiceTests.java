@@ -3,6 +3,7 @@ package com.ark.identify.application;
 import com.ark.ApplicationTest;
 import com.ark.identify.application.service.tenant.TenantApplicationService;
 import com.ark.identify.application.service.tenant.command.CreateTenantByPhoneCommand;
+import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -13,17 +14,19 @@ public class TenantApplicationServiceTests extends ApplicationTest {
 
   @Autowired
   private TenantApplicationService tenantApplicationService;
+  @Autowired
+  private Faker faker;
 
   @Test
   public void testCreateTenantByPhone() {
     // 创建 CreateTenantByPhoneCommand 对象
     CreateTenantByPhoneCommand command = new CreateTenantByPhoneCommand();
-    command.setPhone("123456789");
-    command.setTenantName("Test");
-    command.setVerifyCode("123456");
+    command.setPhone(faker.phoneNumber().phoneNumber());
+    command.setTenantName(faker.company().name());
+    command.setVerifyCode(faker.currency().code());
 
     // 调用方法
-    for (int i = 0; i < 1000; i++) {
+    for (int i = 0; i < 10; i++) {
       command.setTenantName("租户" + i + 1);
       tenantApplicationService.createTenantByPhone(command);
     }

@@ -32,9 +32,9 @@ public interface Convertor<D extends AbstractEntity, P extends AbstractPersisten
     poInstance.modifiedTime = domainObj.getModifiedTime();
     poInstance.isDeleted = false;
     poInstance.version = domainObj.getVersion();
-    persistentObjToDomainObj(poInstance, domainObj);
+    domainObjToPersistentObj(poInstance, domainObj);
     return poInstance;
   }
 
-  P persistentObjToDomainObj(P persistentObj, D domainObj);
+  P domainObjToPersistentObj(P persistentObj, D domainObj);
 }
