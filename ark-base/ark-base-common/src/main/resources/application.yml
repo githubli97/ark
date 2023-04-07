@@ -4,6 +4,8 @@ spring:
     url: jdbc:mysql://mysql.ark.com:3308/ark-ddd?useSSL=false # 数据库的JDBC连接地址
     username: root # 用户名
     password: jXpullesLBc8hUdsei # 密码
+    hikari:
+      maximum-pool-size: 100
   jpa:
     properties:
       hibernate:

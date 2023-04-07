@@ -10,6 +10,12 @@ import lombok.Getter;
  */
 @Getter
 public class Organization extends AbstractCommonEntity {
+  public static final Organization ROOT_PARENT_ORGANIZATION;
+
+  static {
+    ROOT_PARENT_ORGANIZATION = new Organization();
+    ROOT_PARENT_ORGANIZATION.id = 0L;
+  }
 
   Long tenantId;
   String description;

@@ -1,4 +1,4 @@
-package com.ark.identify.facade;
+package com.ark.identify.facade.controller;
 
 import com.ark.identify.application.service.tenant.TenantApplicationService;
 import com.ark.identify.application.service.tenant.command.CreateTenantByPhoneCommand;
@@ -20,6 +20,8 @@ public class TenantController {
 
   /**
    * 根据手机号创建用户.
+   *
+   * @param command 创建用户命令
    */
   @PostMapping("/phone")
   public ResponseEntity create(@RequestBody CreateTenantByPhoneCommand command) {

@@ -5,8 +5,3 @@ server:
 #    session:
 #      cookie:
 #        domain: localhost
-
-
-logging:
-  level:
-    root: debug

@@ -28,6 +28,7 @@ public class OrganizationService extends AbstractCommonService<Organization> {
     User user = userService.createUser(tenant.getName(), phone, organization);
     // 给组织绑定责任人
     organization.responsibleUser = user;
+    organization.parentOrganization = Organization.ROOT_PARENT_ORGANIZATION;
     organization.tenantId = tenant.getId();
     organization.description = tenant.getName();
 
