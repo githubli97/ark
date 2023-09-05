@@ -110,6 +110,7 @@
         <module>ark-gateway</module>
         <module>ark-userinfo</module>
         <module>ark-platform</module>
+        <module>ark-core</module>
     </modules>
 
     <packaging>pom</packaging>

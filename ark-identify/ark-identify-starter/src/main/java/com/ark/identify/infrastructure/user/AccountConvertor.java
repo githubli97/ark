@@ -1,7 +1,6 @@
 package com.ark.identify.infrastructure.user;
 
 import com.ark.identify.domain.user.Account;
-import com.ark.identify.domain.user.User;
 import com.ark.infrastructure.base.Convertor;
 import org.springframework.stereotype.Component;
 
