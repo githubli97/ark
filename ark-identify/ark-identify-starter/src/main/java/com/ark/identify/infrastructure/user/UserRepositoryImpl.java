@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Mono;
 
 /**
  * Repository 基类.
@@ -22,7 +23,7 @@ public class UserRepositoryImpl extends RepositoryImpl<User, UserPo>
   protected AccountConvertor accountConvertor;
 
   @Override
-  public User store(User entity) {
+  public Mono<User> store(User entity) {
     if (entity.getAccountList() != null && !entity.getAccountList().isEmpty()) {
       List<AccountPo> accountPoList = entity.getAccountList().stream().parallel()
           .map(accountConvertor::domainObjToPersistentObj)

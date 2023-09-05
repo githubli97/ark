@@ -5,6 +5,9 @@ import com.ark.domain.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.reactive.ReactiveCrudRepository;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 /**
  * Repository 基类.
@@ -20,7 +23,7 @@ public abstract class RepositoryImpl<D extends AbstractEntity, P extends Abstrac
   protected Convertor<D, P> convertor;
   @Lazy
   @Autowired
-  protected JpaRepository<P, Long> jpaRepository;
+  protected ReactiveCrudRepository<P, Long> jpaRepository;
 
   @Override
   public D store(D entity) {

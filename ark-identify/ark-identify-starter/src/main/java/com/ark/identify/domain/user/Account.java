@@ -1,15 +1,22 @@
 package com.ark.identify.domain.user;
 
-import com.ark.domain.AbstractEntity;
-import com.ark.identify.domain.user.valueobject.AccountTypeEnum;
-import lombok.Getter;
+import com.ark.core.base.BaseCommonEntity;
+import com.ark.core.tag.TagEntity;
+import java.util.List;
 
 /**
- * 账户领域.
+ * 账户.
  */
-@Getter
-public class Account extends AbstractEntity {
+public interface Account extends BaseCommonEntity, TagEntity {
+  String getUsername();
 
-  String username;
-  AccountTypeEnum accountType;
+  String getPassword();
+
+  void setPassword(String password);
+
+  List<User> getUsers();
+
+  List<User> signin();
+
+  Account signup();
 }

@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * 标签资源模型.
  */
-public interface TagResource {
+public interface TagEntity {
   /**
    * 获取标签列表.
    *
@@ -19,4 +19,6 @@ public interface TagResource {
    * @return 标签数量
    */
   int getTagCount();
+
+  boolean containsTag(Tag tag);
 }

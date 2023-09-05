@@ -50,6 +50,11 @@
                 <version>${ark.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.ark</groupId>
+                <artifactId>ark-core</artifactId>
+                <version>${ark.version}</version>
+            </dependency>
+            <dependency>
                 <artifactId>ark-userinfo-client</artifactId>
                 <groupId>com.ark</groupId>
                 <version>${ark.version}</version>

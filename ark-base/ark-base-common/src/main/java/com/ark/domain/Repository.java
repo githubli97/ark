@@ -1,11 +1,20 @@
-package com.ark.domain;
+package com.ark.core.base;
 
 /**
- * Repository父类, 定义一些公共的方法.
- *
- * @param <E> 实体
+ * 可记录时间抽象.
  */
-public interface Repository<E extends AbstractEntity> {
+public interface BaseIdAble {
+  /**
+   * 获取id
+   *
+   * @return id
+   */
+  Long getId();
 
-  E store(E entity);
+  /**
+   * 设置id
+   *
+   * @param id id
+   */
+  void setId(Long id);
 }

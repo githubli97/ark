@@ -17,13 +17,4 @@ import org.springframework.stereotype.Service;
 public class TenantService {
 
   private TenantRepository tenantRepository;
-
-  public Tenant store(Tenant tenant) {
-    return tenantRepository.store(tenant);
-  }
-
-  public void removeTenant(Tenant tenant) {
-  }
-
-
 }

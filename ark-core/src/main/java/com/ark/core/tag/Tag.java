@@ -1,26 +1,19 @@
 package com.ark.core.tag;
 
-import com.ark.core.base.BaseDisableAble;
-import com.ark.core.base.BaseNameAble;
+import com.ark.core.base.BaseCommonEntity;
 import java.util.List;
 
 /**
  * 标签领域.
  */
-public interface Tag extends BaseNameAble, BaseDisableAble {
+public interface Tag extends BaseCommonEntity {
+
   /**
    * 获取资源列表.
    *
    * @return 资源列表
    */
-  List<TagResource> getResources();
-
-  /**
-   * 获取标签描述.
-   *
-   * @return 标签描述
-   */
-  String getDescription();
+  List<TagEntity> getResources();
 
   /**
    * 获取父标签.

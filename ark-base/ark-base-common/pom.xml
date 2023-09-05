@@ -13,7 +13,7 @@
             <groupId>org.springframework.cloud</groupId>
         </dependency>
         <dependency>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
             <groupId>org.springframework.boot</groupId>
         </dependency>
         <dependency>

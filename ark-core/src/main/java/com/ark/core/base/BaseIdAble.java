@@ -16,5 +16,5 @@ public interface BaseIdAble {
    *
    * @param id id
    */
-  void setId(Long id);
+  void setId(long id);
 }

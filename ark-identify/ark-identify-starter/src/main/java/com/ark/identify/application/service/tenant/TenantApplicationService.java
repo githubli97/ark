@@ -35,5 +35,9 @@ public class TenantApplicationService {
     // 创建租户级组织
     organizationService.createTenantOrganization(tenant,
         createTenantByPhoneCommand.getPhone());
+
+    // 创建与租户对应的组织, 并返回
+    organizationService.createTenantOrganization(tenant,
+        createTenantByPhoneCommand.getOrganizationName());
   }
 }

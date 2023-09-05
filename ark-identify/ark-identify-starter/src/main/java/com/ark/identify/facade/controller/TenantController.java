@@ -19,9 +19,7 @@ public class TenantController {
   private TenantApplicationService tenantApplicationService;
 
   /**
-   * 根据手机号创建用户.
-   *
-   * @param command 创建用户命令
+   * 根据手机号创建租户.
    */
   @PostMapping("/phone")
   public ResponseEntity create(@RequestBody CreateTenantByPhoneCommand command) {
