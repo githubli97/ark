@@ -1,7 +1,6 @@
 package com.ark.identify.application;
 
 import com.ark.ApplicationTest;
-import com.ark.identify.application.service.tenant.TenantApplicationService;
 import com.ark.identify.application.service.tenant.command.CreateTenantByPhoneCommand;
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;

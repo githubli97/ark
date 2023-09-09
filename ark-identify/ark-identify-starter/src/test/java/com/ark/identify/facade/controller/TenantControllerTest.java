@@ -4,7 +4,6 @@ import com.ark.ApplicationTest;
 import com.ark.identify.application.service.tenant.command.CreateTenantByPhoneCommand;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.javafaker.Faker;
-import java.util.Random;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
