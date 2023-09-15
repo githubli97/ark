@@ -1,13 +1,13 @@
 package com.ark.identify.domain.user;
 
-import com.ark.core.base.BaseCommonEntity;
+import com.ark.core.ddd.Entity;
 import com.ark.core.tag.TagEntity;
 import java.util.List;
 
 /**
  * 账户.
  */
-public interface Account extends BaseCommonEntity, TagEntity {
+public interface Account extends Entity, TagEntity {
   String getUsername();
 
   String getPassword();

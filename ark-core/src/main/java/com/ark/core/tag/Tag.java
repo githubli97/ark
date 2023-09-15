@@ -1,12 +1,12 @@
 package com.ark.core.tag;
 
-import com.ark.core.base.BaseCommonEntity;
+import com.ark.core.ddd.Entity;
 import java.util.List;
 
 /**
  * 标签领域.
  */
-public interface Tag extends BaseCommonEntity {
+public interface Tag extends Entity {
 
   /**
    * 获取资源列表.
