@@ -1,22 +1,41 @@
 package com.ark.identify.domain.user;
 
 import com.ark.core.ddd.Entity;
-import com.ark.core.tag.TagEntity;
-import java.util.List;
+import com.ark.identify.domain.user.value.Email;
+import com.ark.identify.domain.user.value.GitHubAccount;
+import com.ark.identify.domain.user.value.Password;
 
 /**
  * 账户.
  */
-public interface Account extends Entity, TagEntity {
+public interface Account extends Entity {
   String getUsername();
 
   String getPassword();
 
-  void setPassword(String password);
+  /**
+   * 手机号注册账户.
+   */
+  void checkPassword(Password password);
 
-  List<User> getUsers();
+  /**
+   * 重置密码.
+   *
+   * @param newPassword 新的密码
+   */
+  void changePassword(Password newPassword);
 
-  List<User> signin();
+  /**
+   * 绑定邮箱.
+   *
+   * @param email 邮箱
+   */
+  void bindEmail(Email email);
 
-  Account signup();
+  /**
+   * 绑定GitHub.
+   *
+   * @param gitHubAccount GitHub用户名
+   */
+  void bindGitHub(GitHubAccount gitHubAccount);
 }

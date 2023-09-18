@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.ark.identify.application.config;
+package com.ark.identify.config;
 
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Configuration;
