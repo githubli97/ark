@@ -1,6 +1,6 @@
 package com.ark.identify.domain.role;
 
-import com.ark.core.tag.TagEntity;
+import com.ark.common.domain.tag.TagEntity;
 import com.ark.identify.domain.tenant.TenantEntity;
 
 /**

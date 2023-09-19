@@ -45,7 +45,7 @@
             </dependency>
             <!--            ark-->
             <dependency>
-                <artifactId>ark-base-common</artifactId>
+                <artifactId>ark-common</artifactId>
                 <groupId>com.ark</groupId>
                 <version>${ark.version}</version>
             </dependency>
@@ -65,7 +65,7 @@
                 <version>${ark.version}</version>
             </dependency>
             <dependency>
-                <artifactId>ark-base-test-starter</artifactId>
+                <artifactId>ark-test</artifactId>
                 <groupId>com.ark</groupId>
                 <scope>test</scope>
                 <version>${ark.version}</version>
@@ -115,7 +115,6 @@
         <module>ark-gateway</module>
         <module>ark-userinfo</module>
         <module>ark-platform</module>
-        <module>ark-core</module>
     </modules>
 
     <packaging>pom</packaging>

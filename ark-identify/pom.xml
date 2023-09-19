@@ -5,7 +5,7 @@
     <artifactId>ark-identify</artifactId>
     <dependencies>
         <dependency>
-            <artifactId>ark-base-test-starter</artifactId>
+            <artifactId>ark-test</artifactId>
             <groupId>com.ark</groupId>
             <scope>test</scope>
         </dependency>

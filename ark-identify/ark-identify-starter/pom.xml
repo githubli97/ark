@@ -26,7 +26,7 @@
     </build>
     <dependencies>
         <dependency>
-            <artifactId>ark-base-common</artifactId>
+            <artifactId>ark-common</artifactId>
             <groupId>com.ark</groupId>
         </dependency>
         <dependency>
