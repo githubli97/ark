@@ -2,7 +2,10 @@ package com.ark.common.spring;
 
 import java.net.InetAddress;
 import java.net.NetworkInterface;
+import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CountDownLatch;
 import org.springframework.stereotype.Component;
 
 /**
@@ -73,4 +76,34 @@ public class SnowflakeIdGeneratorHelper {
     }
     return timestamp;
   }
+
+  /**
+   * 1234.
+   */
+  public static void main(String[] args) throws InterruptedException {
+    long start = System.currentTimeMillis();
+    CountDownLatch countDownLatch = new CountDownLatch(16);
+    Map<Long, Object> con = new ConcurrentHashMap<>(120000000);
+    for (int j = 0; j < 16; j++) {
+      new Thread(() -> {
+        for (int i = 0; i < 1000000; i++) {
+
+          Long string = new SnowflakeIdGeneratorHelper().nextId();
+          if (con.containsKey(string)) {
+            countDownLatch.countDown();
+            throw new RuntimeException();
+          }
+          con.put(string, string);
+        }
+        System.out.println(con.size());
+        countDownLatch.countDown();
+      }).start();
+    }
+    countDownLatch.await();
+    long end = System.currentTimeMillis();
+    System.out.println();
+    System.out.println();
+    System.out.println(end - start);
+  }
+
 }

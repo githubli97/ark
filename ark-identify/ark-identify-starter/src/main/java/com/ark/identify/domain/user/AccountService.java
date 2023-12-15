@@ -1,7 +1,7 @@
 package com.ark.identify.domain.user;
 
-import com.ark.core.ddd.Entity;
 import com.ark.common.domain.tag.TagEntity;
+import com.ark.core.ddd.Entity;
 import com.ark.identify.domain.user.value.Email;
 import com.ark.identify.domain.user.value.GitHubAccount;
 

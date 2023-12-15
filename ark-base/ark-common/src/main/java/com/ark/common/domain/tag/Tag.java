@@ -1,7 +1,7 @@
 package com.ark.common.domain.tag;
 
-import com.ark.core.ddd.Entity;
 import java.util.List;
+import org.w3c.dom.Entity;
 
 /**
  * 标签领域.
