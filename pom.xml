@@ -40,16 +40,6 @@
             </dependency>
             <!--            ark-->
             <dependency>
-                <artifactId>ark-common</artifactId>
-                <groupId>com.ark</groupId>
-                <version>${ark.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.ark</groupId>
-                <artifactId>ark-core</artifactId>
-                <version>${ark.version}</version>
-            </dependency>
-            <dependency>
                 <artifactId>ark-userinfo-client</artifactId>
                 <groupId>com.ark</groupId>
                 <version>${ark.version}</version>
@@ -60,7 +50,7 @@
                 <version>${ark.version}</version>
             </dependency>
             <dependency>
-                <artifactId>ark-test</artifactId>
+                <artifactId>ark-base-test</artifactId>
                 <groupId>com.ark</groupId>
                 <scope>test</scope>
                 <version>${ark.version}</version>
@@ -105,11 +95,9 @@
     <groupId>com.ark</groupId>
     <modelVersion>4.0.0</modelVersion>
     <modules>
-        <module>ark-identify</module>
-        <module>ark-base</module>
         <module>ark-gateway</module>
-        <module>ark-userinfo</module>
-        <module>ark-platform</module>
+        <module>ark-base-test</module>
+        <module>ark-base-core</module>
     </modules>
 
     <packaging>pom</packaging>

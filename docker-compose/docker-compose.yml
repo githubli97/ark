@@ -11,41 +11,10 @@ services:
       - ./nginx.template:/etc/nginx/templates/default.conf.template:ro
     networks:
       - ark_internal_access
-      - ark_external_access
-
-  ark-identify-service:
-    image: 469995363/ark-identify-starter:1.0-SNAPSHOT
-    ports:
-      - "10010:80"
-    env_file:
-      - .env
-    networks:
-      - ark_internal_access
-      - ark_external_access # db access
-
-  ark-simple-resource-service:
-    image: 469995363/ark-simple-resource-server:1.0-SNAPSHOT
-    env_file:
-      - .env
-    ports:
-      - "8090:80"
-    networks:
-      - ark_internal_access
-      - ark_external_access # db access
-  ark-gateway-service:
-    image: 469995363/ark-gateway:1.0-SNAPSHOT
-    ports:
-      - "10000:80"
-    env_file:
-      - .env
-    networks:
-      - ark_internal_access
-      - ark_external_access # db access
 
 networks:
   ark_internal_access:
     driver: bridge
     internal: true
-  ark_external_access:
-    driver: bridge
+
 
